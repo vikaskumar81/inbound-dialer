@@ -1,0 +1,25 @@
+{
+  "name": "pbx",
+  "version": "1.0.0",
+  "description": "PBX-Asterisk-Node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "pbx-inbound"
+  },
+  "keywords": [
+    "Asterisk",
+    "NodeJs",
+    "AngularJs"
+  ],
+  "author": "Vikas Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "json": "^9.0.6",
+    "mysql": "^2.15.0"
+  }
+}
