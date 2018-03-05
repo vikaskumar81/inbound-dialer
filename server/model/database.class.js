@@ -6,7 +6,7 @@ var HashMap = require('hashmap');
 const HOST="localhost";
 const USER="root";
 const PASS="";
-const DBASE="nexibell";
+const DBASE="ag5ngast";
 
 var hostname='', username='', password='', database='', sqlquery;
 var last_id, connection;
@@ -102,19 +102,20 @@ exports.RunQuery=function(){
     });
 }
 
-exports.GetList=function(col, table){
-    console.log('Columns '+ col+", Table "+table);
+exports.GetList=function(col, table, callback){
+    //console.log('Columns '+ col+", Table "+table);
     var sql = mysql.format('SELECT ?? FROM ??', [col, table]);
     console.log('SQL('+connection+') : '+sql);
     var qry=connection.query(sql, function(error, data){
         if(!error)
         {
-            console.log('Data output is: '+ JSON.stringify(data));
-            return data;
+            //console.log('Data output is: '+ JSON.stringify(data));
+            callback(data);
         }
         else
         {
             console.log('Error : '+error);
+	    callback("Error in function");
         }
     });
 }

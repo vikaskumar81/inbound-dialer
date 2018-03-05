@@ -1,17 +1,15 @@
 var mysql=require('../model/database.class');
 
-exports.List=function(req, res){
+exports.List=function(req, res, next){
     mysql.Open();
-    var col=['id','username','password','email','company', 'created', 'modified'];
+    var col=['id','username','password','type','company', 'contact', 'minutes', 'max_price', 'max_agent'];
     //mysql.SqlQuery("SELECT `id`, `username`, `password` from users");
     //var data=mysql.AddNew("users", {"username":"test", "password":"text"});
-    var data=mysql.GetList(col, "users");
-    /*var user={
-      "id":6
-    };
-    mysql.Remove(user, "users");*/
+    mysql.GetList(col, "users", function(data) {
+    	console.log(JSON.stringify(data));
+    	res.send(data);
+    });
     mysql.Close();
-    res.send(data);
 }
 
 exports.Update=function(req, res){

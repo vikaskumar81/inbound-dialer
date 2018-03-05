@@ -1,19 +1,9 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
-    <div class="row">
-        <div class="col-md-12">
-            <ngb-carousel>
-                <ng-template ngbSlide *ngFor="let slider of sliders">
-                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                    <div class="carousel-caption">
-                        <h3>{{slider.label}}</h3>
-                        <p>{{slider.text}}</p>
-                    </div>
-                </ng-template>
-            </ngb-carousel>
-        </div>
-    </div>
+    <h2 class="text-muted">DashBoard <small> Reports</small></h2>
     <hr>
+    <div class="card-header">
+        Swtich Details
+    </div>
     <div class="row">
         <div class="col-xl-3 col-lg-6">
             <app-stat [bgClass]="'primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
@@ -29,6 +19,46 @@
         </div>
     </div>
     <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Account Details
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>UserName</th>
+                            <th>Password</th>
+                            <th>Type</th>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Minutes</th>
+                            <th>Max Price</th>
+                            <th>Max-Agents</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let user of users">
+                            <th scope="row">1</th>
+                            <td>{{user.username}}</td>
+                            <td>{{user.password}}</td>
+                            <td>{{user.type}}</td>
+                            <td>{{user.company}}</td>
+                            <td>{{user.contact}}</td>
+                            <td>{{user.minutes}}</td>
+                            <td>{{user.max_price}}</td>
+                            <td>{{user.max_agent}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
     <hr />
     <div class="row">

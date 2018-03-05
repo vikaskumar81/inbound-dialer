@@ -1,4 +1,4 @@
-# SB Admin rewritten in Angular5 and Bootstrap 4
+# Asteisk based on Angular5 and NodeJS
 
 Simple Dashboard Admin App built using Angular 5 and Bootstrap 4
 
