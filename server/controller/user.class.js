@@ -2,7 +2,7 @@ var mysql=require('../model/database.class');
 
 exports.List=function(req, res, next){
     mysql.Open();
-    var col=['id','username','password','type','company', 'contact', 'minutes', 'max_price', 'max_agent'];
+    var col=['username','password','type','company', 'contact', 'minutes', 'max_price', 'max_agent'];
     //mysql.SqlQuery("SELECT `id`, `username`, `password` from users");
     //var data=mysql.AddNew("users", {"username":"test", "password":"text"});
     mysql.GetList(col, "users", function(data) {

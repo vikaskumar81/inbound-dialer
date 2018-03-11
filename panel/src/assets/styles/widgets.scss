@@ -1,0 +1,253 @@
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+
+
+/*******************
+/*User mail widgets*/
+/*******************/
+.mailbox {
+    width: 280px;
+    ul { margin: 0px;
+            padding: 0px;
+            li {
+                list-style: none;
+            }
+        }
+    ul li {
+        .drop-title {
+            font-weight: 500;
+            padding: 11px 15px 15px;
+            border-bottom: 1px solid $border;
+        }
+        .nav-link {
+            border-top: 1px solid $border;
+            padding-top: 15px;
+        }
+    }
+    .message-center {
+        height: 230px;
+        overflow: auto;
+        position: relative;
+        a {
+            border-bottom: 1px solid $border;
+            display: flex;
+            color:$headingtext;
+            align-items: center;
+            text-decoration: none;
+            padding: 9px 15px;
+            &:hover {
+                background: $light;
+            }
+            div {
+                white-space: normal;
+            }
+            .round{
+                flex-shrink: 0;
+                margin: 0 10px 0px 0;
+            }
+            .mail-contnet{
+                overflow: hidden;
+            }
+            .user-img {
+                width: 40px;
+                position: relative;
+                margin: 0 10px 0px 0;
+                img {
+                    width: 100%;
+                }
+                .profile-status {
+                    border: 2px solid $white;
+                    border-radius: 50%;
+                    display: inline-block;
+                    height: 10px;
+                    left: 30px;
+                    position: absolute;
+                    top: 1px;
+                    width: 10px;
+                }
+                .online {
+                    background: $success;
+                }
+                .busy {
+                    background: $danger;
+                }
+                .away {
+                    background: $warning;
+                }
+                .offline {
+                    background: $warning;
+                }
+            }
+            .mail-contnet {
+               
+                h5 {
+                    margin: 5px 0px 0;
+                }
+                .mail-desc,
+                .time {
+                    font-size: 12px;
+                    display: block;
+                    margin: 1px 0;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    color: $bodytext;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+/*******************/
+/*Comment widgets*/
+/*******************/
+
+.comment-widgets {
+    position: relative;
+    margin-bottom: 10px;
+    .comment-row {
+        border-left: 3px solid $white;
+        padding: 15px;
+        &:hover,
+        &.active {
+            border-color: $themecolor;
+        }
+    }
+}
+
+.comment-text {
+    padding: 15px 15px 15px 20px;
+    &:hover .comment-footer,
+    &.active .comment-footer {
+        .action-icons {
+            visibility: visible;
+        }
+    }
+    p {
+        max-height: 50px;
+        overflow: hidden;
+    }
+}
+
+.comment-footer {
+    .action-icons {
+        visibility: hidden;
+        a {
+            padding-left: 15px;
+            vertical-align: middle;
+            color: $muted;
+            &:hover,
+            &.active {
+                color: $info;
+            }
+        }
+    }
+}
+
+
+
+/*******************/
+/*Feed widget*/
+/*******************/
+
+.feeds {
+    margin: 0px;
+    padding: 0px;
+    li {
+        list-style: none;
+        padding: 10px;
+        display: block;
+        &:hover {
+            background: $extra-light;
+        }
+        > div {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 100%;
+            i {
+                line-height: 40px;
+            }
+        }
+        span {
+            float: right;
+            width: auto;
+            font-size: 12px;
+        }
+    }
+}
+
+
+/*******************/
+/*social-widgets*/
+/*******************/
+
+.social-widget {
+    .soc-header {
+        padding: 15px;
+        text-align: center;
+        font-size: 36px;
+        color: #fff;
+        &.box-facebook {
+            background: #3b5998;
+        }
+        &.box-twitter {
+            background: #00aced;
+        }
+        &.box-google {
+            background: #f86c6b;
+        }
+        &.box-linkedin {
+            background: #4875b4;
+        }
+    }
+    .soc-content {
+        display: flex;
+        text-align: center;
+        div {
+            padding: 10px;
+            h3 {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+
+.message-widget{
+    width: 100%;
+    .message-center{
+        height: 100%;
+    }
+}
+
+/*******************/
+/*social-profile-first*/
+/*******************/
+.little-profile{
+  .pro-img, .pro-img:first-child {
+    margin-top: -110px;
+    margin-bottom: 20px; 
+  img {
+    width: 128px;
+    height: 128px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 100%; 
+      }
+ }
+}
+
+/*******************
+widget personal-timeline scss
+******************/
+html .mat-list .personal-timeline{
+    height: auto;
+}

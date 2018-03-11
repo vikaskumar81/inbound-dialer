@@ -1,0 +1,29 @@
+<div class="login-register"  style="background-image:url(assets/images/background/login-register.jpg);">
+    <div class="login-register-box">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="text-center">
+              <img src="assets/images/users/1.jpg" class="img-circle" width="80" alt="user" title="user"/>
+                <h4 class="m-t-0">David Miller</h4>
+            </div>
+           
+            <div fxLayout="row" fxLayoutWrap="wrap">
+                 <!-- col full-->
+                 <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                     <mat-form-field style="width: 100%">
+                         <input matInput placeholder="Username" [formControl]="form.controls['uname']">
+                     </mat-form-field>
+                     <small *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched" class="text-danger support-text">Username is required.</small>
+                </div>
+              <!-- col full-->
+              <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100"> 
+                <button mat-raised-button class="btn-block btn-lg m-t-10 m-b-10"  color="primary" type="submit" [disabled]="!form.valid">Unlock</button>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>   
+    </div>
+  </div>
+

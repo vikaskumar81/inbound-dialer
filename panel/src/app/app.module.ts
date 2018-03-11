@@ -1,39 +1,63 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { AppRoutingModule } from './app-routing.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './shared';
 
-// AoT requires an exported function for factories
-export function createTranslateLoader(http: HttpClient) {
-    // for development
-    // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-5/master/dist/assets/i18n/', '.json');
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FullComponent } from './layouts/full/full.component';
+import { AppBlankComponent } from './layouts/blank/blank.component';
+import { AppHeaderComponent } from './layouts/full/header/header.component';
+import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DemoMaterialModule} from './demo-material-module';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+import { SharedModule } from './shared/shared.module';
+import { SpinnerComponent } from './spinner.component';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelSpeed: 2,
+  wheelPropagation: true,
+};
 
 @NgModule({
-    imports: [
-        CommonModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient]
-            }
-        }),
-        AppRoutingModule
-    ],
-    declarations: [AppComponent],
-    providers: [AuthGuard],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    FullComponent,
+    AppBlankComponent,
+    AppHeaderComponent,
+    SpinnerComponent,
+    AppSidebarComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    DemoMaterialModule,
+    FormsModule,
+    FlexLayoutModule,  
+    HttpClientModule,
+    PerfectScrollbarModule,
+    SharedModule,  
+    RouterModule.forRoot(AppRoutes) 
+  ],
+  providers: [      
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
+],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

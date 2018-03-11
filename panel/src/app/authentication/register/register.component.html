@@ -1,0 +1,46 @@
+<div class="login-register"  style="background-image:url(assets/images/background/login-register.jpg);">
+    <div class="login-register-box">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="text-center"><img alt="homepage" src="assets/images/logo-icon.png"><h4 class="m-t-0">Register to App</h4></div>
+            <div fxLayout="row" fxLayoutWrap="wrap">
+                <!-- col full-->
+                <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                    <mat-form-field style="width: 100%">
+                      <input matInput placeholder="Email address" type="email" [formControl]="form.controls['email']">
+                    </mat-form-field>
+                    <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger support-text">You must include an email address.</small>
+                    <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="text-danger support-text">You must include a valid email address.</small>
+                </div>
+                <!-- col full-->
+                <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                    <mat-form-field style="width: 100%">
+                        <input matInput type="password" placeholder="Password" [formControl]="form.controls['password']">
+                    </mat-form-field>
+                    <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">You must include password.</small>
+                </div>
+                <!-- col full-->
+                <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                    <mat-form-field style="width: 100%">
+                        <input matInput placeholder="Confirm Password" [formControl]="form.controls['confirmPassword']" type="password">
+                    </mat-form-field>
+                    <small *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched" class="text-danger support-text">You must include confirm password.</small>
+                    <small *ngIf="form.controls['confirmPassword'].errors?.equalTo" class="text-danger support-text">Passwords do not math.</small>
+                </div>
+                <!-- col full-->
+                <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                    <mat-checkbox class="font-14">I agree to the all <a href="javascript:void(0)" class="link text-info">terms</a>.</mat-checkbox>
+                </div>
+              <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit" [disabled]="!form.valid">Create your account</button>
+           
+            <div class="text-center" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <span>Already have an account? <a [routerLink]="['/authentication/login']" class="link text-info"> Login</a></span>
+            </div>
+             </div>    
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+

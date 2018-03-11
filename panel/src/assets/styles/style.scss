@@ -1,0 +1,58 @@
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/**
+ * Table Of Content
+ *
+ * 	1. Globals
+ *	2. Headers
+ *	3. Navigations
+ *	4. Banners
+ *	5. Footers
+ *	6. app
+ *	7. Widgets
+ *	8. Custom Templates
+ */
+
+@import 'variable';
+
+@import 'icons/themify-icons/themify-icons.css';
+@import 'icons/font-awesome/css/font-awesome.css';
+@import 'spinner';
+@import 'app';
+@import 'header';
+@import 'widgets';
+@import 'pages';
+@import 'sidebar';
+@import 'dark-sidebar';
+@import 'responsive';
+@import 'rtl';
+
+
+// Red Theme
+@import 'colors/red';
+.danger {  
+  @include angular-material-theme($red-app-theme);
+}
+
+// Blue Theme
+@import 'colors/blue';
+.blue {  
+  @include angular-material-theme($blue-app-theme);
+}
+
+// Green Theme
+@import 'colors/green';
+.green {  
+  @include angular-material-theme($green-app-theme);
+}
+
+// Dark Theme
+@import 'colors/dark';
+.dark {  
+  @include angular-material-theme($dark-theme); 
+}
+  
