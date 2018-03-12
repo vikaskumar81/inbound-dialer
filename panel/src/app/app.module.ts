@@ -15,6 +15,7 @@ import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule} from './demo-material-module';
+import { AuthGuard } from './authentication/guard/auth.guard';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -52,11 +53,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   providers: [      
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }
+  },
+  AuthGuard
 ],
   bootstrap: [AppComponent]
 })

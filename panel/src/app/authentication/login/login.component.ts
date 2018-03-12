@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    localStorage.setItem('isLoggedin', 'true');
     this.router.navigate ( [ '/main/home' ] );
   }
 

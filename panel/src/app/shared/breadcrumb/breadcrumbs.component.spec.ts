@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListcampaignComponent } from './listcampaign.component';
+import { PageHeaderComponent } from './page-header.component';
 
-describe('ListcampaignComponent', () => {
-  let component: ListcampaignComponent;
-  let fixture: ComponentFixture<ListcampaignComponent>;
+describe('PageHeaderComponent', () => {
+  let component: PageHeaderComponent;
+  let fixture: ComponentFixture<PageHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListcampaignComponent ]
+      declarations: [ PageHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListcampaignComponent);
+    fixture = TestBed.createComponent(PageHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

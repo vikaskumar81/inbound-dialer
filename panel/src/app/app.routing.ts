@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { AppBlankComponent } from './layouts/blank/blank.component';
+import { AuthGuard } from './authentication/guard/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 export const AppRoutes : Routes = [
   {
@@ -21,13 +23,14 @@ export const AppRoutes : Routes = [
 }, {
   path: 'main',
   component: FullComponent,
+  canActivate:[AuthGuard],
   children: [{
     path: '',
     redirectTo: 'home', 
-    pathMatch: 'full' 
+    pathMatch: 'full' ,
   }, {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule'  
+    loadChildren: './home/home.module#HomeModule'
   }, {
     path: 'campaign',
     loadChildren: './campaign/campaign.module#CampaignModule'
