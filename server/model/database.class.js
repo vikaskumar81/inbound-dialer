@@ -6,7 +6,7 @@ var HashMap = require('hashmap');
 const HOST="localhost";
 const USER="root";
 const PASS="";
-const DBASE="ag5ngast";
+const DBASE="dialer";
 
 var hostname='', username='', password='', database='', sqlquery;
 var last_id, connection;
@@ -87,29 +87,62 @@ exports.ModelKey=function(sql, keyfield){
     });
 }
 
-exports.RunQuery=function(){
+exports.RunQueryFilter=function(filter, callback){
+    console.log(filter);
+    var sql = mysql.format(sqlquery+' WHERE ?', [filter]);
+    console.log('SQL('+connection+') : '+sql);
+    var qry=connection.query(sql, function(error, data){
+        if(!error)
+        {
+            console.log('Data output is: '+ JSON.stringify(data));
+            callback(data);
+        }
+        else
+        {
+            console.log('Error : '+error);
+	    callback("Error in function");
+        }
+    });
+}
+
+exports.RunQuery=function(callback){
     console.log('SQL('+connection+') : '+sqlquery);
     var qry=connection.query(sqlquery, function(error, data){
         if(!error)
         {
             console.log('Data output is: '+ JSON.stringify(data));
-            return data;
+            callback(data);
         }
         else
         {
             console.log('Error : '+error);
+	    callback("Error in function");
+        }
+    });
+}
+
+exports.Detail=function(col, table, filter, callback){
+    var sql = mysql.format('SELECT ?? FROM ?? WHERE ?', [col, table, filter]);
+    console.log('SQL('+connection+') : '+sql);
+    var qry=connection.query(sql, function(error, data){
+        if(!error)
+        {
+            callback(data);
+        }
+        else
+        {
+            console.log('Error : '+error);
+	    callback("Error in function");
         }
     });
 }
 
 exports.GetList=function(col, table, callback){
-    //console.log('Columns '+ col+", Table "+table);
     var sql = mysql.format('SELECT ?? FROM ??', [col, table]);
     console.log('SQL('+connection+') : '+sql);
     var qry=connection.query(sql, function(error, data){
         if(!error)
         {
-            //console.log('Data output is: '+ JSON.stringify(data));
             callback(data);
         }
         else

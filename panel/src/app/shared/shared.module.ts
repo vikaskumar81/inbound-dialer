@@ -4,8 +4,10 @@ import { RouterModule } from '@angular/router';
 import { MenuItems } from '../menu-items';
 import { DemoMaterialModule } from '../demo-material-module';
 import { AccordionAnchorDirective, AccordionLinkDirective, AccordionDirective } from './accordion';
-import { StatComponent } from './stat/stat.component';
-import { PageHeaderComponent } from './breadcrumb/breadcrumbs.component';
+import { BreadCrumbsComponent } from './breadcrumb/breadcrumbs.component';
+import { TitleNavigationService } from './title-nav/title-navigation.service';
+import { ButtonComponent } from './button/button.component';
+import { StatusComponent } from './status/status.component';
 
 
 @NgModule({
@@ -18,16 +20,19 @@ import { PageHeaderComponent } from './breadcrumb/breadcrumbs.component';
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
-    StatComponent,
-    PageHeaderComponent
+    BreadCrumbsComponent,
+    ButtonComponent,
+    StatusComponent
   ],
   exports: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
-    StatComponent,
-    PageHeaderComponent
+    BreadCrumbsComponent,
+    ButtonComponent,
+    StatusComponent
    ],
-  providers: [ MenuItems ]
+  providers: [ MenuItems, TitleNavigationService ]
 })
+
 export class SharedModule { }

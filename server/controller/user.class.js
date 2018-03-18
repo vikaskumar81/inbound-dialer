@@ -1,10 +1,21 @@
 var mysql=require('../model/database.class');
 
+exports.Detail=function(req, res, next){
+    mysql.Open();
+    var col=['username','password','company', 'contact', 'minutes'];
+    var filter={
+      "id":req.params.id
+    };
+    mysql.Detail(col, "users", filter, function(data) {
+    	console.log(JSON.stringify(data));
+    	res.send(data);
+    });
+    mysql.Close();
+}
+
 exports.List=function(req, res, next){
     mysql.Open();
-    var col=['username','password','type','company', 'contact', 'minutes', 'max_price', 'max_agent'];
-    //mysql.SqlQuery("SELECT `id`, `username`, `password` from users");
-    //var data=mysql.AddNew("users", {"username":"test", "password":"text"});
+    var col=['username','password','company', 'contact', 'minutes'];
     mysql.GetList(col, "users", function(data) {
     	console.log(JSON.stringify(data));
     	res.send(data);
@@ -16,7 +27,7 @@ exports.Update=function(req, res){
     mysql.Open();
     var data= req.body.data;
     var filter={
-      "id":req.body.id
+      "id":req.params.id
     };
     mysql.Update(data, "users", filter);
     mysql.Close();
@@ -26,7 +37,7 @@ exports.Update=function(req, res){
 exports.Delete=function(req, res){
     mysql.Open();
     var user={
-        "id":req.body.id
+        "id":req.params.id
     };
 
     mysql.Remove(user, "users");
@@ -35,8 +46,8 @@ exports.Delete=function(req, res){
 
 exports.Login=function(req, res){
     mysql.Open();
-    var username= req.body.username;
-    var password = req.body.password;
+    var username= req.params.username;
+    var password = req.params.password;
     connection.query('SELECT * FROM users WHERE username = ?',[username], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
@@ -49,8 +60,8 @@ exports.Login=function(req, res){
     {
       // console.log('The solution is: ', results[0].password,req.body.password,req.body.role);
       if(results.length >0){
-        if(results[0].password == req.body.password){
-          if(results[0].role == req.body.role){
+        if(results[0].password == req.params.password){
+          if(results[0].role == req.params.role){
             res.send({
               "code":200,
               "success":"login sucessfull"
@@ -87,20 +98,8 @@ exports.Logout=function(req, res){
 }
 
 exports.AddNew=function(req, res){
-    //var today = new Date();
     mysql.Open();
     var user=req.body.data;
-    /*{
-        "username":req.body.username,
-        "email":req.body.email,
-        "password":req.body.password,
-        "company":req.body.company,
-        "contact":req.body.contact,
-        "type":0,
-        "created":today,
-        "modified":today
-    }*/
-
     mysql.AddNew("users", data);
     mysql.Close();
 }

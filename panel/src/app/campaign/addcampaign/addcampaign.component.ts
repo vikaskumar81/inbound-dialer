@@ -1,31 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, Validators} from '@angular/forms';
+import { CampaignService } from '../campaign.service';
+import { Option } from '../../shared/model/model.class';
+import { DataSource } from '@angular/cdk/table';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-addcampaign',
   templateUrl: './addcampaign.component.html',
   styleUrls: ['./addcampaign.component.css']
 })
-export class AddcampaignComponent {
 
+export class AddcampaignComponent implements OnInit {
   options: FormGroup;
+  message : Option[];
+  foundmessage: boolean;
+  supplier : Option[];
+  foundsupplier : boolean;
+  hour =['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
+  minutes =[];
 
-  constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
-    });
+  constructor(private cpdata: CampaignService, private fb: FormBuilder) {
   }
-    //For form validator
-    email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-    }
-   // Sufix and prefix
-    hide = true;
+  ngOnInit()
+  {
+    this.cpdata.getSupplier().subscribe(
+      data => {
+        if(data.length>0)
+        {
+          this.foundsupplier=true;
+          this.supplier=data;
+        }
+    });
 
+    this.cpdata.getMessage().subscribe(
+      data => {
+        if(data.length>0)
+        {
+          this.foundmessage=true;
+          this.message=data;
+        }
+    });
+    
+    for(var i=0; i<60; i++)
+      this.minutes.push(i);
+  }
 }

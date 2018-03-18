@@ -5,7 +5,7 @@
     <div fxFlex.gt-sm="100" fxFlex="100">
         <mat-card>
             <mat-card-content>
-                <mat-card-title>Form Basic Layouts</mat-card-title>
+                <mat-card-title>Add Campaign</mat-card-title>
                 <!-- ============================================================== -->
                 <!-- column -->
                 <!-- ============================================================== -->
@@ -14,81 +14,115 @@
                     <!-- column -->
                     <div fxFlex.gt-md="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Some text value">
+                        <input matInput placeholder="Enter Campaign">
                       </mat-form-field>
                     </div>
-                    <!-- column -->
+                    <!-- Supplier -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field>
-                        <input matInput placeholder="EmailId" type="email">
+                      <mat-form-field  *ngIf="foundsupplier">
+                        <mat-select placeholder="Select Supplier">
+                          <mat-option value="option">Select Supplier</mat-option>
+                          <mat-option *ngFor="let s of supplier" ng-value="s.value">{{s.label}}</mat-option>
+                        </mat-select>
                       </mat-form-field>
                     </div>
-                    <!-- column -->
+                    <!-- Message -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field>
-                        <input matInput placeholder="Password" type="password">
-                      </mat-form-field>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field [floatLabel]="options.value.floatLabel">
-                        <mat-label>Both a label and a placeholder</mat-label>
-                        <input matInput placeholder="Simple placeholder">
-                      </mat-form-field>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field hintLabel="Max 10 characters">
-                        <input matInput #input maxlength="10" placeholder="Enter some input">
-                        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                      </mat-form-field>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field>
-                        <mat-select placeholder="Select">
-                          <mat-option value="option">Option</mat-option>
-                          <mat-option value="option">Option2</mat-option>
-                          <mat-option value="option">Option3</mat-option>    
+                      <mat-form-field *ngIf="foundmessage">
+                        <mat-select placeholder="Select Message">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let m of message" ng-value="m.value">{{m.label}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
                     <!-- column -->
-                    <div fxFlex.gt-sm="100" fxFlex="100" class="m-b-20">
-                      <input class="form-control b-b" placeholder="file" type="file">
-                    </div>
-                    <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field
-                          [hideRequiredMarker]="options.value.hideRequired"
-                          [floatLabel]="options.value.floatLabel">
-                        <mat-select required>
-                          <mat-option>-- None --</mat-option>
-                          <mat-option value="option">Option</mat-option>
-                        </mat-select>
-                        <mat-placeholder><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> placeholder</i></mat-placeholder>
+                      <mat-form-field>
+                        <input matInput placeholder="Display ANI / Caller ID">
                       </mat-form-field>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="100" fxFlex="100" class="m-t-10 m-b-10">
-                        <mat-checkbox color="primary"  class="m-r-10">Checkbox</mat-checkbox> 
-                        <mat-checkbox  color="warn" class="m-r-10">Checkbox</mat-checkbox> 
-                        <mat-checkbox  color="accent">Checkbox</mat-checkbox>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="100" fxFlex="100" class="m-t-20 m-b-20">
-                      <mat-radio-group>
-                        <mat-radio-button color="primary" value="auto" class="m-r-10">Auto</mat-radio-button>
-                        <mat-radio-button color="warn" value="always" class="m-r-10">Always</mat-radio-button>
-                        <mat-radio-button color="accent" value="never">Never</mat-radio-button>
-                      </mat-radio-group>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <textarea matInput placeholder="Textarea"></textarea>
+                        <input matInput placeholder="Maximum Call Ring Time">
                       </mat-form-field>
                     </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Maximum Call Answer Time">
+                      </mat-form-field>
+                    </div>
+                      <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Total number of Ports allowed">
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Dialing per Minutes">
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="startdate" placeholder="Choose a Start Date">
+                        <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
+                        <mat-datepicker #startdate></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="enddate" placeholder="Choose a End Date">
+                        <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
+                        <mat-datepicker #enddate></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select Start Hours">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let hr of hour" ng-value="hr">{{hr}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select End Hours">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let hr of hour" ng-value="hr">{{hr}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select Start Minutes">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let min of minutes" ng-value="min">{{min}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select End Minutes">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let min of minutes" ng-value="min">{{min}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <mat-form-field>
+                          <input matInput placeholder="Campaign Descriptions">
+                        </mat-form-field>
+                      </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <button mat-raised-button color="primary">Submit</button>

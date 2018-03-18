@@ -1,10 +1,12 @@
 <div class="row">
     <div class="col-xl-12">
-        <mat-card-title>{{heading}}</mat-card-title>
         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><mat-card-title>{{heading}}</mat-card-title></li>
+            <li class="breadcrumb-item">&nbsp;</li>
             <li class="breadcrumb-item">
-                <i class="fa fa-dashboard"></i> <a href="Javascript:void(0)" [routerLink]="['/main/home']">Dashboard</a>
+                <i class="fa fa-dashboard"></i> <a href="Javascript:void(0)" [routerLink]="['/main/home']">Home</a>
             </li>
+            <li class="breadcrumb-item">>></li>
             <li class="breadcrumb-item active"><i class="fa {{icon}}"></i> {{heading}}</li>
         </ol>
     </div>

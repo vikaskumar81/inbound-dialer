@@ -1,80 +1,170 @@
-<app-breadcrumbs [heading]="'Campaign List'" [icon]="'fa-table'"></app-breadcrumbs>
 <div fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
-        <mat-card>
-            <mat-card-content> 
-		<div class="example-header">
-    		    <mat-form-field>
-      			<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    		   </mat-form-field>
-  		</div>
-                <div class="table-rasponsive">
-                    <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- column -->    
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="25">
+      <mat-card>
+        <mat-card-content>
+            <!-- Row -->
+            <div class="d-flex no-block">
+                <!-- column -->
+                <div class="m-r-10 no-shrink">
+                    <button mat-fab mat-card-icon class="shadow-none bg-inverse  bg-success">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                </div> 
+                <!-- column -->
+                <div>
+                    <h3 class="m-0">386</h3>
+                    <h6 class="text-muted m-0">New Clients</h6>
+                </div> 
+                
+            </div>      
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <!-- column -->
+    <!-- column -->    
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+        <mat-card-content>
+            <!-- Row -->
+            <div class="d-flex no-block">
+                <!-- column -->
+                <div class="m-r-10 no-shrink">
+                    <button mat-fab color="warn" mat-card-icon class="shadow-none  bg-warning">
+                        <mat-icon>local_mall</mat-icon>
+                    </button>
+                </div> 
+                <!-- column -->
+                <div>
+                    <h3 class="m-0">2408</h3>
+                    <h6 class="text-muted m-0">All Projects</h6>
+                </div> 
+                
+            </div>      
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <!-- column --> 
+    <!-- column -->    
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+        <mat-card-content>
+            <!-- Row -->
+            <div class="d-flex no-block">
+                <!-- column -->
+                <div class="m-r-10 no-shrink">
+                    <button mat-fab color="accent" mat-card-icon class="shadow-none">
+                        <mat-icon>stars</mat-icon>
+                    </button>
+                </div>
+                <!-- column -->
+                <div>
+                    <h3 class="m-0">352</h3>
+                    <h6 class="text-muted m-0">New Items</h6>
+                </div> 
+                 
+            </div>      
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <!-- column --> 
+    <!-- column -->    
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+        <mat-card-content>
+            <!-- Row -->
+            <div class="d-flex no-block">
+                <!-- column -->
+                <div class="m-r-10 no-shrink">
+                    <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+                        <mat-icon>content_paste</mat-icon>
+                    </button>
+                </div> 
+                <!-- column -->
+                <div>
+                    <h3 class="m-0">159</h3>
+                    <h6 class="text-muted m-0">New Invoices</h6>
+                </div> 
+                
+            </div>      
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <!-- column -->     
+  </div>
 
-                        <!-- Position Column -->
-                        <ng-container matColumnDef="id">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header> S. No. </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-                        </ng-container>
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content> 
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+        <div class="table-rasponsive">
+            <mat-table #table [dataSource]="dataSource" matSort>
+                <!-- Position Column 'name', 'provider', 'filename', 'channels', 'ppm', 'ringtime', 
+                  'answertime', 'status'-->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
 
-                        <!-- Name Column -->
-                        <ng-container matColumnDef="name">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                        </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="provider">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Provider </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.provider}} </mat-cell>
+                </ng-container>
 
-                        <!-- Weight Column -->
-                        <ng-container matColumnDef="calls">
-                          <mat-header-cell *matHeaderCellDef> Calls </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.calls}} </mat-cell>
-                        </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="filename">
+                  <mat-header-cell *matHeaderCellDef> FileName </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.filename}} </mat-cell>
+                </ng-container>
 
-                        <!-- Symbol Column -->
-                        <ng-container matColumnDef="channels">
-                          <mat-header-cell *matHeaderCellDef> Channels </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.channels}} </mat-cell>
-                        </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="channels">
+                  <mat-header-cell *matHeaderCellDef> Channels </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.channels}} </mat-cell>
+                </ng-container>
 
-                        <!-- Symbol Column -->
-                        <ng-container matColumnDef="dpm">
-                          <mat-header-cell *matHeaderCellDef> Dial/Min </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.dpm}} </mat-cell>
-                        </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="ppm">
+                  <mat-header-cell *matHeaderCellDef> Dial/Min </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.ppm}} </mat-cell>
+                </ng-container>
 
-                        <!-- Symbol Column -->
-                        <ng-container matColumnDef="rbt">
-                          <mat-header-cell *matHeaderCellDef> Ring-Time </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.rbt}} </mat-cell>
-                        </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="ringtime">
+                  <mat-header-cell *matHeaderCellDef> Ring-Time </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.ringtime}} </mat-cell>
+                </ng-container>
 
-                        <!-- Symbol Column -->
-                        <ng-container matColumnDef="ast">
-                          <mat-header-cell *matHeaderCellDef> Answer-Time </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.ast}} </mat-cell>
-                        </ng-container>
+                <ng-container matColumnDef="answertime">
+                  <mat-header-cell *matHeaderCellDef> Answer-Time </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.answertime}} </mat-cell>
+                </ng-container>
 
-			<!-- Name Column -->
-                        <ng-container matColumnDef="status">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
-                        </ng-container>
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+                </ng-container>
 
-			<ng-container matColumnDef="actions">
-    			  <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
-    			  <mat-cell *matCellDef="let row">
-         		    <button mat-raised-button color="primary" (click)="EditDetail()">Edit</button> 
-    			  </mat-cell>
-			</ng-container> 
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                      <!--<action [label]="'Edit'" [icon]="'fas fa-pencil-alt fa-fw'" [data]=row (onClick)="EditDetail()"></action>-->
+                      <button mat-raised-button color="primary" (click)="EditDetail(row)">Edit</button>
+                  </mat-cell>
+                </ng-container> 
 
-                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                      </mat-table>
-                  <mat-paginator #paginator
-                                 [pageSize]="10"
-                                 [pageSizeOptions]="[5, 10, 20]">
-                  </mat-paginator>
-                </div>    
-            </mat-card-content>
-        </mat-card>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        </div>    
+      </mat-card-content>
+    </mat-card>
     </div>
 </div>

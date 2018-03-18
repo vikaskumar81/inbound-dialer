@@ -1,3 +1,135 @@
-<p>
-  editcampaign works!
-</p>
+<!-- ============================================================== -->
+<!-- Card Grid-->
+<!-- ============================================================== -->
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Edit Campaign</mat-card-title>
+                <!-- ============================================================== -->
+                <!-- column -->
+                <!-- ============================================================== -->
+                <form class="basic-form">
+                <div fxLayout="row" fxLayoutWrap="wrap">
+                    <!-- column -->
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Campaign" value="{{row.name}}">
+                      </mat-form-field>
+                    </div>
+                    <!-- Supplier -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field  *ngIf="foundsupplier">
+                        <mat-select placeholder="Select Supplier">
+                          <mat-option value="option">Select Supplier</mat-option>
+                          <mat-option *ngFor="let s of supplier" ng-value="s.value">{{s.label}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- Message -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field *ngIf="foundmessage">
+                        <mat-select placeholder="Select Message">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let m of message" ng-value="m.value">{{m.label}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Display ANI / Caller ID">
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Maximum Call Ring Time">
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Maximum Call Answer Time">
+                      </mat-form-field>
+                    </div>
+                      <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Total number of Ports allowed">
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Dialing per Minutes">
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="startdate" placeholder="Choose a Start Date">
+                        <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
+                        <mat-datepicker #startdate></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="enddate" placeholder="Choose a End Date">
+                        <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
+                        <mat-datepicker #enddate></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select Start Hours">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let hr of hour" ng-value="hr">{{hr}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select End Hours">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let hr of hour" ng-value="hr">{{hr}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select Start Minutes">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let min of minutes" ng-value="min">{{min}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Select End Minutes">
+                          <mat-option value="-1">Select Message</mat-option>
+                          <mat-option *ngFor="let min of minutes" ng-value="min">{{min}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <mat-form-field>
+                          <input matInput placeholder="Campaign Descriptions">
+                        </mat-form-field>
+                      </div>
+                    <!-- column -->
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <button mat-raised-button color="primary">Submit</button>
+                    </div> 
+                </div>
+                </form>      
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

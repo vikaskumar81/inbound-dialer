@@ -61,7 +61,6 @@ const MENUITEMS = [
     type: 'sub',
     icon: 'insert_drive_file',
     children: [
-      
       {state: 'addmessage', name: 'Add'},
       {state: 'listmessage', name: 'List'}
     ]
