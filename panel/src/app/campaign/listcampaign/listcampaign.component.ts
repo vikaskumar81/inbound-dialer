@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
 })
 
 export class ListcampaignComponent implements OnInit{
-  //displayedColumns = ['username', 'password', 'type', 'company', 'contact', 'minutes', 'max_price', 'max_agent', 'actions'];
   displayedColumns = ['name', 'provider', 'filename', 'channels', 'ppm', 'ringtime', 'answertime', 'status', 'actions'];
   dataSource = new CampaignDataSource(this.data);
   detail : FullComponent;

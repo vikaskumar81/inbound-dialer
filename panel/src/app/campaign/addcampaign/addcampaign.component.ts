@@ -5,6 +5,7 @@ import { CampaignService } from '../campaign.service';
 import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
+import { CampaignForm } from '../model/campaign.model';
 
 @Component({
   selector: 'app-addcampaign',
@@ -21,8 +22,9 @@ export class AddcampaignComponent implements OnInit {
   hour =['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
   minutes =[];
 
-  constructor(private cpdata: CampaignService, private fb: FormBuilder) {
-  }
+  campaigndata = new CampaignForm();
+
+  constructor(private cpdata: CampaignService, private fb: FormBuilder) { }
 
   ngOnInit()
   {
@@ -46,5 +48,10 @@ export class AddcampaignComponent implements OnInit {
     
     for(var i=0; i<60; i++)
       this.minutes.push(i);
+  }
+
+  onSubmit()
+  {
+    console.log("Thanks for submitting! Data: " + JSON.stringify(this.campaigndata));
   }
 }

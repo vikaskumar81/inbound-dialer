@@ -9,13 +9,15 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './editcampaign.component.html',
   styleUrls: ['./editcampaign.component.css']
 })
+
 export class EditcampaignComponent implements OnInit {
   row : Campaign;
   message : Option[];
   foundmessage: boolean;
   supplier : Option[];
   foundsupplier : boolean;
-  hour =['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
+  hour =['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14',
+  '15','16','17','18','19','20','21','22','23'];
   minutes =[];
 
   constructor(private cpdata: CampaignService, private fb: FormBuilder) { }
@@ -31,7 +33,11 @@ export class EditcampaignComponent implements OnInit {
           this.foundsupplier=true;
           this.supplier=data;
         }
-    });
+      },
+      error=>{
+        console.log("Error in data");
+      }
+    );
 
     this.cpdata.getMessage().subscribe(
       data => {
@@ -40,10 +46,13 @@ export class EditcampaignComponent implements OnInit {
           this.foundmessage=true;
           this.message=data;
         }
-    });
+      },
+      error =>{
+        console.log("Error in data");
+      }
+    );
     
     for(var i=0; i<60; i++)
       this.minutes.push(i);
-  }
-
+    }
 }

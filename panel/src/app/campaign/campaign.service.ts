@@ -12,11 +12,9 @@ export class CampaignService {
 
   constructor(private http : HttpClient) { }
 
-  
   public set Data(v : Campaign) {
     this.data = v;
   }
-  
   
   public get Data() : Campaign {
     return this.data;
