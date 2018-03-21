@@ -9,6 +9,7 @@ import { ChartistModule} from 'ng-chartist';
 import { ChartsModule } from 'ng2-charts';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeService } from './home.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ChartsModule,  
     RouterModule.forChild(HomeRoutes)
   ],
-  declarations: [ DashboardComponent]
+  declarations: [ DashboardComponent],
+  providers : [ HomeService ]
 })
 
 export class HomeModule {
