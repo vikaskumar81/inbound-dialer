@@ -11,6 +11,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ListsupplierComponent } from './listsupplier/listsupplier.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 import { EditsupplierComponent } from './editsupplier/editsupplier.component';
+import { SupplierService } from './supplier.service';
 
 
 @NgModule({
@@ -21,9 +22,9 @@ import { EditsupplierComponent } from './editsupplier/editsupplier.component';
     ChartistModule, 
     ChartsModule,  
     RouterModule.forChild(SupplierRoutes)
-    
   ],
-  declarations: [ ListsupplierComponent, AddsupplierComponent, EditsupplierComponent]
+  declarations: [ ListsupplierComponent, AddsupplierComponent, EditsupplierComponent],
+  providers: [SupplierService]
 })
 
 export class SupplierModule {

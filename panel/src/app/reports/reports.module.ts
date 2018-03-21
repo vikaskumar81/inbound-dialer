@@ -9,6 +9,7 @@ import { ChartistModule} from 'ng-chartist';
 import { ChartsModule } from 'ng2-charts';
 import { CalldetailsComponent } from './calldetails/calldetails.component';
 import { CurrentcallsComponent } from './currentcalls/currentcalls.component';
+import { ReportsService } from './reports.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { CurrentcallsComponent } from './currentcalls/currentcalls.component';
     RouterModule.forChild(ReportsRoutes)
     
   ],
-  declarations: [ CalldetailsComponent, CurrentcallsComponent]
+  declarations: [ CalldetailsComponent, CurrentcallsComponent],
+  providers:[ReportsService]
 })
 
 export class ReportsModule {

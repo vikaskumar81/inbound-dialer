@@ -10,6 +10,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AddmessageComponent } from './addmessage/addmessage.component';
 import { EditmessageComponent } from './editmessage/editmessage.component';
 import { ListmessageComponent } from './listmessage/listmessage.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   imports: [
@@ -19,9 +20,9 @@ import { ListmessageComponent } from './listmessage/listmessage.component';
     ChartistModule, 
     ChartsModule,  
     RouterModule.forChild(MessageRoutes)
-    
   ],
-  declarations: [ AddmessageComponent, EditmessageComponent, ListmessageComponent]
+  declarations: [ AddmessageComponent, EditmessageComponent, ListmessageComponent],
+  providers: [MessageService]
 })
 
 export class MessageModule {

@@ -9,6 +9,7 @@ import { ChartistModule} from 'ng-chartist';
 import { ChartsModule } from 'ng2-charts';
 import { ListleadsComponent } from './listleads/listleads.component';
 import { UploadleadsComponent } from './uploadleads/uploadleads.component';
+import { LeadsService } from './leads.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { UploadleadsComponent } from './uploadleads/uploadleads.component';
     RouterModule.forChild(LeadsRoutes)
     
   ],
-  declarations: [ ListleadsComponent, UploadleadsComponent]
+  declarations: [ ListleadsComponent, UploadleadsComponent],
+  providers : [LeadsService]
 })
 
 export class LeadsModule {
