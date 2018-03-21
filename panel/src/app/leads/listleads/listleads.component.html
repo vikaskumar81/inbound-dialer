@@ -1,3 +1,73 @@
-<p>
-  listleads works!
-</p>
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content> 
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+        <div class="table-rasponsive">
+            <mat-table #table [dataSource]="dataSource" matSort>
+                <!-- Position Column 'name', 'provider', 'filename', 'channels', 'ppm', 'ringtime', 
+                  'answertime', 'status'-->
+                <ng-container matColumnDef="filename">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> File-Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.filename}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="leads">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Leads </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.leads}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="dialed">
+                  <mat-header-cell *matHeaderCellDef> Dialed </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.dialed}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="answered">
+                  <mat-header-cell *matHeaderCellDef> Answered </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.answered}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="noanswer">
+                  <mat-header-cell *matHeaderCellDef> No-Answer </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.noanswer}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="failed">
+                  <mat-header-cell *matHeaderCellDef> Failed </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.failed}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="busy">
+                  <mat-header-cell *matHeaderCellDef> Busy </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.busy}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="conjestion">
+                  <mat-header-cell *matHeaderCellDef> Conjestion </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.conjestion}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="duration">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Duration </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.duration}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        </div>    
+      </mat-card-content>
+    </mat-card>
+    </div>
+</div>

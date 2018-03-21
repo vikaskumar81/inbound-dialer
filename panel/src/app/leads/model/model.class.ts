@@ -1,7 +1,7 @@
 export interface Upload
 {
     id:number,
-    file:string,
+    filename:string,
     leads:number,
     dialed:number,
     answered:number,
