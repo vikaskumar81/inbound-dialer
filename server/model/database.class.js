@@ -153,13 +153,14 @@ exports.GetList=function(col, table, callback){
     });
 }
 
-exports.Remove=function(id, table){
+exports.Remove=function(id, table, callback){
     var sql = mysql.format('DELETE FROM ?? WHERE ?', [table, id]);
     console.log('SQL (Remove) : '+sql);
     connection.query(sql, function (error, rows) {
         if (!error)
         {
             console.log('Data output is: ', rows.affectedRows);
+			callback('{"Delete Status":"'+rows.affectedRows+'"}');
             return rows.affectedRows;
         }
         else
@@ -167,13 +168,15 @@ exports.Remove=function(id, table){
         });
 }
 
-exports.Update=function(data, table, condition){
+exports.Update=function(data, table, condition, callback){
     var sql = mysql.format('UPDATE ?? SET ? WHERE ?', [table, data, condition]);
     connection.query(sql, function (error, rows) {
         // error will be an Error if one occurred during the query
         if (!error)
         {
-            console.log('Data output is: '+ rows);
+            console.log('Data output is: ');
+            console.log(rows);
+            callback(table+" has been updated successfully");
             return rows;
         }
         else
@@ -181,17 +184,40 @@ exports.Update=function(data, table, condition){
         });
 }
 
-exports.AddNew=function(table, data){
+exports.AddNew=function(table, data, callback){
     var sql = mysql.format("INSERT INTO ?? SET ?", [table, data]);
+	console.log(sql);
     connection.query(sql, function (error, rows) {
         // error will be an Error if one occurred during the query
         if (!error)
         {
             console.log('Data output is: ', rows.insertId);
             last_id=rows.insertId;
+			callback("Data inserted successfully & Inserted Last Id are "+rows.insertId);
             return rows.insertId;
         }
         else
             console.log('Error : '+sql);
         });
 }
+		
+exports.UploadNew=function(data, upp, callback){
+	 console.log('///////////////');
+	 console.log(data);
+	 console.log('///////////////');
+	 console.log(upp);
+   /*  var sql = mysql.format("INSERT INTO ?? SET ?", [table, data]);
+	console.log(sql);
+    connection.query(sql, function (error, rows) {
+        // error will be an Error if one occurred during the query
+        if (!error)
+        {
+            console.log('Data output is: ', rows.insertId);
+            last_id=rows.insertId;
+			callback("Data inserted successfully & Inserted Last Id are "+rows.insertId);
+            return rows.insertId;
+        }
+        else
+            console.log('Error : '+sql);
+        });	*/	
+} 
