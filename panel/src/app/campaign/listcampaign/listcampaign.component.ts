@@ -1,6 +1,6 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
 import {MatTableDataSource, MatTableModule, MatInputModule, MatButtonModule, MatPaginator} from '@angular/material';
-import {MatSortModule} from '@angular/material/sort';
+import {MatSortModule, MatSort} from '@angular/material/sort';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { Observable } from 'rxjs/Observable';
 import {DataSource} from '@angular/cdk/collections';
