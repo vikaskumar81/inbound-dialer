@@ -10,6 +10,11 @@ import { ChartsModule } from 'ng2-charts';
 import { CalldetailsComponent } from './calldetails/calldetails.component';
 import { CurrentcallsComponent } from './currentcalls/currentcalls.component';
 import { ReportsService } from './reports.service';
+import { HourlyComponent } from './hourly/hourly.component';
+import { DailyComponent } from './daily/daily.component';
+import { QueueReportComponent } from './queue-report/queue-report.component';
+import { DidReportComponent } from './did-report/did-report.component';
+import { SupplierComponent } from './supplier/supplier.component';
 
 @NgModule({
   imports: [
@@ -21,7 +26,7 @@ import { ReportsService } from './reports.service';
     RouterModule.forChild(ReportsRoutes)
     
   ],
-  declarations: [ CalldetailsComponent, CurrentcallsComponent],
+  declarations: [ CalldetailsComponent, CurrentcallsComponent, HourlyComponent, DailyComponent, QueueReportComponent, DidReportComponent, SupplierComponent],
   providers:[ReportsService]
 })
 

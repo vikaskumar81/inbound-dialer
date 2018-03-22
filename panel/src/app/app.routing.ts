@@ -40,8 +40,18 @@ export const AppRoutes : Routes = [
     path: 'message',
     loadChildren: './message/message.module#MessageModule'
   }, {
+    path: 'extension',
+    loadChildren: './extension/extension.module#ExtensionModule'
+  },
+  {
+    path: 'queue',
+    loadChildren: './queue/queue.module#QueueModule'
+  },{
     path: 'leads',
     loadChildren: './leads/leads.module#LeadsModule'
+  },{
+    path: 'user',
+    loadChildren: './user/user.module#UserModule'
   }, {
     path: 'supplier',
     loadChildren: './supplier/supplier.module#SupplierModule'
