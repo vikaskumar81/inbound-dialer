@@ -47,7 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FlexLayoutModule,  
     HttpClientModule,
     PerfectScrollbarModule,
-    SharedModule,  
+    SharedModule, 
     RouterModule.forRoot(AppRoutes) 
   ],
   providers: [      
