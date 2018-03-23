@@ -1,9 +1,11 @@
 'use strict';
+var HashMap = require('hashmap');
+//var data =[];
+var obj = {};
 
-var data =[];
-
-exports.SetField=function(key, value)
+exports.SetField=function(key, field, value)
 {
-    str="{"+key+":"+value+"}";
-    data.push(str);
+    obj[field] = value;	
+	HashMap.set(key, obj);
+	
 }
