@@ -9,7 +9,8 @@ import { TitleNavigationService } from './title-nav/title-navigation.service';
 import { ButtonComponent } from './button/button.component';
 import { StatusComponent } from './status/status.component';
 import { WidgetGroupComponent } from './widget-group/widget-group.component';
-import { SortOverviewExample } from './table/table.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { KeysPipe } from './data-table/keypipe/keypipe';
 import {Sort} from '@angular/material';
 
 
@@ -27,7 +28,8 @@ import {Sort} from '@angular/material';
     ButtonComponent,
     StatusComponent,
     WidgetGroupComponent,
-    SortOverviewExample
+    DataTableComponent, 
+    KeysPipe
 
   ],
   exports: [
@@ -38,7 +40,7 @@ import {Sort} from '@angular/material';
     ButtonComponent,
     StatusComponent,
     WidgetGroupComponent,
-    SortOverviewExample
+    DataTableComponent
    ],
   providers: [ MenuItems, TitleNavigationService ]
 })

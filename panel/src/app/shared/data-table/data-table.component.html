@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <div class="card mb-3">
+      <div class="card-header">{{label}}</div>
+      <div class="card-body table-responsive">
+          <table class="table">
+              <thead>
+              <tr>
+                  <th *ngFor="let headerfield of headers">{{headerfield}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let rdata of data;  let i = index">
+                  <td scope="row">{{ i+1 }}</td>
+		  <td *ngFor="let cdata of (rdata | keys) ">{{ cdata.value }}</td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
