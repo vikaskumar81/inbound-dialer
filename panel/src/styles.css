@@ -1,7 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
-
 @import '~@swimlane/ngx-datatable/release/index.css';
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';    
+
+
+
+
+@media  only screen and (max-width: 760px),  (min-device-width: 768px) and (max-device-width: 1024px) {
+
+   
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+        
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #257eb7;
+    }
+    td {
+    
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+       
+        position: absolute;
+        top: 0px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+}
+
+   @media only screen and (max-width: 760px),  (min-device-width: 768px) and (max-device-width: 1024px) {
+   
+         td:nth-of-type(1):before { content: 'Prefixes'; }
+         td:nth-of-type(2):before { content: 'Count'; }
+         td:nth-of-type(3):before { content: 'Prefixes Added'; }
+         td:nth-of-type(4):before { content: 'Prefixes Removed'; }
+         td:nth-of-type(5):before { content: 'Start Date (UTC)'; }
+       }
+
+@media only screen  and (min-device-width : 320px)  and (max-device-width : 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        width: 100%;
+    }
+    td {
+        border-bottom: 1px solid #eee;
+    }
+    th {
+        background: #3c8dbc;
+        color:#FFF;
+    }
+    td, th {
+        border: 1px solid #ccc;
+    }
+}
