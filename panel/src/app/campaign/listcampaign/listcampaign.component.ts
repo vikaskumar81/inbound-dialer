@@ -20,6 +20,9 @@ export class ListcampaignComponent implements OnInit{
   dataSource = new CampaignDataSource(this.data);
   @ViewChild(MatSort) sort: MatSort;
 
+  widgetdata =[{"icon":"account circle","data":205,"label":"Client"},{"icon":"explore","data":306,"label":"Tickets"},
+    {"icon":"language","data":700,"label":"Emails"},{"icon":"contact phone","data":300,"label":"Agents"}];
+
   constructor(private data: CampaignService, private router: Router) { }
  
   ngOnInit() {}

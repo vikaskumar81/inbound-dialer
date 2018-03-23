@@ -2,6 +2,7 @@ import 'hammerjs';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoMaterialModule} from '../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MessageRoutes } from './message.routing';
@@ -11,6 +12,8 @@ import { AddmessageComponent } from './addmessage/addmessage.component';
 import { EditmessageComponent } from './editmessage/editmessage.component';
 import { ListmessageComponent } from './listmessage/listmessage.component';
 import { MessageService } from './message.service';
+import { QuillModule } from 'ngx-quill';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -19,7 +22,11 @@ import { MessageService } from './message.service';
     FlexLayoutModule,
     ChartistModule, 
     ChartsModule,  
-    RouterModule.forChild(MessageRoutes)
+    RouterModule.forChild(MessageRoutes),
+    FormsModule,
+    QuillModule,  
+    ReactiveFormsModule,
+    FileUploadModule
   ],
   declarations: [ AddmessageComponent, EditmessageComponent, ListmessageComponent],
   providers: [MessageService]

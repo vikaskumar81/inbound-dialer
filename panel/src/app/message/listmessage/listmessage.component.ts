@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 export class ListmessageComponent implements OnInit {
   displayedColumns = ['name','filename','actions'];
   dataSource = new MessageDataSource(this.data);
-  detail : FullComponent;
+
   constructor(private data: MessageService, private router: Router) { }
  
   ngOnInit() {}
