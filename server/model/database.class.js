@@ -199,25 +199,4 @@ exports.AddNew=function(table, data, callback){
         else
             console.log('Error : '+sql);
         });
-}
-		
-exports.UploadNew=function(data, upp, callback){
-	 console.log('///////////////');
-	 console.log(data);
-	 console.log('///////////////');
-	 console.log(upp);
-   /*  var sql = mysql.format("INSERT INTO ?? SET ?", [table, data]);
-	console.log(sql);
-    connection.query(sql, function (error, rows) {
-        // error will be an Error if one occurred during the query
-        if (!error)
-        {
-            console.log('Data output is: ', rows.insertId);
-            last_id=rows.insertId;
-			callback("Data inserted successfully & Inserted Last Id are "+rows.insertId);
-            return rows.insertId;
-        }
-        else
-            console.log('Error : '+sql);
-        });	*/	
-} 
+}		

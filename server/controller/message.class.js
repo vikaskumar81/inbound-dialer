@@ -30,7 +30,9 @@ exports.Update=function(req, res){
     var filter={
       "id":req.params.id
     };
-    mysql.Update(data, table, filter);
+    mysql.Update(data, table, filter, function(data) {
+		res.send(data);
+	});
     mysql.Close();
     return res;
 }
@@ -41,7 +43,9 @@ exports.Delete=function(req, res){
         "id":req.params.id
     };
 
-    mysql.Remove(user, table);
+    mysql.Remove(user, table, function(data) {
+		res.send(data);
+	});
     mysql.Close();
 }
 
@@ -49,6 +53,8 @@ exports.AddNew=function(req, res){
     mysql.Open();
     var user=req.params.data;
 
-    mysql.AddNew(table, data);
+    mysql.AddNew(table, user, function(data) {
+		res.send(data);
+	});
     mysql.Close();
 }
