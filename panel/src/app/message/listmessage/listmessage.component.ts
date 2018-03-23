@@ -22,7 +22,6 @@ export class ListmessageComponent implements OnInit {
  
   ngOnInit() {}
   
-  
 }
 
 export class MessageDataSource extends DataSource<any> {

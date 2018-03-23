@@ -1,11 +1,33 @@
 
 <div fxLayout="row" fxLayoutWrap="wrap">
-<div fxFlex.gt-sm="100" fxFlex="100">
-        <mat-card>
+        <div fxFlex.gt-sm="100" fxFlex="100">
+            <mat-card>
                 <mat-card-content>
-                        <mat-card-title>Add Supplier</mat-card-title>
-                        
-        </mat-card-content>
-    </mat-card>
-</div>
-</div>
+                    <mat-card-title>Add Supplier</mat-card-title>
+                    <form class="basic-form" (ngSubmit)="onSubmit()" name="AddSupplierForm" #AddMessageForm="ngForm">
+                    <div fxLayout="row" fxLayoutWrap="wrap">
+                        <div fxFlex.gt-md="100" fxFlex="100">
+                          <mat-form-field>
+                            <input matInput placeholder="Enter Supplier Name" [(ngModel)]="supplierdata.name" id="name"  name="name">
+                          </mat-form-field>
+                        </div>
+                        <div fxFlex.gt-sm="100" fxFlex="100">
+                            <mat-form-field>
+                                <input matInput placeholder="Enter IP Address" [(ngModel)]="supplierdata.ipaddress"  id="ipaddress" name="ipaddress">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex.gt-sm="100" fxFlex="100">
+                          <mat-form-field>
+                            <input matInput placeholder="Enter Prefix" [(ngModel)]="supplierdata.prefix"  id="prefix" name="prefix">
+                          </mat-form-field>
+                        </div>
+                        <div fxFlex.gt-sm="100" fxFlex="100">
+                          <button mat-raised-button color="primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    

@@ -6,3 +6,14 @@ export interface Supplier
     ipaddr:string,
     description:string
 }
+export class SupplierForm {
+    constructor(
+        public id?: number,
+        public name?: string,
+        public prefix?: string,
+        public ipaddr?: string,
+        public description?: string
+    ) {}
+    
+  }
+  

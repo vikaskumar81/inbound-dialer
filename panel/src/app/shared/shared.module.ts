@@ -35,4 +35,5 @@ import { StatusComponent } from './status/status.component';
   providers: [ MenuItems, TitleNavigationService ]
 })
 
+
 export class SharedModule { }

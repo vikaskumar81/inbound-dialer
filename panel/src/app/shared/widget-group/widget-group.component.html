@@ -1,0 +1,27 @@
+<mat-grid-list cols="{{column}}" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let row of data">  <!-- column -->    
+      <div fxFlex.gt-sm="15" fxFlex.gt-xs="15" fxFlex="50">
+        <mat-card>
+          <mat-card-content>
+              <!-- Row -->
+              <div class="d-flex no-block">
+                  <!-- column -->
+                  <div class="m-r-10 no-shrink">
+                      <button mat-fab mat-card-icon class="shadow-none bg-inverse  bg-success">
+                          <mat-icon>{{row.icon}}</mat-icon>
+                      </button>
+                  </div> 
+                  <!-- column -->
+                  <div>
+                      <h3 class="m-0">{{row.data}}</h3>
+                      <h6 class="text-muted m-0">{{row.label}}</h6>
+                  </div> 
+                  
+              </div>      
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- column  on-->
+
+    </mat-grid-tile>
+</mat-grid-list>
