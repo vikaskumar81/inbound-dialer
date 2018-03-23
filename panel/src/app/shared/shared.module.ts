@@ -8,9 +8,7 @@ import { BreadCrumbsComponent } from './breadcrumb/breadcrumbs.component';
 import { TitleNavigationService } from './title-nav/title-navigation.service';
 import { ButtonComponent } from './button/button.component';
 import { StatusComponent } from './status/status.component';
-import { WidgetGroupComponent } from './widget-group/widget-group.component';
-import { SortOverviewExample } from './table/table.component';
-import {Sort} from '@angular/material';
+
 
 @NgModule({
   imports:[
@@ -24,9 +22,7 @@ import {Sort} from '@angular/material';
     AccordionDirective,
     BreadCrumbsComponent,
     ButtonComponent,
-    StatusComponent,
-    WidgetGroupComponent,
-    SortOverviewExample
+    StatusComponent
   ],
   exports: [
     AccordionAnchorDirective,
@@ -34,9 +30,7 @@ import {Sort} from '@angular/material';
     AccordionDirective,
     BreadCrumbsComponent,
     ButtonComponent,
-    StatusComponent,
-    WidgetGroupComponent,
-    SortOverviewExample
+    StatusComponent
    ],
   providers: [ MenuItems, TitleNavigationService ]
 })
