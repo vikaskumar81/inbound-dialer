@@ -170,14 +170,12 @@ exports.Remove=function(id, table, callback){
 
 exports.Update=function(data, table, condition, callback){
     var sql = mysql.format('UPDATE ?? SET ? WHERE ?', [table, data, condition]);
+    console.log(sql);
     connection.query(sql, function (error, rows) {
         // error will be an Error if one occurred during the query
         if (!error)
         {
-            console.log('Data output is: ');
-            console.log(rows);
-            callback(table+" has been updated successfully");
-            return rows;
+            callback(rows.affectedRows);
         }
         else
             console.log('Error : '+sql);

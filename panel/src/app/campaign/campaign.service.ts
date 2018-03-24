@@ -34,7 +34,7 @@ export class CampaignService {
 
   public saveCampaign(data:any): Observable<string>
   {
-    return this.http.post<string>(APIURL+this.appmod, data,{ headers: {"Content-Type": "application/json"}, params: data });
+    return this.http.post<string>(APIURL+this.appmod, {"data":data},{ headers: {"Content-Type": "application/json"}, params: {"data": data} });
   }
 
   public detailCampaign(key:number):Observable<Campaign>
@@ -42,14 +42,12 @@ export class CampaignService {
     return this.http.get<Campaign>(APIURL+this.appmod+key);
   }
 
-  public updateCampaign(data:any, key:Number)
+  public updateCampaign(data:any, key:number): Observable<string>
   {
-    let search = new URLSearchParams();
-    search.set("id",key.toString());
-    this.http.put(APIURL+this.appmod+key, data);
+    return this.http.put<string>(APIURL+this.appmod+key, {"data":data, "id":key}, { headers: {"Content-Type": "application/json"}, params: data });
   }
 
-  public deleteCampaign(key:Number)
+  public deleteCampaign(key:number)
   {
     this.http.delete(APIURL+this.appmod+key);
   }

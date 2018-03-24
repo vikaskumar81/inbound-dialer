@@ -21,6 +21,7 @@ export class EditcampaignComponent implements OnInit {
   minutes =[];
 
   campaigndata :CampaignForm;
+  updated:string;
 
   constructor(private cpdata: CampaignService, private fb: FormBuilder) { }
 
@@ -64,5 +65,11 @@ export class EditcampaignComponent implements OnInit {
       return true;
     else
       return false;
+  }
+
+  onSubmit()
+  {
+    console.log("Thanks for submitting! Data: " + JSON.stringify(this.campaigndata));
+    this.cpdata.updateCampaign(JSON.stringify(this.campaigndata), this.cpdata.Data.id).subscribe( data => this.updated=data);
   }
 }

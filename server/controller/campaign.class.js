@@ -2,9 +2,9 @@ var mysql=require('../model/database.class');
 var table="campaign";
 exports.List=function(req, res, next){
     mysql.Open();
-    mysql.SqlQuery("SELECT `campaign`.`id`, `campaign`.`name`, `campaign`.`description`, `campaign`.`status`, IFNULL(DATE_FORMAT(FROM_UNIXTIME(`startdate`), '%d-%m-%Y'), 'N.A.') `startdate`, IFNULL(DATE_FORMAT(FROM_UNIXTIME(`enddate`), '%d-%m-%Y'), 'N.A.') `enddate`, IFNULL(CONCAT(`starthr`, ':', `startmin`),'N.A.') `starttime`, `starthr`, `startmin`, IFNULL(CONCAT(`endhr`, ':', `endmin`),'N.A.') `endtime`, `endhr`, `endmin`, IFNULL(`weekdays`,'N.A.') `weekdays`, IFNULL((SELECT `name` FROM message WHERE id=campaign.id_message),'N.A.') `filename`, `id_message`, `cid`,`ringtime`,`answertime`,`channel`,`ppm`, (SELECT `name` FROM `provider` WHERE id=campaign.`id_provider`) `provider`, `id_provider` FROM `campaign`");
+    mysql.SqlQuery("SELECT `campaign`.`id`, `campaign`.`name`, `campaign`.`description`, `campaign`.`status`, IFNULL(DATE_FORMAT(FROM_UNIXTIME(`startdate`), '%Y-%m-%d'), 'N.A.') `startdate`, IFNULL(DATE_FORMAT(FROM_UNIXTIME(`enddate`), '%Y-%m-%d'), 'N.A.') `enddate`, IFNULL(CONCAT(`starthr`, ':', `startmin`),'N.A.') `starttime`, `starthr`, `startmin`, IFNULL(CONCAT(`endhr`, ':', `endmin`),'N.A.') `endtime`, `endhr`, `endmin`, IFNULL(`weekdays`,'N.A.') `weekdays`, IFNULL((SELECT `name` FROM message WHERE id=campaign.id_message),'N.A.') `filename`, `id_message`, `cid`,`ringtime`,`answertime`,`channel`,`ppm`, (SELECT `name` FROM `provider` WHERE id=campaign.`id_provider`) `provider`, `id_provider` FROM `campaign`");
     mysql.RunQuery(function(data) {
-    	console.log(JSON.stringify(data));
+    	//console.log(JSON.stringify(data));
     	res.send(data);
     });
     mysql.Close();
@@ -18,7 +18,7 @@ exports.Detail=function(req, res){
     mysql.SqlQuery("SELECT `campaign`.`id`, `campaign`.`name`, `campaign`.`description`, `campaign`.`status`, IFNULL(DATE_FORMAT(FROM_UNIXTIME(`startdate`), '%d-%m-%Y'), 'N.A.') `startdate`, IFNULL(DATE_FORMAT(FROM_UNIXTIME(`enddate`), '%d-%m-%Y'), 'N.A.') `enddate`, IFNULL(CONCAT(`starthr`, ':', `startmin`),'N.A.') `starttime`, `starthr`, `startmin`, IFNULL(CONCAT(`endhr`, ':', `endmin`),'N.A.') `endtime`, `endhr`, `endmin`, IFNULL(`weekdays`,'N.A.') `weekdays`, IFNULL((SELECT `name` FROM message WHERE id=campaign.id_message),'N.A.') `filename`, `id_message`, `cid`,`ringtime`,`answertime`,`channel`,`ppm`, (SELECT `name` FROM `provider` WHERE id=campaign.`id_provider`) `provider`, `id_provider` FROM `campaign`");
     //var col=["id", "id_user", "id_provider", "id_message", "name", "description", "startdate", "enddate", "starthr", "startmin", "endhr", "endmin", "weekdays", "status", "cid", "ringtime", "answertime", "channel", "ppm"];
     mysql.RunQueryFilter(filter, function(data) {
-    	console.log(JSON.stringify(data));
+    	//console.log(JSON.stringify(data));
     	res.send(data);
     });
     mysql.Close();
@@ -27,15 +27,14 @@ exports.Detail=function(req, res){
 
 exports.Update=function(req, res){
     mysql.Open();
-    var data= req.body.data;
+    var udata= JSON.parse(req.body.data);
     var filter={
-      "id":req.params.id
+      "id":req.body.id
     };
-    mysql.Update(data, table, filter, function(data) {
+    mysql.Update(udata, table, filter, function(data) {
 		res.send(data);
 	});
     mysql.Close();
-    return res;
 }
 
 exports.Delete=function(req, res){
@@ -52,10 +51,7 @@ exports.Delete=function(req, res){
 
 exports.AddNew=function(req, res){
     mysql.Open();
-    var user=req.body;
-
-    console.log(user);
-
+    var user=JSON.parse(req.body.data);
     mysql.AddNew(table, user, function(data) {
 		res.send(data);
 	});
