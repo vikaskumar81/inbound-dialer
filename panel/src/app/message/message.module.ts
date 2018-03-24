@@ -10,10 +10,10 @@ import { ChartsModule } from 'ng2-charts';
 import { QuillModule } from 'ngx-quill';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AddmessageComponent } from './addmessage/addmessage.component';
-import { EditmessageComponent } from './editmessage/editmessage.component';
 import { ListmessageComponent } from './listmessage/listmessage.component';
 import { MessageService } from './message.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditmessageComponent } from './editmessage/editmessage.component';
 
 @NgModule({
   imports: [
@@ -28,12 +28,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FileUploadModule,
     RouterModule.forChild(MessageRoutes)
   ],
-  declarations: [ AddmessageComponent, EditmessageComponent, ListmessageComponent],
+  declarations: [ AddmessageComponent, ListmessageComponent, EditmessageComponent],
   providers: [MessageService]
 })
 
 
-export class MessageModule {
-       
-    
-}
+export class MessageModule {}

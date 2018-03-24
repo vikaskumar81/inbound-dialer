@@ -17,14 +17,16 @@ import { Router } from '@angular/router';
 export class ListmessageComponent implements OnInit, AfterViewInit {
   displayedColumns = ['name','filename','actions'];
   dataSource = new MatTableDataSource<Message>();
-  gotdata:boolean;
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  constructor(private data: MessageService, private router: Router) { }
+  constructor(private data: MessageService, private router: Router) { 
+    this.data.Action="list";
+  }
  
   ngOnInit() {
-    this.data.getMessage().subscribe(data => this.dataSource.data = data);
+    this.data.getService().subscribe(data => this.dataSource.data = data);
   }
 
   applyFilter(filterValue: string) {
@@ -38,8 +40,17 @@ export class ListmessageComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  DeleteDetail(row : Message)
+  Edit(row: Message)
   {
+    this.data.Data=row;
+    console.log(row);
+    this.data.Action="edit";
+    this.router.navigate ( [ '/main/message/editmessage' ] );
+  }
+
+  Delete(row : Message)
+  {
+    this.data.Data=row;
     console.log(row);
   }
 }

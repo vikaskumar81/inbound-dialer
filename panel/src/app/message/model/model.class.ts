@@ -1,15 +1,32 @@
 export interface Message
 {
-    id:number,
-    filename: string,
-    file: string
+    id?:number,
+    filename?: string,
+    name?: string
 }
 
-export class MessageForm {
-    constructor(
-        public id?: number,
-        public filename?: string,
-        public file?: string
-    ) {}
+export interface HTTPMessage
+{
+    name?:string;
+    filename?: string;
+}
+
+export class MessageForm implements HTTPMessage{
+    public name:string;
+    public filename:string;
+
+    constructor(data : Message) 
+    {
+        if(data==null)
+        {
+            this.name="";
+            this.filename="";
+        }
+        else
+        {
+            this.name=data.name;
+            this.filename=data.filename;
+        }
+    }
   }
 

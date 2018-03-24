@@ -7,6 +7,7 @@ import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
 import { MessageForm } from '../model/model.class';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addmessage',
@@ -15,18 +16,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class AddmessageComponent implements OnInit {
 
-  messagedata = new MessageForm();
+  messagedata : MessageForm;
+  MessageLabel="Add Message";
 
-  constructor(private supdata: MessageService, private fb: FormBuilder) { }
+  constructor(private msgdata: MessageService, private fb: FormBuilder, private router:Router) { }
 
   ngOnInit()
   {
-    
-  }
+    if(this.msgdata.Action!="edit")
+    {
+      this.messagedata=new MessageForm(null);
+      this.MessageLabel="Add Message";
+    }
+    else
+    {
+      this.messagedata=new MessageForm(this.msgdata.Data);
+      this.MessageLabel="Edit Message";
+    }
 
+    this.msgdata.Action="add";
+  }
 
   onSubmit() {
     console.log("Thanks for submitting! Data: " + JSON.stringify(this.messagedata));
-  
   }
 }

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
 import { AddmessageComponent } from './addmessage/addmessage.component';
-import { EditmessageComponent } from './editmessage/editmessage.component';
 import { ListmessageComponent } from './listmessage/listmessage.component';
+import { EditmessageComponent } from './editmessage/editmessage.component';
 
 export const MessageRoutes: Routes = [
  { 

@@ -5,46 +5,23 @@ import 'rxjs/add/operator/map';
 import { Message } from './model/model.class';
 import { Option } from '../shared/model/model.class';
 import { APIURL } from '../app.routing';
+import { AppService } from '../shared/service/AppService.class';
+import { asPureExpressionData } from '@angular/core/src/view';
 
 @Injectable()
-export class MessageService {
-
-  private appmod="message/";
-  private data:Message;
-
-  constructor(private http : HttpClient) { }
-
-  public set Data(v : Message) {
-    this.data = v;
+export class MessageService extends AppService<Message>{
+  private action:string;
+  constructor(protected http : HttpClient) { 
+    super(http);
+    this.appmod="message/";
   }
   
-  public get Data() : Message {
-    return this.data;
+  public get Action() : string {
+    return this.action
   }
-
-  public getMessage(): Observable<Message[]> {
-    console.log(APIURL+this.appmod);
-    return this.http.get<Message[]>(APIURL+this.appmod);
+  
+  public set Action(v : string) {
+    this.action = v;
   }
-
-  saveMessage(data:Message)
-  {
-    this.http.post(APIURL, data);
-  }
-
-  public detailMessage(key:Number):Observable<Message>
-  {
-    return this.http.get<Message>(APIURL+this.appmod+key);
-  }
-
-  public updateMessage(data:Message, key:Number)
-  {
-    this.http.put(APIURL+this.appmod+key, data);
-  }
-
-  public deleteMessage(key:Number)
-  {
-    this.http.delete(APIURL+this.appmod+key);
-  }
-
+  
 }

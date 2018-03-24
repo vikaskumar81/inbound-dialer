@@ -67,6 +67,7 @@ export class CampaignForm implements HTTPCampaign {
   public weekdays?:string;
   public id_message?:number;
   public id_provider?:number;
+  
   constructor(data:Campaign) {
     if(data==null)
     {

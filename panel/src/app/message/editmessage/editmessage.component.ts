@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddmessageComponent } from '../addmessage/addmessage.component';
 
 @Component({
   selector: 'app-editmessage',
@@ -11,5 +12,4 @@ export class EditmessageComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
