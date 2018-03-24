@@ -29,7 +29,7 @@ const MENUITEMS = [
     state: 'home',
     name: 'Home',
     type: 'link',
-    icon: 'av_timer'
+    icon: 'home'
   },
   { state: '',
   name: 'OutBound',
@@ -49,7 +49,7 @@ const MENUITEMS = [
     state: 'leads',
     name: 'Leads',
     type: 'sub',
-    icon: 'apps',
+    icon: 'toc',
     children: [
       {state: 'uploadleads', name: 'Upload'},
       {state: 'listleads', name: 'List'}
@@ -59,7 +59,7 @@ const MENUITEMS = [
     state: 'message',
     name: 'Message',
     type: 'sub',
-    icon: 'insert_drive_file',
+    icon: 'record voice over',
     children: [
       {state: 'addmessage', name: 'Add'},
       {state: 'listmessage', name: 'List'}
@@ -74,7 +74,7 @@ const MENUITEMS = [
     state: 'extension',
     name: 'Extension',
     type: 'sub',
-    icon: 'web',
+    icon: 'perm phone msg',
     children: [
       {state: 'addextension', name: 'Add'},
       {state: 'listextension', name: 'List'}          
@@ -120,7 +120,7 @@ const MENUITEMS = [
     state: 'user',
     name: 'User',
     type: 'sub',
-    icon: 'web',
+    icon: 'supervisor account',
     children: [
       
       {state: 'adduser', name: 'Add'},
