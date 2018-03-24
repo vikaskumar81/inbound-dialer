@@ -21,6 +21,7 @@ export class AddcampaignComponent implements OnInit {
   foundmessage: boolean;
   supplier : Option[];
   foundsupplier : boolean;
+  insertdata:string;
 
   campaigndata = new CampaignForm(null);
 
@@ -50,5 +51,6 @@ export class AddcampaignComponent implements OnInit {
   onSubmit()
   {
     console.log("Thanks for submitting! Data: " + JSON.stringify(this.campaigndata));
+    this.cpdata.saveCampaign(JSON.stringify(this.campaigndata)).subscribe( data => this.insertdata=data);
   }
 }

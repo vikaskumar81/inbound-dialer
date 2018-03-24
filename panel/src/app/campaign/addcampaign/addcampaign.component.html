@@ -11,13 +11,13 @@
                     <!-- column -->
                     <div fxFlex.gt-md="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Enter Campaign" [(ngModel)]="campaigndata.name" id="name" name="name">
+                        <input matInput placeholder="Enter Campaign" [(ngModel)]="campaigndata.name" name="campaign">
                       </mat-form-field>
                     </div>
                     <!-- Supplier -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field  *ngIf="foundsupplier">
-                        <mat-select placeholder="Select Supplier" [(ngModel)]="campaigndata.provider" id="supplier" name="supplier">
+                        <mat-select placeholder="Select Supplier" [(ngModel)]="campaigndata.id_provider" name="id_provider">
                           <mat-option value="option">Select Supplier</mat-option>
                           <mat-option *ngFor="let s of supplier" [value]="s.value">{{s.label}}</mat-option>
                         </mat-select>
@@ -26,7 +26,7 @@
                     <!-- Message -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field *ngIf="foundmessage">
-                        <mat-select placeholder="Select Message" [(ngModel)]="campaigndata.message" id="message" name="message">
+                        <mat-select placeholder="Select Message" [(ngModel)]="campaigndata.id_message" name="id_message">
                           <mat-option value="-1">Select Message</mat-option>
                           <mat-option *ngFor="let m of message" [value]="m.value">{{m.label}}</mat-option>
                         </mat-select>
@@ -35,73 +35,73 @@
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput type="text" placeholder="Display ANI / Caller ID" [(ngModel)]="campaigndata.cid">
+                        <input matInput type="text" placeholder="Display ANI / Caller ID" [(ngModel)]="campaigndata.cid" name="cid">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Maximum Call Ring Time" [(ngModel)]="campaigndata.ringtime" type="number" min="1" max="60">
+                        <input matInput placeholder="Maximum Call Ring Time" [(ngModel)]="campaigndata.ringtime" name="ringtime" type="number" min="1" max="60">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Maximum Call Answer Time" [(ngModel)]="campaigndata.answertime" type="number" min="1" max="60">
+                        <input matInput placeholder="Maximum Call Answer Time" [(ngModel)]="campaigndata.answertime" name="answertime" type="number" min="1" max="60">
                       </mat-form-field>
                     </div>
                       <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Total number of Ports allowed" [(ngModel)]="campaigndata.channel" type="number" min="1" max="50">
+                        <input matInput placeholder="Total number of Ports allowed" [(ngModel)]="campaigndata.channel" name="channel" type="number" min="1" max="50">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput type="number" min="1" max="60" placeholder="Dialing per Minutes" [(ngModel)]="campaigndata.ppm">
+                        <input matInput type="number" min="1" max="60" placeholder="Dialing per Minutes" name="ppm" [(ngModel)]="campaigndata.ppm">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="34" fxFlex.gt-xs="34" fxFlex="100">
                       <mat-form-field>
-                        <input matInput type="date" placeholder="Choose a Start Date" [(ngModel)]="campaigndata.startdate" value="{{campaigndata.start | date:'MM/dd/yyyy'}}">
+                        <input matInput type="date" placeholder="Choose a Start Date" name="startdate" [(ngModel)]="campaigndata.startdate" value="{{campaigndata.startdate | date:'MM/dd/yyyy'}}">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Select Start Hours" type="number" min="0" max="23" value="0" [(ngModel)]="campaigndata.starthr" id="starthr" name="starthr">
+                        <input matInput placeholder="Select Start Hours" type="number" name="starthr" min="0" max="23" value="0" [(ngModel)]="campaigndata.starthr" id="starthr" name="starthr">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                       <mat-form-field>
-                          <input matInput placeholder="Select Start Minutes" type="number" min="0" max="59" value="0" [(ngModel)]="campaigndata.startmin" id="startmin" name="startmin">
+                          <input matInput placeholder="Select Start Minutes" type="number" name="startmin" min="0" max="59" value="0" [(ngModel)]="campaigndata.startmin" id="startmin" name="startmin">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="34" fxFlex.gt-xs="34" fxFlex="100">
                         <mat-form-field>
-                          <input matInput type="date" placeholder="Choose a End Date" [(ngModel)]="campaigndata.enddate">
+                          <input matInput type="date" placeholder="Choose a End Date" name="enddate" [(ngModel)]="campaigndata.enddate">
                         </mat-form-field>
                       </div>
                       <!-- column -->
                       <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                         <mat-form-field>
-                          <input matInput placeholder="Select End Hours" type="number" min="0" max="23" value="23" [(ngModel)]="campaigndata.endhr" id="endhr" name="endhr">
+                          <input matInput placeholder="Select End Hours" type="number" min="0" max="23" value="23" name="endhr" [(ngModel)]="campaigndata.endhr" id="endhr" name="endhr">
                         </mat-form-field>
                       </div>
                       <!-- column -->
                       <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                         <mat-form-field>
-                            <input matInput placeholder="Select End Minutes" type="number" min="0" max="59" value="59" [(ngModel)]="campaigndata.endmin" id="endmin" name="endmin">
+                            <input matInput placeholder="Select End Minutes" type="number" min="0" max="59" value="59" name="endmin" [(ngModel)]="campaigndata.endmin" id="endmin" name="endmin">
                         </mat-form-field>
                       </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                         <mat-form-field>
-                          <textarea matInput placeholder="Campaign Descriptions" [(ngModel)]="campaigndata.description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                          <textarea matInput placeholder="Campaign Descriptions" name="description" [(ngModel)]="campaigndata.description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
                         </mat-form-field>
                       </div>
                     <!-- column -->
