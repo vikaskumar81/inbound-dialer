@@ -20,23 +20,14 @@ export class EditcampaignComponent implements OnInit {
   '15','16','17','18','19','20','21','22','23'];
   minutes =[];
 
-  campaigndata = new CampaignForm();
+  campaigndata :CampaignForm;
 
   constructor(private cpdata: CampaignService, private fb: FormBuilder) { }
 
   ngOnInit() 
   {
-    this.campaigndata.name=this.cpdata.Data.name;
-    this.campaigndata.answertime=this.cpdata.Data.answertime;
-    this.campaigndata.ringtime=this.cpdata.Data.ringtime;
-    this.campaigndata.ppm=this.cpdata.Data.ppm;
-    this.campaigndata.cid=this.cpdata.Data.cid;
-    this.campaigndata.channel=this.cpdata.Data.channel;
-    this.campaigndata.startdate=this.cpdata.Data.startdate;
-    this.campaigndata.starthr=this.cpdata.Data.starthr;
-    this.campaigndata.startmin=this.cpdata.Data.startmin;
+    this.campaigndata=new CampaignForm(this.cpdata.Data);
     console.log(this.campaigndata);
-
     this.cpdata.getSupplier().subscribe(
       data => {
         if(data.length>0)

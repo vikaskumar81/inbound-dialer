@@ -35,25 +35,25 @@
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Display ANI / Caller ID" [(ngModel)]="campaigndata.cid" id="cid" name="cid">
+                        <input matInput type="text" placeholder="Display ANI / Caller ID" [(ngModel)]="campaigndata.cid">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Maximum Call Ring Time" [(ngModel)]="campaigndata.ringtime" id="ringtime" name="ringtime">
+                        <input matInput placeholder="Maximum Call Ring Time" [(ngModel)]="campaigndata.ringtime" type="number" min="1" max="60">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Maximum Call Answer Time" [(ngModel)]="campaigndata.answertime" id="answertime" name="answertime">
+                        <input matInput placeholder="Maximum Call Answer Time" [(ngModel)]="campaigndata.answertime" type="number" min="1" max="60">
                       </mat-form-field>
                     </div>
                       <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Total number of Ports allowed" [(ngModel)]="campaigndata.channel" id="channel" name="channek">
+                        <input matInput placeholder="Total number of Ports allowed" [(ngModel)]="campaigndata.channel" type="number" min="1" max="50">
                       </mat-form-field>
                     </div>
                     <!-- column -->
@@ -65,7 +65,7 @@
                     <!-- column -->
                     <div fxFlex.gt-sm="34" fxFlex.gt-xs="34" fxFlex="100">
                       <mat-form-field>
-                        <input matInput type="date" placeholder="Choose a Start Date" [(ngModel)]="campaigndata.startdate">
+                        <input matInput type="date" placeholder="Choose a Start Date" [(ngModel)]="campaigndata.startdate" value="{{campaigndata.start | date:'MM/dd/yyyy'}}">
                       </mat-form-field>
                     </div>
                     <!-- column -->
@@ -101,7 +101,7 @@
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                         <mat-form-field>
-                          <input matInput placeholder="Campaign Descriptions" [(ngModel)]="campaigndata.description" id="description" name="description">
+                          <textarea matInput placeholder="Campaign Descriptions" [(ngModel)]="campaigndata.description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
                         </mat-form-field>
                       </div>
                     <!-- column -->
