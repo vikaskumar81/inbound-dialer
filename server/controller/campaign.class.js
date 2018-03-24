@@ -25,6 +25,18 @@ exports.Detail=function(req, res){
     return res;
 }
 
+exports.Status=function(req, res){
+    mysql.Open();
+    var udata= JSON.parse(req.body.data);
+    var filter={
+      "id":req.body.id
+    };
+    mysql.Update(udata, table, filter, function(data) {
+		res.send(data);
+	});
+    mysql.Close();
+}
+
 exports.Update=function(req, res){
     mysql.Open();
     var udata= JSON.parse(req.body.data);

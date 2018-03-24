@@ -18,6 +18,7 @@ module.exports = function(app) {
       .post(User.AddNew);
   
     app.route('/user/:id')
+      .post(User.Status)
       .get(User.Detail)
       .put(User.Update)
       .delete(User.Delete);
