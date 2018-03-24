@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MenuItems } from '../menu-items';
 import { DemoMaterialModule } from '../demo-material-module';
@@ -11,12 +12,14 @@ import { StatusComponent } from './status/status.component';
 import { WidgetGroupComponent } from './widget-group/widget-group.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { KeysPipe } from './data-table/keypipe/keypipe';
+import { SearchPipe } from './data-table/keypipe/searchpipe';
 
 @NgModule({
   imports:[
     CommonModule,
     RouterModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    FormsModule
   ],
   declarations: [
     AccordionAnchorDirective,
@@ -27,7 +30,8 @@ import { KeysPipe } from './data-table/keypipe/keypipe';
     StatusComponent,
     WidgetGroupComponent,
     DataTableComponent, 
-    KeysPipe
+    KeysPipe,
+    SearchPipe
   ],
   exports: [
     AccordionAnchorDirective,

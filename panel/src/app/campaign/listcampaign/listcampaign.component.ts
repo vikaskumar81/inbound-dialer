@@ -1,4 +1,4 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
+import {Component, ViewChild, OnInit, AfterViewInit} from '@angular/core';
 import {MatTableDataSource, MatTableModule, MatInputModule, MatButtonModule, MatPaginator} from '@angular/material';
 import {MatSortModule, MatSort} from '@angular/material/sort';
 import { Observable } from 'rxjs/Observable';
@@ -14,12 +14,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./listcampaign.component.css']
 })
 
-export class ListcampaignComponent implements OnInit{
-  displayedColumns = ['name', 'provider', 'filename', 'channel', 'ppm', 'ringtime', 'answertime', 'status'];
-  Header = ["S.No.", 'Name', 'Provider', 'Filename', 'Channels', 'Call/Min', 'Ring-Time', 'Answer-Time', 'Status', 'Actions'];
-  dataSource = new CampaignDataSource(this.data);
+export class ListcampaignComponent implements OnInit, AfterViewInit{
+  displayedColumns = ['name', 'provider', 'filename', 'channel', 'ppm', 'ringtime', 'answertime', 'status', 'actions'];
+  dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
-  tabledata : any;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   gotdata : boolean;
 
   widgetdata =[{"icon":"account circle","data":205,"label":"Client"},{"icon":"explore","data":306,"label":"Tickets"},
@@ -28,14 +27,19 @@ export class ListcampaignComponent implements OnInit{
   constructor(private data: CampaignService, private router: Router) { }
  
   ngOnInit() {
-    this.data.getCampaign().subscribe(
-      data => {
-        if(data.length>0)
-        {
-          this.gotdata=true;
-          this.tabledata=data;
-        }
-    });
+    this.data.getCampaign().subscribe(data => this.dataSource.data = data);
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+
+  ngAfterViewInit() {
+    //console.log("Changing page views");
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
   
   EditDetail(row:any)
@@ -43,17 +47,4 @@ export class ListcampaignComponent implements OnInit{
     this.data.Data=row;
     this.router.navigate ( [ '/main/campaign/editcampaign' ] );
   }
-}
-
-export class CampaignDataSource extends DataSource<any> {
-  constructor(private data: CampaignService) {
-    super();
-  }
-  
-  connect(): Observable<Campaign[]> {
-    return this.data.getCampaign();
-  }
-
-  disconnect() {}
-
 }

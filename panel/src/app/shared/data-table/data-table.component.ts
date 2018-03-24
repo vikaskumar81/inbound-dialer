@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter, Pipe } from '@angular/core';
-import { FormsModule }          from '@angular/forms';
 
 @Component({
   selector: 'app-datatable',

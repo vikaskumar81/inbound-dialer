@@ -9,23 +9,21 @@
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
       </div>
-      <div class="table-rasponsive">
+      <div class="table-rasponsive" *ngIf="gotdata">
           <mat-table #table [dataSource]="dataSource" matSort>
-              
               <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                <mat-cell *matCellDef="let element"></mat-cell>
               </ng-container>
  
               <ng-container matColumnDef="filename">
                 <mat-header-cell *matHeaderCellDef> FileName </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.filename}} </mat-cell>
+                <mat-cell *matCellDef="let element"></mat-cell>
               </ng-container>
 
                 <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                   
                     <button mat-raised-button color="primary" (click)="DeleteDetail(row)">Delete</button>
                 </mat-cell>
               </ng-container> 
@@ -33,7 +31,7 @@
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
-        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        <mat-paginator [length]="5" [pageSize]="1" [pageSizeOptions]="[1, 5, 10, 20]"></mat-paginator>
       </div>    
     </mat-card-content>
   </mat-card>
