@@ -16,5 +16,4 @@ export class ButtonComponent implements OnInit {
   {
     console.log(this.data);
   }
-
 }
