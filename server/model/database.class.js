@@ -116,7 +116,7 @@ exports.RunQuery=function(callback){
         else
         {
             console.log('Error : '+error);
-	    callback("Error in function");
+	        callback("Error in function");
         }
     });
 }
@@ -191,12 +191,12 @@ exports.AddNew=function(table, data, callback){
         // error will be an Error if one occurred during the query
         if (!error)
         {
-            console.log('Data output is: ', rows.insertId);
             last_id=rows.insertId;
-			callback("Data inserted successfully & Inserted Last Id are "+rows.insertId);
-            return rows.insertId;
+            console.log('Data output is: ', last_id);
+			callback("{\"id\" :"+last_id+"}");
         }
         else
             console.log('Error : '+sql);
+            callback("{\"Error\":\"Error in request\"");
         });
 }		

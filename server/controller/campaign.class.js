@@ -52,7 +52,9 @@ exports.Delete=function(req, res){
 
 exports.AddNew=function(req, res){
     mysql.Open();
-    var user=req.params.data;
+    var user=req.body;
+
+    console.log(user);
 
     mysql.AddNew(table, user, function(data) {
 		res.send(data);
