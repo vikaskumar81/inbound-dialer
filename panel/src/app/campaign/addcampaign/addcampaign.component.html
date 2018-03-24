@@ -1,6 +1,3 @@
-<!-- ============================================================== -->
-<!-- Card Grid-->
-<!-- ============================================================== -->
 <div fxLayout="row" fxLayoutWrap="wrap">
     <div fxFlex.gt-sm="100" fxFlex="100">
         <mat-card>
@@ -62,61 +59,45 @@
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Dialing per Minutes" [(ngModel)]="campaigndata.ppm" id="ppm" name="ppm">
+                        <input matInput type="number" min="1" max="60" placeholder="Dialing per Minutes" [(ngModel)]="campaigndata.ppm">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="34" fxFlex.gt-xs="34" fxFlex="100">
                       <mat-form-field>
-                        <input matInput [matDatepicker]="startdate" placeholder="Choose a Start Date" [(ngModel)]="campaigndata.startdate" id="startdate" name="startdate">
-                        <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
-                        <mat-datepicker #startdate></mat-datepicker>
+                        <input matInput type="date" placeholder="Choose a Start Date" [(ngModel)]="campaigndata.startdate">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                       <mat-form-field>
-                        <mat-select placeholder="Select Start Hours" [(ngModel)]="campaigndata.starthr" id="starthr" name="starthr">
-                          <mat-option value="-1">Select Hour</mat-option>
-                          <mat-option *ngFor="let hr of hour" [value]="hr">{{hr}}</mat-option>
-                        </mat-select>
+                        <input matInput placeholder="Select Start Hours" type="number" min="0" max="23" value="0" [(ngModel)]="campaigndata.starthr" id="starthr" name="starthr">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                       <mat-form-field>
-                        <mat-select placeholder="Select Start Minutes" [(ngModel)]="campaigndata.startmin" id="startmin" name="startmin">
-                          <mat-option value="-1">Select Minutes</mat-option>
-                          <mat-option *ngFor="let min of minutes" [value]="min">{{min}}</mat-option>
-                        </mat-select>
+                          <input matInput placeholder="Select Start Minutes" type="number" min="0" max="59" value="0" [(ngModel)]="campaigndata.startmin" id="startmin" name="startmin">
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="34" fxFlex.gt-xs="34" fxFlex="100">
-                      <mat-form-field>
-                        <input matInput [matDatepicker]="enddate" placeholder="Choose a End Date" [(ngModel)]="campaigndata.enddate" id="enddate" name="enddate">
-                        <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
-                        <mat-datepicker #enddate></mat-datepicker>
-                      </mat-form-field>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
-                      <mat-form-field>
-                        <mat-select placeholder="Select End Hours" [(ngModel)]="campaigndata.endhr" id="endhr" name="endhr">
-                          <mat-option value="-1">Select Hours</mat-option>
-                          <mat-option *ngFor="let hr of hour" [value]="hr">{{hr}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                    </div>
-                    <!-- column -->
-                    <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
-                      <mat-form-field>
-                        <mat-select placeholder="Select End Minutes" [(ngModel)]="campaigndata.endmin" id="endmin" name="endmin">
-                          <mat-option value="-1">Select Minutes</mat-option>
-                          <mat-option *ngFor="let min of minutes" [value]="min">{{min}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                    </div>
+                        <mat-form-field>
+                          <input matInput type="date" placeholder="Choose a End Date" [(ngModel)]="campaigndata.enddate">
+                        </mat-form-field>
+                      </div>
+                      <!-- column -->
+                      <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
+                        <mat-form-field>
+                          <input matInput placeholder="Select End Hours" type="number" min="0" max="23" value="23" [(ngModel)]="campaigndata.endhr" id="endhr" name="endhr">
+                        </mat-form-field>
+                      </div>
+                      <!-- column -->
+                      <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
+                        <mat-form-field>
+                            <input matInput placeholder="Select End Minutes" type="number" min="0" max="59" value="59" [(ngModel)]="campaigndata.endmin" id="endmin" name="endmin">
+                        </mat-form-field>
+                      </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                         <mat-form-field>
