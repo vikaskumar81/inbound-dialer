@@ -14,15 +14,15 @@
                     <!-- column -->
                     <div fxFlex.gt-md="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput placeholder="Enter Campaign" [(ngModel)]="campaigndata.name" id="name" name="name" value="{{ row.name }}">
+                        <input matInput placeholder="Enter Campaign" [(ngModel)]="campaigndata.name" id="name" name="name">
                       </mat-form-field>
                     </div>
                     <!-- Supplier -->
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field  *ngIf="foundsupplier">
                         <mat-select placeholder="Select Supplier" [(ngModel)]="campaigndata.provider" id="supplier" name="supplier">
-                          <mat-option value="option">Select Supplier</mat-option>
-                          <mat-option *ngFor="let s of supplier" ng-value="s.value">{{s.label}}</mat-option>
+                          <mat-option value="-1">Select Supplier</mat-option>
+                          <mat-option *ngFor="let s of supplier" [value]="s.value">{{s.label}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -31,7 +31,7 @@
                       <mat-form-field *ngIf="foundmessage">
                         <mat-select placeholder="Select Message" [(ngModel)]="campaigndata.message" id="message" name="message">
                           <mat-option value="-1">Select Message</mat-option>
-                          <mat-option *ngFor="let m of message" ng-value="m.value">{{m.label}}</mat-option>
+                          <mat-option *ngFor="let m of message" [value]="m.value">{{m.label}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -78,16 +78,16 @@
                       <mat-form-field>
                         <mat-select placeholder="Select Start Hours" [(ngModel)]="campaigndata.starthr" id="starthr" name="starthr">
                           <mat-option value="-1">Select Hour</mat-option>
-                          <mat-option *ngFor="let hr of hour" ng-value="hr">{{hr}}</mat-option>
+                          <mat-option *ngFor="let hr of hour" [value]="hr">{{hr}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
                     <!-- column -->
                     <div fxFlex.gt-sm="33" fxFlex.gt-xs="33" fxFlex="100">
                       <mat-form-field>
-                        <mat-select placeholder="Select Start Minutes" [(ngModel)]="campaigndata.startmin" id="startmin" name="startmin">
+                        <mat-select placeholder="Select Start Minutes" [(ngModel)]="campaigndata.startmin" id="startmin" name="startmin" [compareWith]=StartMinSelect>
                           <mat-option value="-1">Select Minutes</mat-option>
-                          <mat-option *ngFor="let min of minutes" ng-value="min">{{min}}</mat-option>
+                          <mat-option *ngFor="let min of minutes" [value]="min">{{min}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -104,7 +104,7 @@
                       <mat-form-field>
                         <mat-select placeholder="Select End Hours" [(ngModel)]="campaigndata.endhr" id="endhr" name="endhr">
                           <mat-option value="-1">Select Hours</mat-option>
-                          <mat-option *ngFor="let hr of hour" ng-value="hr">{{hr}}</mat-option>
+                          <mat-option *ngFor="let hr of hour" [value]="hr">{{hr}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>
@@ -113,7 +113,7 @@
                       <mat-form-field>
                         <mat-select placeholder="Select End Minutes" [(ngModel)]="campaigndata.endmin" id="endmin" name="endmin">
                           <mat-option value="-1">Select Minutes</mat-option>
-                          <mat-option *ngFor="let min of minutes" ng-value="min">{{min}}</mat-option>
+                          <mat-option *ngFor="let min of minutes" [value]="min">{{min}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>

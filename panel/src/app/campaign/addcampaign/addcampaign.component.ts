@@ -6,6 +6,7 @@ import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
 import { CampaignForm } from '../model/campaign.model';
+import { MatSelect } from '@angular/material';
 
 @Component({
   selector: 'app-addcampaign',
@@ -21,6 +22,7 @@ export class AddcampaignComponent implements OnInit {
   foundsupplier : boolean;
   hour =['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
   minutes =[];
+  supoption: MatSelect;
 
   campaigndata = new CampaignForm();
 
