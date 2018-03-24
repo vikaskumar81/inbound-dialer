@@ -1,7 +1,7 @@
 var mysql=require('../model/database.class');
 var table="uploads";
-var csv = require('csv');
-var obj = csv(); 
+//var csv = require('csv');
+//var obj = csv(); 
 var table2="leads";
 var MyData = []; 
 var path = '';
@@ -46,7 +46,7 @@ function MyCSV(Fone) {
     this.FieldOne = Fone;
 }; 
 
-exports.Upload=function(req, res, next){
+/*exports.Upload=function(req, res, next){
     mysql.Open();
 	var file=req.body;
 	
@@ -63,7 +63,6 @@ exports.Upload=function(req, res, next){
 		"leads":MyData.length
     };
     //var user=req.body;
-		/* Read lead Txt file */
     var last_id = mysql.AddNew(table, updata, function(data) {
 		//res.send(data);
 	});
@@ -80,7 +79,7 @@ exports.Upload=function(req, res, next){
 		});
 	}
     mysql.Close();
-}
+}*/
 
 exports.Delete=function(req, res){
     mysql.Open();
