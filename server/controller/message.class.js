@@ -2,7 +2,7 @@ var mysql=require('../model/database.class');
 var table="message";
 exports.List=function(req, res, next){
     mysql.Open();
-    var col=["id", "id_user", "name"];
+    var col=["id", "id_user", "name", "filename"];
     mysql.GetList(col, table, function(data) {
     	console.log(JSON.stringify(data));
     	res.send(data);
@@ -15,7 +15,7 @@ exports.Detail=function(req, res){
     var filter={
       "id":req.params.id
     };
-    var col=["id", "id_user", "name"];
+    var col=["id", "id_user", "name", "filename"];
     mysql.Detail(col, table, filter, function(data) {
     	console.log(JSON.stringify(data));
     	res.send(data);

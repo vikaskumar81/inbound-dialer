@@ -23,6 +23,7 @@ export class MessageService {
   }
 
   public getMessage(): Observable<Message[]> {
+    console.log(APIURL+this.appmod);
     return this.http.get<Message[]>(APIURL+this.appmod);
   }
 

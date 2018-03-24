@@ -24,14 +24,7 @@ export class ListmessageComponent implements OnInit, AfterViewInit {
   constructor(private data: MessageService, private router: Router) { }
  
   ngOnInit() {
-    this.data.getMessage().subscribe(
-      data => {
-        if(data.length>0)
-        {
-          this.gotdata=true;
-          this.dataSource.data=data;
-        }
-    });
+    this.data.getMessage().subscribe(data => this.dataSource.data = data);
   }
 
   applyFilter(filterValue: string) {
