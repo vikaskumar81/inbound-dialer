@@ -5,50 +5,19 @@ import 'rxjs/add/operator/map';
 import { Campaign, CampaignForm } from './model/campaign.model';
 import { Option } from '../shared/model/model.class';
 import { APIURL } from '../app.routing';
+import {AppService} from '../shared/service/AppService.class';
 @Injectable()
-export class CampaignService {
-  private appmod="campaign/";
-  private data:Campaign;
-
-  constructor(private http : HttpClient) { }
-
-  public set Data(v : Campaign) {
-    this.data = v;
-  }
-  
-  public get Data() : Campaign {
-    return this.data;
-  }
+export class CampaignService extends AppService<Campaign>{
+  constructor(protected http : HttpClient) {
+    super(http);
+    this.appmod="campaign/";
+   }
 
   public getSupplier():Observable<Option[]>{
-    return this.http.get<Option[]>(APIURL+"option/supplier/");
+    return super.getOption("supplier");
   }
   
   public getMessage():Observable<Option[]>{
-    return this.http.get<Option[]>(APIURL+"option/message/");
-  }
-
-  public getCampaign(): Observable<Campaign[]> {
-    return this.http.get<Campaign[]>(APIURL+this.appmod);
-  }
-
-  public saveCampaign(data:any): Observable<string>
-  {
-    return this.http.post<string>(APIURL+this.appmod, {"data":data},{ headers: {"Content-Type": "application/json"}, params: {"data": data} });
-  }
-
-  public detailCampaign(key:number):Observable<Campaign>
-  {
-    return this.http.get<Campaign>(APIURL+this.appmod+key);
-  }
-
-  public updateCampaign(data:any, key:number): Observable<string>
-  {
-    return this.http.put<string>(APIURL+this.appmod+key, {"data":data, "id":key}, { headers: {"Content-Type": "application/json"}, params: data });
-  }
-
-  public deleteCampaign(key:number)
-  {
-    this.http.delete(APIURL+this.appmod+key);
+    return super.getOption("message");
   }
 }

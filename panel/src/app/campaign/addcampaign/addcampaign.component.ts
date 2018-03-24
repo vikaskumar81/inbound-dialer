@@ -8,6 +8,7 @@ import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
 import { CampaignForm } from '../model/campaign.model';
 import { MatSelect } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addcampaign',
@@ -25,7 +26,7 @@ export class AddcampaignComponent implements OnInit {
 
   campaigndata = new CampaignForm(null);
 
-  constructor(private cpdata: CampaignService, private fb: FormBuilder) { }
+  constructor(private cpdata: CampaignService, private fb: FormBuilder, private router:Router) { }
 
   ngOnInit()
   {
@@ -51,6 +52,7 @@ export class AddcampaignComponent implements OnInit {
   onSubmit()
   {
     console.log("Thanks for submitting! Data: " + JSON.stringify(this.campaigndata));
-    this.cpdata.saveCampaign(JSON.stringify(this.campaigndata)).subscribe( data => this.insertdata=data);
+    this.cpdata.saveService(JSON.stringify(this.campaigndata)).subscribe( data => this.insertdata=data);
+    this.router.navigate ( [ '/main/campaign/listcampaign' ] );
   }
 }

@@ -27,7 +27,7 @@ export class ListcampaignComponent implements OnInit, AfterViewInit{
   constructor(private data: CampaignService, private router: Router) { }
  
   ngOnInit() {
-    this.data.getCampaign().subscribe(data => this.dataSource.data = data);
+    this.data.getService().subscribe(data => this.dataSource.data = data);
   }
 
   applyFilter(filterValue: string) {

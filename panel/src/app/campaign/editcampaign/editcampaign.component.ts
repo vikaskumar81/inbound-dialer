@@ -3,6 +3,7 @@ import { CampaignService } from '../campaign.service';
 import { Campaign, CampaignForm } from '../model/campaign.model';
 import { Option } from '../../shared/model/model.class';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editcampaign',
@@ -23,7 +24,7 @@ export class EditcampaignComponent implements OnInit {
   campaigndata :CampaignForm;
   updated:string;
 
-  constructor(private cpdata: CampaignService, private fb: FormBuilder) { }
+  constructor(private cpdata: CampaignService, private fb: FormBuilder, private router:Router) { }
 
   ngOnInit() 
   {
@@ -70,6 +71,7 @@ export class EditcampaignComponent implements OnInit {
   onSubmit()
   {
     console.log("Thanks for submitting! Data: " + JSON.stringify(this.campaigndata));
-    this.cpdata.updateCampaign(JSON.stringify(this.campaigndata), this.cpdata.Data.id).subscribe( data => this.updated=data);
+    this.cpdata.updateService(JSON.stringify(this.campaigndata), this.cpdata.Data.id).subscribe( data => this.updated=data);
+    this.router.navigate ( [ '/main/campaign/listcampaign' ] );
   }
 }
