@@ -9,12 +9,17 @@ import { FormsModule }          from '@angular/forms';
 
 export class DataTableComponent implements OnInit {
     @Input() label: string;
-    @Input() headers: any;
-    @Input() data: any;
+    @Input() header: any[];
+    @Input() field: any[];
+    @Input() data: any[];
     @Output() event: EventEmitter<any> = new EventEmitter();
+
+    Tdata:any[];
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.data);
+  }
 
 }

@@ -3,11 +3,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'keys'})
 export class KeysPipe implements PipeTransform
 {
-    transform(value:any, args:string[]): any {
+    transform(value:any, field:string[]): any {
         let keys:any[] = [];
         for (let key in value) {
-            keys.push({key: key, value: value[key]});
+            if(field.indexOf(key)!=-1)
+                keys.push({key: key, value: value[key]});
         }
-        return keys;
+        let ret:any[]=[];
+        for(var i=0; i<field.length; i++)
+        {
+            for(var j=0; j<keys.length; j++)
+            {
+                if(keys[j]["key"]==field[i])
+                {
+                    ret.push(keys[j]);
+                    continue;
+                }
+            }
+        }
+        return ret;
     }
 }

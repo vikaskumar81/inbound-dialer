@@ -11,8 +11,6 @@ import { StatusComponent } from './status/status.component';
 import { WidgetGroupComponent } from './widget-group/widget-group.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { KeysPipe } from './data-table/keypipe/keypipe';
-import {Sort} from '@angular/material';
-
 
 @NgModule({
   imports:[
@@ -30,7 +28,6 @@ import {Sort} from '@angular/material';
     WidgetGroupComponent,
     DataTableComponent, 
     KeysPipe
-
   ],
   exports: [
     AccordionAnchorDirective,

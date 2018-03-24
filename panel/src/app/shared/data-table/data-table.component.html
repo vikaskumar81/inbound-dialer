@@ -5,14 +5,14 @@
           <table class="table">
               <thead>
               <tr>
-                  <th *ngFor="let headerfield of headers">{{headerfield}}</th>
+                  <th *ngFor="let headerfield of header">{{headerfield}}</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let rdata of data;  let i = index">
-                  <td scope="row">{{ i+1 }}</td>
-		  <td *ngFor="let cdata of (rdata | keys) ">{{ cdata.value }}</td>
-              </tr>
+                <tr *ngFor="let rdata of data;  let i = index">
+                    <td scope="row">{{ i+1 }}</td>
+		            <td *ngFor="let cdata of (rdata | keys:field) ">{{ cdata.value }}</td>
+                </tr>
               </tbody>
           </table>
       </div>
