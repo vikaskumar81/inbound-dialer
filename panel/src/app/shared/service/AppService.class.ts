@@ -7,8 +7,17 @@ import { Option } from '../model/model.class';
 export class AppService<T> {
     protected appmod : string;
     protected data : T;
+    protected action : string;
   
     constructor(protected http : HttpClient) { }
+
+    public get Action() : string {
+      return this.action
+    }
+    
+    public set Action(v : string) {
+      this.action = v;
+    }
   
     public set Data(v : T) {
       this.data = v;
