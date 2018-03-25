@@ -1,38 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTableModule, MatInputModule, MatButtonModule, MatSort, MatPaginator} from '@angular/material';
-import { FullComponent } from '../../layouts/full/full.component';
-import { ButtonComponent } from '../../shared/button/button.component';
-import { Observable } from 'rxjs/Observable';
-import {DataSource} from '@angular/cdk/collections';
-import 'rxjs/add/observable/of';
 import { Supplier } from '../model/model.class';
 import { SupplierService } from '../supplier.service';
 import { Router } from '@angular/router';
+import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
 
 @Component({
   selector: 'app-listsupplier',
   templateUrl: './listsupplier.component.html',
   styleUrls: ['./listsupplier.component.css']
 })
-export class ListsupplierComponent implements OnInit {
-  displayedColumns = ['name','ipaddress','prefix','actions'];
-  dataSource = new SupplierDataSource(this.data);
-  detail : FullComponent;
-  constructor(private data: SupplierService, private router: Router) { }
- 
-  ngOnInit() {}
-  
-  
-}
 
-export class SupplierDataSource extends DataSource<any> {
-  constructor(private data: SupplierService) {
-    super();
+export class ListsupplierComponent extends AppComponentListClass<Supplier> {
+  constructor(protected data: SupplierService, protected router: Router) 
+  {
+    super(data, router);
+    this.displayedColumns = ['name','ipaddress','prefix','actions'];
   }
-  
-  connect(): Observable<Supplier[]> {
-    return this.data.getSupplier();
-  }
-
-  disconnect() {}
 }

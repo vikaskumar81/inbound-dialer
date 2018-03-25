@@ -2,31 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, Validators} from '@angular/forms';
 import { SupplierService } from '../supplier.service';
-import { Option } from '../../shared/model/model.class';
-import { DataSource } from '@angular/cdk/table';
-import { Observable } from 'rxjs/Observable';
-import { SupplierForm } from '../model/model.class';
+import { SupplierForm, Supplier } from '../model/model.class';
+import { AppComponentAddClass } from '../../shared/service/AppComponentAdd.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addsupplier',
   templateUrl: './addsupplier.component.html',
   styleUrls: ['./addsupplier.component.css']
 })
-export class AddsupplierComponent implements OnInit {
+export class AddsupplierComponent extends AppComponentAddClass<Supplier, SupplierForm> {
 
-  supplierdata = new SupplierForm();
-
-  constructor(private supdata: SupplierService, private fb: FormBuilder) { }
-
-  ngOnInit()
-  {
-    
+  constructor(protected data: SupplierService, protected fb: FormBuilder, protected router: Router) { 
+    super(data, fb, router);
+    this.nav='main/supplier/listsupplier';
   }
-
-
-  onSubmit() {
-    console.log("Thanks for submitting! Data: " + JSON.stringify(this.supplierdata));
- 
-  }
-
 }

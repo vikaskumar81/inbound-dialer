@@ -6,9 +6,10 @@ import { CampaignService } from '../campaign.service';
 import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
-import { CampaignForm } from '../model/campaign.model';
+import { CampaignForm, Campaign } from '../model/campaign.model';
 import { MatSelect } from '@angular/material';
 import { Router } from '@angular/router';
+import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
 
 @Component({
   selector: 'app-addcampaign',
@@ -16,21 +17,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./addcampaign.component.css']
 })
 
-export class AddcampaignComponent implements OnInit {
+export class AddcampaignComponent extends AppComponentFormClass <Campaign, CampaignForm>{
 
   message : Option[];
   foundmessage: boolean;
   supplier : Option[];
   foundsupplier : boolean;
-  insertdata:string;
 
-  campaigndata = new CampaignForm(null);
-
-  constructor(private cpdata: CampaignService, private fb: FormBuilder, private router:Router) { }
+  constructor(protected data: CampaignService, protected fb: FormBuilder, protected router:Router) {
+    super(data, fb, router);
+    this.nav="/main/campaign/listcampaign";
+    this.cdata=new CampaignForm(null);
+   }
 
   ngOnInit()
   {
-    this.cpdata.getSupplier().subscribe(
+    super.ngOnInit();
+    
+    this.data.getSupplier().subscribe(
       data => {
         if(data.length>0)
         {
@@ -39,7 +43,7 @@ export class AddcampaignComponent implements OnInit {
         }
     });
 
-    this.cpdata.getMessage().subscribe(
+    this.data.getMessage().subscribe(
       data => {
         if(data.length>0)
         {
@@ -47,12 +51,5 @@ export class AddcampaignComponent implements OnInit {
           this.message=data;
         }
     });
-  }
-
-  onSubmit()
-  {
-    console.log("Thanks for submitting! Data: " + JSON.stringify(this.campaigndata));
-    this.cpdata.saveService(JSON.stringify(this.campaigndata)).subscribe( data => this.insertdata=data);
-    this.router.navigate ( [ '/main/campaign/listcampaign' ] );
   }
 }

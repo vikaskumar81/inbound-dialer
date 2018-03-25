@@ -6,6 +6,7 @@ import { Campaign, CampaignForm } from './model/campaign.model';
 import { Option } from '../shared/model/model.class';
 import { APIURL } from '../app.routing';
 import {AppService} from '../shared/service/AppService.class';
+
 @Injectable()
 export class CampaignService extends AppService<Campaign>{
   constructor(protected http : HttpClient) {

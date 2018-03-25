@@ -7,6 +7,7 @@ import 'rxjs/add/observable/of';
 import { Campaign } from '../model/campaign.model';
 import { CampaignService } from '../campaign.service';
 import { Router } from '@angular/router';
+import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
 
 @Component({
   selector: 'app-listcampaign',
@@ -14,33 +15,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./listcampaign.component.css']
 })
 
-export class ListcampaignComponent implements OnInit, AfterViewInit{
-  displayedColumns = ['name', 'provider', 'filename', 'channel', 'ppm', 'ringtime', 'answertime', 'status', 'actions'];
-  dataSource = new MatTableDataSource();
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
+export class ListcampaignComponent extends AppComponentListClass<Campaign>
+{
   widgetdata =[{"icon":"account circle","data":205,"label":"Client"},{"icon":"explore","data":306,"label":"Tickets"},
   {"icon":"language","data":700,"label":"Emails"},{"icon":"contact phone","data":300,"label":"Agents"}];
 
-  constructor(private data: CampaignService, private router: Router) { }
+  constructor(protected data: CampaignService, protected router: Router) 
+  { 
+    super(data, router);
+    this.displayedColumns=['name', 'provider', 'filename', 'channel', 'ppm', 'ringtime', 'answertime', 'status', 'actions'];
+  }
  
-  ngOnInit() {
-    this.data.getService().subscribe(data => this.dataSource.data = data);
-  }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.dataSource.filter = filterValue;
-  }
-
-  ngAfterViewInit() {
-    //console.log("Changing page views");
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-  
   EditDetail(row:any)
   {
     this.data.Data=row;
