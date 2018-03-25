@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DID } from '../model/model.class';
-import { AppComponentListClass } from '../../shared/service/AppComponent.class';
+import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
 import { DidService } from '../did.service';
 import { Router } from '@angular/router';
 

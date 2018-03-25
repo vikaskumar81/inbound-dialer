@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
 import { Extension } from '../model/model.class';
 import { ExtensionService } from '../extension.service';
 import { Router } from '@angular/router';
-import { AppComponentListClass } from '../../shared/service/AppComponent.class';
+import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
 
 @Component({
   selector: 'app-listextension',

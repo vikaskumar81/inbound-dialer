@@ -5,7 +5,7 @@ import { AppBlankComponent } from './layouts/blank/blank.component';
 import { AuthGuard } from './authentication/guard/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 
-export const APIURL="http://192.168.1.33:3000/";
+export const APIURL="http://72.249.184.208:3000/";
 
 export const AppRoutes : Routes = [
   {

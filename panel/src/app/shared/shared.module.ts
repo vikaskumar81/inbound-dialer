@@ -13,9 +13,6 @@ import { WidgetGroupComponent } from './widget-group/widget-group.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { KeysPipe } from './data-table/keypipe/keypipe';
 import { SearchPipe } from './data-table/keypipe/searchpipe';
-import { AppComponentFormClass } from './service/AppComponentForm.class';
-import { AppService } from './service/AppService.class';
-import { AppComponentListClass } from './service/AppComponentList.class';
 
 @NgModule({
   imports:[
@@ -34,10 +31,7 @@ import { AppComponentListClass } from './service/AppComponentList.class';
     WidgetGroupComponent,
     DataTableComponent, 
     KeysPipe,
-    SearchPipe,
-    AppComponentFormClass,
-    AppComponentListClass,
-    AppService
+    SearchPipe
   ],
   exports: [
     AccordionAnchorDirective,
@@ -47,10 +41,7 @@ import { AppComponentListClass } from './service/AppComponentList.class';
     ButtonComponent,
     StatusComponent,
     WidgetGroupComponent,
-    DataTableComponent,
-    AppService,
-    AppComponentFormClass,
-    AppComponentListClass
+    DataTableComponent
    ],
   providers: [ MenuItems, TitleNavigationService ]
 })
