@@ -49,14 +49,15 @@ module.exports = function(app) {
       .get(Supplier.Detail)
       .put(Supplier.Update)
       .delete(Supplier.Delete);
-    app.route('/upload')
+    /*app.route('/upload')
       .get(Leads.List)
       .post(Leads.AddNew);
       
 	  app.route('/upload/:id')
       .get(Leads.Detail)
       .put(Leads.Update)
-      .delete(Leads.Delete);
+      .delete(Leads.Delete);*/
+
     /*app.route('/extension')
       .get(Extension.List)
       .post(Extension.AddNew);
