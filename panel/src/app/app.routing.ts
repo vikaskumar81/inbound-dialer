@@ -40,6 +40,9 @@ export const AppRoutes : Routes = [
     path: 'message',
     loadChildren: './message/message.module#MessageModule'
   }, {
+    path: 'did',
+    loadChildren: './did/did.module#DidModule'
+  },{
     path: 'extension',
     loadChildren: './extension/extension.module#ExtensionModule'
   },
