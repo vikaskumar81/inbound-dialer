@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { DidRoutingModule } from './did-routing.module';
 import { ListDidComponent } from './list-did/list-did.component';
 import { AddDidComponent } from './add-did/add-did.component';
 import { UploadDidComponent } from './upload-did/upload-did.component';
+import { RouterModule } from '@angular/router';
+import { DidRoutes } from './did-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    DidRoutingModule
+    RouterModule.forChild(DidRoutes),
   ],
   declarations: [ListDidComponent, AddDidComponent, UploadDidComponent]
 })
