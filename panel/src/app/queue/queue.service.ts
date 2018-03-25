@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient }   from '@angular/common/http';
-import { Message } from './model/model.class';
 import { AppService } from '../shared/service/AppService.class';
+import { Queue } from './model/model.class';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class MessageService extends AppService<Message>{
+export class QueueService extends AppService<Queue> {
   private action:string;
   constructor(protected http : HttpClient) { 
     super(http);
-    this.appmod="message/";
+    this.appmod="queue/";
   }
   
   public get Action() : string {
@@ -18,5 +18,5 @@ export class MessageService extends AppService<Message>{
   public set Action(v : string) {
     this.action = v;
   }
-  
+
 }
