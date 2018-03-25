@@ -7,13 +7,13 @@ import { ListDidComponent } from './list-did/list-did.component';
 export const DidRoutes: Routes = [{ 
   path: '',
   children: [{
-    path: 'adddid', 
+    path: 'didadd', 
     component: AddDidComponent
   },{
-    path: 'uploaddid', 
+    path: 'didupload', 
     component: UploadDidComponent
   },{
-    path: 'listdid', 
+    path: 'didlist', 
     component: ListDidComponent
   }]
 }];

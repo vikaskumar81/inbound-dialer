@@ -96,8 +96,9 @@ const MENUITEMS = [
     type: 'sub',
     icon: 'web',
     children: [
-      {state: 'didextension', name: 'Add'},
-      {state: 'didextension', name: 'List'}          
+      {state: 'didadd', name: 'Add'},
+      {state: 'didlist', name: 'List'},
+      {state: 'didupload', name: 'Upload'}
     ]
   },
   { state: '',
