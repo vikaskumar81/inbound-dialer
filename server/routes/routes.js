@@ -7,7 +7,8 @@ module.exports = function(app) {
     var Message = require('../controller/message.class');
     var Supplier = require('../controller/supplier.class');
     var Leads = require('../controller/upload.class');
-    //var Extension = require('../controller/extension.class');
+    var Extension = require('../controller/extension.class');
+    var Did = require('../controller/did.class');
   
     // todoList Routes
     app.route('/option/message').get(Option.Message);
@@ -49,21 +50,31 @@ module.exports = function(app) {
       .get(Supplier.Detail)
       .put(Supplier.Update)
       .delete(Supplier.Delete);
-    /*app.route('/upload')
+
+    app.route('/leads')
       .get(Leads.List)
       .post(Leads.AddNew);
       
-	  app.route('/upload/:id')
+	  app.route('/leads/:id')
       .get(Leads.Detail)
       .put(Leads.Update)
-      .delete(Leads.Delete);*/
+      .delete(Leads.Delete);
 
-    /*app.route('/extension')
+    app.route('/extension')
       .get(Extension.List)
       .post(Extension.AddNew);
 	  
 	  app.route('/extension/:id')
       .get(Extension.Detail)
       .put(Extension.Update)
-      .delete(Extension.Delete);*/
+      .delete(Extension.Delete);
+
+      app.route('/did')
+      .get(Did.List)
+      .post(Did.AddNew);
+
+    app.route('/did/:id')
+      .get(Did.Detail)
+      .put(Did.Update)
+      .delete(Did.Delete);
 }

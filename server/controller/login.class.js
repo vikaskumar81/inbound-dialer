@@ -19,7 +19,7 @@ exports.Login=function(req, res){
     mysql.RunQueryFilter(filter, function (data) {
       if(data.length >0){
         if(data[0].password == req.params.password){
-			sessdata.SetField(username, username, password);
+			sessdata.SetSession(username, username, password);
             res.send({
               "code":200,
               "success":"login sucessfull"

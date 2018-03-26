@@ -25,6 +25,7 @@
     "express-session": "^1.15.6",
     "hashmap": "^2.3.0",
     "json": "^9.0.6",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "socket.io": "^2.0.4"
   }
 }

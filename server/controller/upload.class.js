@@ -93,10 +93,10 @@ exports.Delete=function(req, res){
 }
 
 
-/* exports.AddNew=function(req, res){
+exports.AddNew=function(req, res){
     mysql.Open();
     var user=req.params.data;
 
     mysql.AddNew(table, data);
     mysql.Close();
-} */
+} 

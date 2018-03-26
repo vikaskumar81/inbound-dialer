@@ -1,11 +1,27 @@
 'use strict';
 var HashMap = require('hashmap');
-//var data =[];
-var obj = {};
+var sessdata = new HashMap();
+var sess = {};
 
-exports.SetField=function(key, field, value)
+exports.SetSession=function(key, field, value)
 {
-    obj[field] = value;	
-	HashMap.set(key, obj);
+    if(sessdata.get(key) > 0)
+    {
+        sess[field] = value;	
+        sessdata.set(key, sess);
+    }
+    else
+    {
+        var data = sessdata.get(key);
+        data[field] = value;
+        sessdata.set(key, data);
+    }
 	
+}
+
+exports.UpdateSession=function(key, field, value)
+{
+    var data = sessdata.get(key);
+    data[field] = value;
+    sessdata.set(key, data);
 }

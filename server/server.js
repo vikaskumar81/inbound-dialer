@@ -1,9 +1,14 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 3010,
   Task = require('./model/database.class'), //created model loading here
   bodyParser = require('body-parser');
+  var http = require('http').Server(app);
+  var io = require('socket.io')(http);
 //const cors = require('cors')
+
+// Start the Server
+
 
 /*var corsOptions = {
   origin: 'http://192.168.1.33:4200/',
@@ -26,6 +31,12 @@ app.use(function(req, res, next) {
 
 routes(app); //register the route
 
-app.listen(port);
+//app.listen(port);
+http.listen(port, function() {
+
+  console.log('Server Started. Listening on *:' + port);
+
+});
+
 
 console.log('RestFull API started: ' + port);
