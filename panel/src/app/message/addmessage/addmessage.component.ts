@@ -21,6 +21,6 @@ export class AddmessageComponent  extends AppComponentFormClass<Message, Message
   constructor(protected data: MessageService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
     this.nav='/main/message/listmessage';
-    
+    this.cdata=new MessageForm(null);
   }
 }

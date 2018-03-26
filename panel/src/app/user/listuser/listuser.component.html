@@ -1,3 +1,57 @@
-<p>
-  listuser works!
-</p>
+
+
+  
+  <div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+        <mat-card-content> 
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+          <div class="table-rasponsive">
+              <mat-table #table [dataSource]="dataSource" matSort>
+                 
+                  <ng-container matColumnDef="username">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+                  </ng-container>
+  
+                  <!-- Name Column  table -->
+                  <ng-container matColumnDef="password">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Password </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.password}} </mat-cell>
+                  </ng-container>
+  
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="company">
+                    <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.company}} </mat-cell>
+                  </ng-container>
+  
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="contact">
+                    <mat-header-cell *matHeaderCellDef> Contact </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.contact}} </mat-cell>
+                  </ng-container>
+  
+                  
+  
+                  <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <!--<action [label]="'Edit'" [icon]="'fas fa-pencil-alt fa-fw'" [data]=row (onClick)="EditDetail()"></action>-->
+                        <button mat-raised-button color="primary" (click)="EditDetail(row)">Edit</button>
+                    </mat-cell>
+                  </ng-container> 
+  
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+          </div>    
+        </mat-card-content>
+      </mat-card>
+      </div>
+  </div>

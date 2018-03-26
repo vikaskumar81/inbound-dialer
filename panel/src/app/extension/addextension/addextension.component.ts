@@ -22,6 +22,6 @@ export class AddextensionComponent extends AppComponentFormClass<Extension, Exte
   constructor(protected data: ExtensionService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
     this.nav='/main/extension/listextension';
-    
+    this.cdata=new ExtensionForm(null);
   }
 }

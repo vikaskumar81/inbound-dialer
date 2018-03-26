@@ -9,19 +9,15 @@
                 <div fxLayout="row" fxLayoutWrap="wrap">
                     <div fxFlex.gt-md="100" fxFlex="100">
                       <mat-form-field>
-                        <input matInput type="text" placeholder="Enter Name" [(ngModel)]="messagedata.name" name="name">
+                        <input matInput type="text" placeholder="Enter Name" [(ngModel)]="cdata.name" name="name">
                       </mat-form-field>
                     </div>
                     <div fxFlex.gt-sm="100" fxFlex="100">
                         <mat-form-field>
-                            <input matInput type="text" placeholder="Enter File Name" [(ngModel)]="messagedata.filename" name="filename">
+                            <input matInput type="text" placeholder="Enter File Name" [(ngModel)]="cdata.filename" name="filename">
                         </mat-form-field>
                     </div>
-                    <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field>
-                        <input matInput placeholder="Enter File" [(ngModel)]="messagedata.file"  name="file" type="text">
-                      </mat-form-field>
-                    </div>
+                    
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <button mat-raised-button color="primary" type="submit">Submit</button>
                     </div>

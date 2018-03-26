@@ -16,5 +16,6 @@ export class AddsupplierComponent extends AppComponentFormClass<Supplier, Suppli
   constructor(protected data: SupplierService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
     this.nav='main/supplier/listsupplier';
+    this.cdata=new SupplierForm(null);
   }
 }

@@ -20,5 +20,6 @@ export class AddqueueComponent extends AppComponentFormClass<Queue, QueueForm> {
   constructor(protected data: QueueService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
     this.nav='/main/queue/listqueue';
+    this.cdata=new QueueForm(null);
   }
 }
