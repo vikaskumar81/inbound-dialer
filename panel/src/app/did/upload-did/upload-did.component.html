@@ -1,3 +1,29 @@
-<p>
-  upload-did works!
-</p>
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100" fxFlex="100">
+      <mat-card>
+          <mat-card-content>
+              <!-- Message Form -->
+              <mat-card-title>Upload Did</mat-card-title>
+              <form class="basic-form" (ngSubmit)="onSubmit()"  #AddDIDForm="ngForm">
+              <div fxLayout="row" fxLayoutWrap="wrap">
+                  <div fxFlex.gt-md="100" fxFlex="100">
+                    <mat-form-field>
+                      <input matInput placeholder="Enter Name" [(ngModel)]="cdata.number" id="number"  name="number">
+                    </mat-form-field>
+                  </div>
+                  <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                            <input matInput placeholder="Enter Supplier Name" [(ngModel)]="cdata.supplier" id="supplier"  name="supplier">
+                      </mat-form-field>
+                  </div>
+                  
+                  <div fxFlex.gt-sm="100" fxFlex="100">
+                    <button mat-raised-button color="primary" type="submit">Submit</button>
+                  </div>
+              </div>
+              </form>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>

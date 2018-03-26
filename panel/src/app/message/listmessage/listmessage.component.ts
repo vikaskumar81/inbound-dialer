@@ -5,39 +5,21 @@ import { ButtonComponent } from '../../shared/button/button.component';
 import { Observable } from 'rxjs/Observable';
 import {DataSource} from '@angular/cdk/collections';
 import 'rxjs/add/observable/of';
-import { Message } from '../model/model.class';
+import { Message, MessageForm } from '../model/model.class';
 import { MessageService } from '../message.service';
 import { Router } from '@angular/router';
+import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
 
 @Component({
   selector: 'app-listmessage',
   templateUrl: './listmessage.component.html',
   styleUrls: ['./listmessage.component.css']
 })
-export class ListmessageComponent implements OnInit, AfterViewInit {
-  displayedColumns = ['name','filename','actions'];
-  dataSource = new MatTableDataSource<Message>();
+export class ListmessageComponent extends AppComponentListClass<Message> {
   
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  
-  constructor(private data: MessageService, private router: Router) { 
-    this.data.Action="list";
-  }
- 
-  ngOnInit() {
-    this.data.getService().subscribe(data => this.dataSource.data = data);
-  }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.dataSource.filter = filterValue;
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  constructor(protected data: MessageService, protected router: Router) { 
+    super(data, router);
+    this.displayedColumns = ['name','filename','actions'];
   }
 
   Edit(row: Message)

@@ -1,3 +1,73 @@
-<p>
-  listqueue works!
-</p>
+
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content> 
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+        <div class="table-rasponsive">
+            <mat-table #table [dataSource]="dataSource" matSort>
+                
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+   
+                <ng-container matColumnDef="strategy">
+                  <mat-header-cell *matHeaderCellDef> Strategy </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.strategy}} </mat-cell>
+                </ng-container>
+  
+                <ng-container matColumnDef="maxlen">
+                  <mat-header-cell *matHeaderCellDef> Max Length </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.maxlen}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="retry">
+                  <mat-header-cell *matHeaderCellDef> Retry </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.retry}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="wrapuptime">
+                  <mat-header-cell *matHeaderCellDef> Wrap_Up_Time </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.wrapuptime}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="announce_frequency">
+                  <mat-header-cell *matHeaderCellDef> Announce_Frequency  </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.announce_frequency}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="announce_holdtime">
+                  <mat-header-cell *matHeaderCellDef> Announce Hold Time </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.announceholdtime}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="ringinuser">
+                  <mat-header-cell *matHeaderCellDef> Ring_in_user </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.ringinuser}} </mat-cell>
+                </ng-container>
+
+                
+  
+                  <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                     
+                      <button mat-raised-button color="primary" (click)="DeleteDetail(row)">Delete</button>
+                  </mat-cell>
+                </ng-container> 
+  
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        </div>    
+      </mat-card-content>
+    </mat-card>
+    </div>
+  </div>

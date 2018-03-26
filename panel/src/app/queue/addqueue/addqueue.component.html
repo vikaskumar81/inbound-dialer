@@ -1,3 +1,65 @@
-<p>
-  addqueue works!
-</p>
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <!-- Message Form -->
+                <mat-card-title>Add Queue</mat-card-title>
+                <form class="basic-form" (ngSubmit)="onSubmit()"  #AddQueueForm="ngForm">
+                <div fxLayout="row" fxLayoutWrap="wrap">
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                          <input matInput placeholder="Enter Queue Name" [(ngModel)]="cdata.name" name="name">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <mat-form-field>
+                            <input matInput placeholder="Enter Strategy" [(ngModel)]="cdata.strategy"  id="strategy" name="strategy">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Length" [(ngModel)]="cdata.maxlen"  id="maxlen" name="maxlen">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Retry number" [(ngModel)]="cdata.retry" id="retry"  name="retry">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Wrap_Up_Time" [(ngModel)]="cdata.wrapuptime" id="wrapuptime"  name="wrapuptime">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Announce_frequency" [(ngModel)]="cdata.announce_frequency" id="announce_frequency"  name="recordingformat">
+                      </mat-form-field>
+                    </div>
+                    
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Announce Hold Time" [(ngModel)]="cdata.announce_holdtime" id="announce_holdtime"  name="announceholdtime">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter User" [(ngModel)]="cdata.ringinuser" id="ringinuser"  name="ringinuser">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Length" [(ngModel)]="cdata.maxlength" id="maxlength"  name="maxlength">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <button mat-raised-button color="primary" type="submit">Submit</button>
+                    </div>
+                </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+  

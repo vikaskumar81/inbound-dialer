@@ -28,8 +28,8 @@ export class AppService<T> {
     }
 
     public getOption(data:string):Observable<Option[]>{
-        return this.http.get<Option[]>(APIURL+"option/"+data+"/");
-      }
+      return this.http.get<Option[]>(APIURL+"option/"+data+"/");
+    }
   
     public getService(): Observable<T[]> {
       return this.http.get<T[]>(APIURL+this.appmod);

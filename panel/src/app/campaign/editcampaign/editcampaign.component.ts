@@ -12,7 +12,8 @@ import { AppComponentFormClass } from '../../shared/service/AppComponentForm.cla
   styleUrls: ['./editcampaign.component.css']
 })
 
-export class EditcampaignComponent extends AppComponentFormClass<Campaign,CampaignForm> {
+export class EditcampaignComponent extends 
+AppComponentFormClass<Campaign,CampaignForm> {
   message : Option[];
   foundmessage: boolean;
   supplier : Option[];

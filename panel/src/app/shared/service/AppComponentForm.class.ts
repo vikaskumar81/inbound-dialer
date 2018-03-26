@@ -4,7 +4,8 @@ import { Router } from "@angular/router";
 import { AppService } from './AppService.class';
 import { FormBuilder } from "@angular/forms";
 
-export class AppComponentFormClass<T1, T2> implements OnInit {
+export class AppComponentFormClass<T1, T2> implements 
+OnInit {
 
     protected cdata : T2;
     protected insertdata:string;
@@ -25,6 +26,6 @@ export class AppComponentFormClass<T1, T2> implements OnInit {
     onUpdate()
     {
         this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( data => this.insertdata=data);
-        this.router.navigate ( [ '/main/campaign/listcampaign' ] );
+        this.router.navigate ( [ this.nav ] );
     }
   }
