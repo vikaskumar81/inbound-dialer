@@ -17,7 +17,6 @@ import { AppComponentFormClass } from '../../shared/service/AppComponentForm.cla
 })
 
 export class AddcampaignComponent extends AppComponentFormClass <Campaign, CampaignForm>{
-
   message : Option[];
   foundmessage: boolean;
   supplier : Option[];

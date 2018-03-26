@@ -8,6 +8,8 @@ export class AppComponentListClass<T> implements OnInit {
     protected dataSource = new MatTableDataSource();
     @ViewChild(MatSort) protected sort: MatSort;
     @ViewChild(MatPaginator) protected paginator: MatPaginator;
+    protected editnav:string;
+    protected deletenav:string;
     
     constructor(protected data: AppService<T>, protected router: Router) { }
 
@@ -25,5 +27,17 @@ export class AppComponentListClass<T> implements OnInit {
     ngAfterViewInit() {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+    }
+
+    Edit(row:T)
+    {
+      this.data.Data=row;
+      this.router.navigate ( [ this.editnav ] );
+    }
+
+    Delete(row:T)
+    {
+      this.data.Data=row;
+      this.router.navigate ( [ this.deletenav ] );
     }
   }
