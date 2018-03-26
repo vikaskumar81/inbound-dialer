@@ -18,6 +18,6 @@ import { AppComponentListClass } from '../../shared/service/AppComponentList.cla
 export class ListextensionComponent extends AppComponentListClass<Extension> {
   constructor(protected data: ExtensionService, protected router: Router) {
     super(data, router);
-    this.displayedColumns = ['username','password','callerid','extension','host'];
+    this.displayedColumns = ['username','secret','callerid','extension','host','status'];
    }  
 }

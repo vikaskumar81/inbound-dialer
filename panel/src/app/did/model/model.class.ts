@@ -2,31 +2,36 @@ export interface DID
 {
     id?:number,
     number?: number,
-    id_supplier?: number,
-    supplier?:string
+    idsupplier?: number,
+    areacode?:number,
+    did_rate?:number,
+    setup_cost?:number
 }
 
 export interface HTTPDID
 {
     number?: number,
-    id_supplier?: number
+    idsupplier?: number,
+    areacode?:number,
+    did_rate?:number,
+    setup_cost?:number
 }
 
 export class DIDForm implements HTTPDID{
     public number:number;
-    public id_supplier:number;
+    public idsupplier:number;
 
     constructor(data : DID) 
     {
         if(data==null)
         {
             this.number=-1;
-            this.id_supplier=-1;
+            this.idsupplier=-1;
         }
         else
         {
             this.number=data.number;
-            this.id_supplier=data.id_supplier;
+            this.idsupplier=data.idsupplier;
         }
     }
   }

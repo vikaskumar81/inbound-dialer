@@ -20,10 +20,9 @@ export class ListDidComponent extends AppComponentListClass<DID> {
   constructor(protected data: DidService, protected router: Router) 
   { 
     super(data, router);
-    this.displayedColumns = ['number','supplier'];
+    this.displayedColumns = ['number','idsupplier','areacode','did_rate','setup_cost'];
   }
-
-  ngOnInit() {
+ ngOnInit() {
   }
 
 }

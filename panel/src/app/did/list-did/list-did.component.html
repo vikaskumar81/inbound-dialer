@@ -17,10 +17,25 @@
                   <mat-cell *matCellDef="let element"> {{element.number}} </mat-cell>
                 </ng-container>
    
-                <ng-container matColumnDef="supplier">
-                  <mat-header-cell *matHeaderCellDef> Supplier </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.supplier}} </mat-cell>
+                <ng-container matColumnDef="idsupplier">
+                  <mat-header-cell *matHeaderCellDef> ID_Supplier </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.idsupplier}} </mat-cell>
                 </ng-container>
+
+                <ng-container matColumnDef="areacode">
+                    <mat-header-cell *matHeaderCellDef> Area Code </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.areacode}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="did_rate">
+                      <mat-header-cell *matHeaderCellDef> ID_Supplier </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.did_rate}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="setup_cost">
+                        <mat-header-cell *matHeaderCellDef> Set_Up_Cost </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.setup_cost}} </mat-cell>
+                    </ng-container>
   
               
   
