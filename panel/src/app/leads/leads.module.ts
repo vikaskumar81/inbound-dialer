@@ -10,6 +10,10 @@ import { ChartsModule } from 'ng2-charts';
 import { ListleadsComponent } from './listleads/listleads.component';
 import { UploadleadsComponent } from './uploadleads/uploadleads.component';
 import { LeadsService } from './leads.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
+import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -17,7 +21,12 @@ import { LeadsService } from './leads.service';
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule, 
-    ChartsModule,  
+    SharedModule,
+    ChartsModule, 
+    FormsModule,
+    QuillModule,  
+    ReactiveFormsModule,
+    FileUploadModule, 
     RouterModule.forChild(LeadsRoutes)
     
   ],
