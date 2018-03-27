@@ -6,7 +6,7 @@ import { FormBuilder } from "@angular/forms";
 
 export class AppComponentFormClass<T1, T2> implements OnInit {
 
-    protected cdata : T2;
+    public cdata : T2;
     protected insertdata:string;
     protected nav:string;
     protected keyfield:number;

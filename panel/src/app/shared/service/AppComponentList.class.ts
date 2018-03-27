@@ -4,8 +4,8 @@ import { Router } from "@angular/router";
 import { AppService } from './AppService.class';
 
 export class AppComponentListClass<T> implements OnInit {
-    protected displayedColumns : any[];
-    protected dataSource = new MatTableDataSource();
+    public displayedColumns : any[];
+    public dataSource = new MatTableDataSource();
     @ViewChild(MatSort) protected sort: MatSort;
     @ViewChild(MatPaginator) protected paginator: MatPaginator;
     protected editnav:string;

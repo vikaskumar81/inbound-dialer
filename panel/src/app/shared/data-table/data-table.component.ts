@@ -12,7 +12,7 @@ export class DataTableComponent implements OnInit {
     @Input() field: any[];
     @Input() data: any[];
     @Output() event: EventEmitter<any> = new EventEmitter();
-
+    searchtext="";
     Tdata:any[];
 
   constructor() {}
