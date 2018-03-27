@@ -10,6 +10,7 @@ export class AppComponentListClass<T> implements OnInit {
     @ViewChild(MatPaginator) protected paginator: MatPaginator;
     protected editnav:string;
     protected deletenav:string;
+    protected keyfield:number;
     
     constructor(protected data: AppService<T>, protected router: Router) { }
 
@@ -38,6 +39,7 @@ export class AppComponentListClass<T> implements OnInit {
     Delete(row:T)
     {
       this.data.Data=row;
+      this.data.deleteService(this.keyfield);
       this.router.navigate ( [ this.deletenav ] );
     }
   }
