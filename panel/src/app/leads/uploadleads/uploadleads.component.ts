@@ -23,5 +23,4 @@ export class UploadleadsComponent extends AppComponentFormClass <Upload, UploadF
     this.nav="/main/leads/uploadleads";
     this.cdata=new UploadForm(null);
    }
-
-  }
+}
