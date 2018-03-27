@@ -17,9 +17,9 @@
                 <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
               </ng-container>
  
-              <ng-container matColumnDef="ipaddress">
+              <ng-container matColumnDef="ipaddr">
                 <mat-header-cell *matHeaderCellDef> IP Address </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.ipaddress}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.ipaddr}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="prefix">
@@ -27,13 +27,14 @@
                 <mat-cell *matCellDef="let element"> {{element.prefix}} </mat-cell>
               </ng-container>
 
-                <ng-container matColumnDef="actions">
-                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
-                <mat-cell *matCellDef="let row">
-                   
-                    <button mat-raised-button color="primary" (click)="DeleteDetail(row)">Delete</button>
-                </mat-cell>
-              </ng-container> 
+              <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                     
+                      <button mat-raised-button color="primary" (click)="Edit(row)">Edit</button>
+                      <button mat-raised-button color="primary" (click)="Delete(row)">Delete</button>
+                  </mat-cell>
+                </ng-container> 
 
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

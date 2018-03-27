@@ -22,6 +22,7 @@ export class UploadDidComponent  extends AppComponentFormClass<DID, DIDForm> {
   constructor(protected data: DidService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
     this.nav='/main/did/list-did';
+    this.cdata=new DIDForm(null);
     
   }
 }

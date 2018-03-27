@@ -4,7 +4,7 @@
         <mat-card>
             <mat-card-content>
                 <!-- Message Form -->
-                <mat-card-title>{{MessageLabel}}</mat-card-title>
+                <mat-card-title>Add Message</mat-card-title>
                 <form class="basic-form" (ngSubmit)="onSubmit()"  #AddMessageForm="ngForm">
                 <div fxLayout="row" fxLayoutWrap="wrap">
                     <div fxFlex.gt-md="100" fxFlex="100">
@@ -14,7 +14,7 @@
                     </div>
                     <div fxFlex.gt-sm="100" fxFlex="100">
                         <mat-form-field>
-                            <input matInput type="text" placeholder="Enter File Name" [(ngModel)]="cdata.filename" name="filename">
+                            <input matInput type="text" placeholder="Choose a file" [(ngModel)]="cdata.filename" name="filename">
                         </mat-form-field>
                     </div>
                     

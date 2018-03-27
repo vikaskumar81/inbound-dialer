@@ -1,3 +1,32 @@
-<p>
-  editsupplier works!
-</p>
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Edit Supplier</mat-card-title>
+                <form class="basic-form" (ngSubmit)="onUpdate()" #AddSupplierForm="ngForm">
+                <div fxLayout="row" fxLayoutWrap="wrap">
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Supplier Name" [(ngModel)]="cdata.name" id="name"  name="name">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <mat-form-field>
+                            <input matInput placeholder="Enter IP Address" [(ngModel)]="cdata.ipaddr"  id="ipaddr" name="ipaddr">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Prefix" [(ngModel)]="cdata.prefix"  id="prefix" name="prefix">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <button mat-raised-button color="primary" type="submit">Submit</button>
+                    </div>
+                </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
