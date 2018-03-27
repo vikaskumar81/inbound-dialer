@@ -24,11 +24,7 @@ export class ListcampaignComponent extends AppComponentListClass<Campaign>
   { 
     super(data, router);
     this.displayedColumns=['name', 'provider', 'filename', 'channel', 'ppm', 'ringtime', 'answertime', 'status', 'actions'];
-  }
- 
-  EditDetail(row:Campaign)
-  {
-    this.data.Data=row;
-    this.router.navigate ( [ '/main/campaign/editcampaign' ] );
+    this.editnav="/main/campaign/editcampaign";
+    this.deletenav="/main/campaign/listcampaign";
   }
 }

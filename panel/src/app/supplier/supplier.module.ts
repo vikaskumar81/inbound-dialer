@@ -10,7 +10,6 @@ import { ChartistModule} from 'ng-chartist';
 import { ChartsModule } from 'ng2-charts';
 import { QuillModule } from 'ngx-quill';
 import { FileUploadModule } from 'ng2-file-upload';
-
 import { ListsupplierComponent } from './listsupplier/listsupplier.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 import { EditsupplierComponent } from './editsupplier/editsupplier.component';

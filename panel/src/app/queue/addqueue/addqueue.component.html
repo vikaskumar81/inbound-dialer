@@ -12,11 +12,30 @@
                           <input matInput placeholder="Enter Queue Name" [(ngModel)]="cdata.name" name="name">
                       </mat-form-field>
                     </div>
+
                     <div fxFlex.gt-sm="100" fxFlex="100">
                         <mat-form-field>
-                            <input matInput placeholder="Enter Strategy" [(ngModel)]="cdata.strategy"  id="strategy" name="strategy">
+                          <mat-select placeholder="Enter Strategy" [(ngModel)]="cdata.strategy"  id="strategy" name="strategy">
+                            <mat-option value="-1">Select strategy</mat-option>
+                            <mat-option value="-1">Select strategy</mat-option>
+                            <mat-option value="-1">Select strategy</mat-option>
+                            <mat-option value="-1">Select strategy</mat-option>
+                          </mat-select>
                         </mat-form-field>
-                    </div>
+                      </div>
+
+                      <div fxFlex.gt-sm="100" fxFlex="100">
+                          <mat-form-field>
+                            <mat-select placeholder="Enter Enxtension" [(ngModel)]="cdata.strategy"  id="strategy" name="strategy">
+                              <mat-option value="-1">Select strategy</mat-option>
+                              <mat-option value="-1">Select strategy</mat-option>
+                              <mat-option value="-1">Select strategy</mat-option>
+                              <mat-option value="-1">Select strategy</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+
+                    
                     <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
                         <input matInput placeholder="Enter Length" [(ngModel)]="cdata.maxlen"  id="maxlen" name="maxlen">

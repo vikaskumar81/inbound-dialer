@@ -27,9 +27,9 @@
                   <mat-cell *matCellDef="let element"> {{element.callerid}} </mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef="extension">
+                <ng-container matColumnDef="exten">
                   <mat-header-cell *matHeaderCellDef> Extension </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.extension}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.exten}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="host">
@@ -47,7 +47,8 @@
                   <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                   <mat-cell *matCellDef="let row">
                      
-                      <button mat-raised-button color="primary" (click)="DeleteDetail(row)">Delete</button>
+                      <button mat-raised-button color="primary" (click)="Edit(row)">Edit</button>
+                      <button mat-raised-button color="primary" (click)="Delete(row)">Delete</button>
                   </mat-cell>
                 </ng-container> 
   

@@ -19,7 +19,9 @@ export class ListleadsComponent extends AppComponentListClass<Upload> {
 
   constructor(protected data: LeadsService, protected router: Router) { 
     super(data, router);
-    this.displayedColumns = ["filename", "leads", "dialed", "answered", "noanswer","busy","failed","conjestion","duration"];
+    this.displayedColumns = ["filename", "leads", "dialed", "answered", "noanswer","busy","failed","conjestion","duration","actions"];
+    this.editnav="/main/leads/editleads";
+    this.deletenav="/main/leads/listleads";
   }
 
  

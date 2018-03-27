@@ -3,7 +3,6 @@ import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
 import { User } from '../model/model.class';
-
 import {MatTableDataSource, MatTableModule, MatInputModule, MatButtonModule, MatSort, MatPaginator} from '@angular/material';
 import { FullComponent } from '../../layouts/full/full.component';
 import { ButtonComponent } from '../../shared/button/button.component';
