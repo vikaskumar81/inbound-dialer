@@ -4,8 +4,7 @@ import { Router } from "@angular/router";
 import { AppService } from './AppService.class';
 import { FormBuilder } from "@angular/forms";
 
-export class AppComponentFormClass<T1, T2> implements 
-OnInit {
+export class AppComponentFormClass<T1, T2> implements OnInit {
 
     protected cdata : T2;
     protected insertdata:string;
