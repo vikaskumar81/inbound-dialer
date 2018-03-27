@@ -19,7 +19,7 @@ OnInit {
     onSubmit()
     {
         console.log("Thanks for submitting! Data: " + JSON.stringify(this.cdata));
-        this.data.saveService(JSON.stringify(this.data)).subscribe( data => this.insertdata=data);
+        this.data.saveService(JSON.stringify(this.cdata)).subscribe( data => this.insertdata=data);
         this.router.navigate ( [ this.nav ] );
     }
 
