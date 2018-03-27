@@ -2,21 +2,13 @@ export interface DID
 {
     id?:number,
     number?: number,
-    idsupplier?: number,
-    areacode?:number,
-    did_rate?:number,
-    setup_cost?:number
-}
-
-export interface HTTPDID
+    idsupplier?: number
+   
+}export interface HTTPDID
 {
     number?: number,
-    idsupplier?: number,
-    areacode?:number,
-    did_rate?:number,
-    setup_cost?:number
+    idsupplier?: number
 }
-
 export class DIDForm implements HTTPDID{
     public number:number;
     public idsupplier:number;

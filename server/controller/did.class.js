@@ -30,7 +30,7 @@ exports.Detail=function(req, res){
 exports.Update=function(req, res){
     mysql.Open();
 	console.log("Hello We Are into Update function")
-    var data= req.body.data;    
+    var data=JSON.parse(req.body.data);    
 	var filter={
       "id":req.body.id
     };
@@ -57,7 +57,7 @@ console.log("Hello We Are into Delete function")
 
 exports.AddNew=function(req, res){
     mysql.Open();
-    var user=req.body.data;	
+    var user=JSON.parse(req.body.data);	
 	console.log("Hello We are in Add New row in table");
 	console.log(user);
     mysql.AddNew(table, user, function(data) {

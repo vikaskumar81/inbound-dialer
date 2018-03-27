@@ -26,7 +26,7 @@ exports.Detail=function(req, res){
 
 exports.Update=function(req, res){
     mysql.Open();
-    var data= req.body.data;
+    var data= JSON.parse(req.body.data);
     var filter={
       "id":req.params.id
     };
@@ -51,7 +51,7 @@ exports.Delete=function(req, res){
 
 exports.AddNew=function(req, res){
     mysql.Open();
-    var user=req.params.data;
+    var user=JSON.parse(req.params.data);
 
     mysql.AddNew(table, user, function(data) {
 		res.send(data);
