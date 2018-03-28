@@ -8,7 +8,7 @@ exports.Detail=function(req, res, next){
     };
     mysql.Detail(col, "users", filter, function(data) {
     	console.log(JSON.stringify(data));
-    	res.end(data);
+    	res.send(data);
     });
     mysql.Close();
 }
@@ -18,7 +18,7 @@ exports.List=function(req, res, next){
     var col=['username','password','company', 'contact', 'minutes'];
     mysql.GetList(col, "users", function(data) {
     	console.log(JSON.stringify(data));
-    	res.end(data);
+    	res.send(data);
     });
     mysql.Close();
 }

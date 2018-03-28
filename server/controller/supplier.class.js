@@ -6,7 +6,7 @@ exports.List=function(req, res, next){
     var col=["id", "id_user", "name", "ipaddr", "prefix"];
     mysql.GetList(col, table, function(data) {
     	console.log(JSON.stringify(data));
-    	res.end(data);
+    	res.send(data);
     });
     mysql.Close();
 }
@@ -21,7 +21,7 @@ exports.Detail=function(req, res){
     var col=["id", "id_user", "name", "ipaddr", "prefix"];
     mysql.Detail(col, table, filter, function(data) {
     	console.log(JSON.stringify(data));
-    	res.end(data);
+    	res.send(data);
     });
     mysql.Close();
     return res;
