@@ -5,7 +5,7 @@ var sess = {};
 
 exports.SetSession=function(key, field, value)
 {
-    if(sessdata.get(key) > 0)
+    if(!sessdata.has(key))
     {
         sess[field] = value;	
         sessdata.set(key, sess);
@@ -16,7 +16,6 @@ exports.SetSession=function(key, field, value)
         data[field] = value;
         sessdata.set(key, data);
     }
-	
 }
 
 exports.UpdateSession=function(key, field, value)

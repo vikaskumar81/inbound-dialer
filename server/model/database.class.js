@@ -175,6 +175,7 @@ exports.Update=function(data, table, condition, callback){
         // error will be an Error if one occurred during the query
         if (!error)
         {
+            console.log("Update Status : "+rows.affectedRows);
             callback(rows.affectedRows);
         }
         else
@@ -183,7 +184,7 @@ exports.Update=function(data, table, condition, callback){
 }
 
 exports.AddNew=function(table, data, callback){
-    var sql = mysql.format("INSERT INTO ?? SET ??", [table, data]);
+    var sql = mysql.format("INSERT INTO ?? SET ?", [table, data]);
 	console.log(sql);
     connection.query(sql, function (error, rows) {
         // error will be an Error if one occurred during the query

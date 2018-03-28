@@ -1,40 +1,21 @@
-var io = require('socket.io')(http);
+var json = require('json');
 
-class SocketNC
-{
-    constructor(name, io) {
-        this.io = io;
-        this.socketevent();    
-    }
-    socketevent()
-    {
-        io.sockets.on('connection', function(socket) {
-    
-            socket.on('login', function(data) {
+exports.Login=function(data){
+    var data = JSON.parse(data);
+    console.log("We are into Login function : "+data);
+    io.sockets.emit("loginRes", data.phonestatus);
+};
 
-                //io.emit('send', data);
-                io.sockets.in(socket.room).emit('send', data);
+exports.Makecall=function(data){
+    var data = JSON.parse(data);
+    console.log("We are into make call function : "+data);
+    io.sockets.emit("callRes", data.callstatus);
+};
 
-            });
+exports.Error=function(data){
+    console.log("Sockets has error : "+data);
+};
 
-            // Fire 'count_chatters' for updating Chatter Count in UI
-
-            socket.on('makecall', function(data) {
-
-                io.emit('callRes', data);
-
-            });
-
-            socket.on('error', function(data) {
-                console.log("Found error : "+data);
-            });
-
-            socket.on('disconnect', function() {
-                console.log("Connection close");
-            });
-
-         });
-    }
-}
-
-module.exports = SocketNC;
+exports.Disconnect=function(data){
+    console.log("Socket disconnected");
+};

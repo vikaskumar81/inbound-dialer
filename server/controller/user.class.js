@@ -8,7 +8,7 @@ exports.Detail=function(req, res, next){
     };
     mysql.Detail(col, "users", filter, function(data) {
     	console.log(JSON.stringify(data));
-    	res.send(data);
+    	res.end(data);
     });
     mysql.Close();
 }
@@ -18,7 +18,7 @@ exports.List=function(req, res, next){
     var col=['username','password','company', 'contact', 'minutes'];
     mysql.GetList(col, "users", function(data) {
     	console.log(JSON.stringify(data));
-    	res.send(data);
+    	res.end(data);
     });
     mysql.Close();
 }
@@ -28,8 +28,10 @@ exports.Update=function(req, res){
     var data= req.body.data;
     var filter={
       "id":req.params.id
-    };
-    mysql.Update(data, "users", filter);
+    };    
+    mysql.Update(data, "users", filter, function(data) {
+      //res.end(data);
+    });
     mysql.Close();
     return res;
 }
@@ -38,9 +40,10 @@ exports.Delete=function(req, res){
     mysql.Open();
     var user={
         "id":req.params.id
-    };
-
-    mysql.Remove(user, "users");
+    };    
+    mysql.Remove(user, "users", function(data) {
+      res.end(data);
+    });
     mysql.Close();
 }
 
@@ -51,7 +54,7 @@ exports.Login=function(req, res){
     connection.query('SELECT * FROM users WHERE username = ?',[username], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
-      res.send({
+      res.end({
         "code":400,
         "failed":"error ocurred"
       })
@@ -68,7 +71,7 @@ exports.Login=function(req, res){
             })
           }
           else{
-            res.send({
+            res.end({
               "code":403,
               "success":"You have logged in from wrong user role"
             })
@@ -76,7 +79,7 @@ exports.Login=function(req, res){
   
         }
         else{
-          res.send({
+          res.end({
                "code":403,
                "success":"Username and Password does not match"
           })
@@ -84,7 +87,7 @@ exports.Login=function(req, res){
   
       }
       else{
-        res.send({
+        res.end({
           "code":403,
           "success":"USername does not exits"
             });
@@ -99,7 +102,9 @@ exports.Logout=function(req, res){
 
 exports.AddNew=function(req, res){
     mysql.Open();
-    var user=req.body.data;
-    mysql.AddNew("users", data);
+    var user=JSON.parse(req.body.data);
+    mysql.AddNew("users", user, function(data) {
+		res.end(data);
+	});
     mysql.Close();
 }

@@ -9,7 +9,11 @@ module.exports = function(app) {
     var Leads = require('../controller/upload.class');
     var Extension = require('../controller/extension.class');
     var Did = require('../controller/did.class');
-  
+    var multer = require('multer');
+    var DIR = '../server/uploads/';    
+    var upload = multer({dest: DIR});
+    var fs = require('fs');
+    var type = upload.single('filename');
     // todoList Routes
     app.route('/option/message').get(Option.Message);
     app.route('/option/supplier').get(Option.Supplier);
@@ -53,7 +57,7 @@ module.exports = function(app) {
 
     app.route('/leads')
       .get(Leads.List)
-      .post(Leads.AddNew);
+      .post(type, Leads.Upload);
       
 	  app.route('/leads/:id')
       .get(Leads.Detail)

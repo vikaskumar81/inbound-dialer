@@ -5,7 +5,7 @@ exports.List=function(req, res, next){
     var col=["id", "id_user", "name", "filename"];
     mysql.GetList(col, table, function(data) {
     	console.log(JSON.stringify(data));
-    	res.send(data);
+    	res.end(data);
     });
     mysql.Close();
 }
@@ -18,7 +18,7 @@ exports.Detail=function(req, res){
     var col=["id", "id_user", "name", "filename"];
     mysql.Detail(col, table, filter, function(data) {
     	console.log(JSON.stringify(data));
-    	res.send(data);
+    	res.end(data);
     });
     mysql.Close();
     return res;
@@ -31,7 +31,7 @@ exports.Update=function(req, res){
       "id":req.params.id
     };
     mysql.Update(data, table, filter, function(data) {
-		res.send(data);
+		//res.send(data);
 	});
     mysql.Close();
     return res;
@@ -44,7 +44,7 @@ exports.Delete=function(req, res){
     };
 
     mysql.Remove(user, table, function(data) {
-		res.send(data);
+		res.end(data);
 	});
     mysql.Close();
 }
@@ -54,7 +54,7 @@ exports.AddNew=function(req, res){
     var user=JSON.parse(req.params.data);
 
     mysql.AddNew(table, user, function(data) {
-		res.send(data);
+		res.end(data);
 	});
     mysql.Close();
 }
