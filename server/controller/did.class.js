@@ -32,7 +32,7 @@ exports.Update=function(req, res){
 	console.log("Hello We Are into Update function")
     var data=JSON.parse(req.body.data);    
 	var filter={
-      "id":req.body.id
+      "id":req.params.id
     };
     mysql.Update(data, table, filter, function(data) {
 		res.end(data);
