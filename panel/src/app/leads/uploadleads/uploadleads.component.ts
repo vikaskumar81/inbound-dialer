@@ -20,7 +20,7 @@ export class UploadleadsComponent extends AppComponentFormClass <Upload, UploadF
  
   constructor(protected data: LeadsService, protected fb: FormBuilder, protected router:Router) {
     super(data, fb, router);
-    this.nav="/main/leads/uploadleads";
+    this.nav="/main/leads/listleads";
     this.cdata=new UploadForm(null);
    }
 }

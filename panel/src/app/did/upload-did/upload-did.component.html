@@ -7,14 +7,14 @@
               <mat-card-title>Upload Did</mat-card-title>
               <form class="basic-form" (ngSubmit)="onSubmit()"  #AddDIDForm="ngForm">
               <div fxLayout="row" fxLayoutWrap="wrap">
-                  <div fxFlex.gt-md="100" fxFlex="100">
+                <div fxFlex.gt-md="100" fxFlex="100">
                     <mat-form-field>
-                      <input matInput placeholder="Enter Name" [(ngModel)]="cdata.number" id="number" type="number" name="number">
+                      <input matInput placeholder="Enter DID Number" [(ngModel)]="cdata.number" type="number"  name="number">
                     </mat-form-field>
                   </div>
                   <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                            <input matInput placeholder="Enter Supplier Name" [(ngModel)]="cdata.idsupplier" id="idsupplier" type="number" name="idsupplier">
+                        <input matInput placeholder="Enter Supplier id" [(ngModel)]="cdata.idsupplier" type="number"   name="idsupplier">
                       </mat-form-field>
                   </div>
                   

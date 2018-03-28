@@ -6,7 +6,7 @@ import { ExtensionForm, Extension } from '../model/model.class';
 import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
 import { Router } from '@angular/router';
 import { MatSelect } from '@angular/material';
-import { Input } from '@angular/core';
+
 import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
@@ -18,7 +18,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AddextensionComponent extends AppComponentFormClass<Extension, ExtensionForm> {
 
-  @Input() label:string;
+
   constructor(protected data: ExtensionService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
     this.nav='/main/extension/listextension';

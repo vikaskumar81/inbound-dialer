@@ -20,7 +20,7 @@ export interface HTTPExtension
 export class ExtensionForm implements HTTPExtension
 {
     public username:string;
-    public password:string;
+    public secret:string;
     public callerid:number;
     public extension:string;
     public host:string;
@@ -30,7 +30,7 @@ export class ExtensionForm implements HTTPExtension
         if(data==null)
         {
             this.username="";
-            this.password="";
+            this.secret="";
             this.callerid=-1;
             this.extension="";
             this.host="dynamic";
@@ -38,7 +38,7 @@ export class ExtensionForm implements HTTPExtension
         else
         {
             this.username=data.username;
-            this.password=data.password;
+            this.secret=data.password;
             this.callerid=data.callerid;
             this.extension=data.extension;
             this.host=data.host;

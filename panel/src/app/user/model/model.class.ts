@@ -4,8 +4,8 @@ export interface User
     username: string,
     password:string,
     contact?:string,
-    company?:string,
-    minutes?:number
+    company?:string
+   
 }
 
 export interface HTTPUser

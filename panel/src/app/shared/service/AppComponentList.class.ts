@@ -38,8 +38,10 @@ export class AppComponentListClass<T> implements OnInit {
 
     Delete(row:T)
     {
+      console.log("deleted row :"+this.keyfield);
       this.data.Data=row;
       this.data.deleteService(this.keyfield);
+      
       this.router.navigate ( [ this.deletenav ] );
     }
   }
