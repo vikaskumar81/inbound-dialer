@@ -21,5 +21,7 @@ export class ListuserComponent extends AppComponentListClass<User>
   {
     super(data, router);
     this.displayedColumns= ['username', 'password', 'company', 'contact', 'actions'];
+    this.editnav="/main/user/edituser";
+    this.deletenav="/main/user/listuser";
   }
 }

@@ -14,7 +14,7 @@ export const SupplierRoutes: Routes = [
       path: 'addsupplier', 
       component: AddsupplierComponent
     },{
-      path: 'edidsupplier', 
+      path: 'editsupplier', 
       component: EditsupplierComponent
     }]
   }

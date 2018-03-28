@@ -20,19 +20,9 @@ export class ListqueueComponent extends AppComponentListClass<Queue> {
   constructor(protected data: QueueService, protected router: Router) { 
     super(data, router);
     this.displayedColumns = ['name','strategy','maxlen','retry','wrapuptime','announce_frequency','announce_holdtime','ringinuser'];
-  }
-
-  Edit(row: Queue)
-  {
-    this.data.Data=row;
-    console.log(row);
-    this.data.Action="edit";
-    this.router.navigate ( [ '/main/queue/editqueue' ] );
-  }
-
-  Delete(row : Queue)
-  {
-    this.data.Data=row;
-    console.log(row);
+    this.editnav="/main/queue/editqueue";
+    this.deletenav="/main/queue/listqueue";
   }
 }
+
+ 

@@ -21,7 +21,7 @@ export class ListDidComponent extends AppComponentListClass<DID> {
   { 
     super(data, router);
     this.displayedColumns = ['number','idsupplier','actions'];
-    this.editnav="/main/did/editdid";
-    this.deletenav="/main/campaign/listdid";
+    this.editnav="/main/did/didupload";
+    this.deletenav="/main/did/didlist";
   }
  }

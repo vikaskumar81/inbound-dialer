@@ -6,10 +6,10 @@ import { UserForm, User } from '../model/model.class';
 import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
 import { Router } from '@angular/router';
 import { MatSelect } from '@angular/material';
-import { Input } from '@angular/core';
 import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-adduser',
@@ -18,10 +18,10 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdduserComponent extends AppComponentFormClass<User, UserForm> {
 
-  @Input() label:string;
+ 
   constructor(protected data: UserService, protected fb: FormBuilder, protected router: Router) { 
     super(data, fb, router);
-    this.nav='/main/extension/listextension';
+    this.nav='/main/user/listuser';
     this.cdata=new UserForm(null);
   }
 }

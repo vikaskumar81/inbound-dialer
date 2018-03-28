@@ -15,7 +15,7 @@ export class ListsupplierComponent extends AppComponentListClass<Supplier> {
   constructor(protected data: SupplierService, protected router: Router) 
   {
     super(data, router);
-    this.displayedColumns = ['name','ipaddr','prefix','actions'];
+    this.displayedColumns = ['name','ipaddr','prefix','description','actions'];
     this.editnav="/main/supplier/editsupplier";
     this.deletenav="/main/supplier/listsupplier";
   }
