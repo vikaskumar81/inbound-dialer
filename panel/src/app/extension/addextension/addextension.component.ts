@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, Validators} from '@angular/forms';
 import { ExtensionService } from '../extension.service';
 import { ExtensionForm, Extension } from '../model/model.class';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { Router } from '@angular/router';
 import { MatSelect } from '@angular/material';
 
@@ -16,11 +16,11 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './addextension.component.html',
   styleUrls: ['./addextension.component.css']
 })
-export class AddextensionComponent extends AppComponentFormClass<Extension, ExtensionForm> {
+export class AddextensionComponent extends AppComponentClass<Extension, ExtensionForm> {
 
 
-  constructor(protected data: ExtensionService, protected fb: FormBuilder, protected router: Router) { 
-    super(data, fb, router);
+  constructor(protected data: ExtensionService, protected router: Router, protected fb: FormBuilder) { 
+    super(data, router, fb);
     this.nav='/main/extension/listextension';
     this.cdata=new ExtensionForm(null);
   }

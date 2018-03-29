@@ -5,8 +5,8 @@ import { ButtonComponent } from '../../shared/button/button.component';
 import { Observable } from 'rxjs/Observable';
 import {DataSource} from '@angular/cdk/collections';
 import 'rxjs/add/observable/of';
-import { DID } from '../model/model.class';
-import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
+import { DIDForm , DID} from '../model/model.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { DidService } from '../did.service';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   templateUrl: './list-did.component.html',
   styleUrls: ['./list-did.component.css']
 })
-export class ListDidComponent extends AppComponentListClass<DID> {
+export class ListDidComponent extends AppComponentClass<DID, DIDForm> {
 
   constructor(protected data: DidService, protected router: Router) 
   { 

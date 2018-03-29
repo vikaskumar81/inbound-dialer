@@ -27,15 +27,11 @@
                 <mat-cell *matCellDef="let element"> {{element.prefix}} </mat-cell>
               </ng-container>
 
-              
-              
-
               <ng-container matColumnDef="actions">
                   <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                   <mat-cell *matCellDef="let row">
-                     
                       <button mat-raised-button color="primary" (click)="Edit(row)">Edit</button>
-                      <button mat-raised-button color="primary" (click)="Delete(row)">Delete</button>
+                      <button mat-raised-button color="primary" (click)="Delete(row, row.id)">Delete</button>
                   </mat-cell>
                 </ng-container> 
 

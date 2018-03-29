@@ -8,14 +8,14 @@ import 'rxjs/add/observable/of';
 import { Message, MessageForm } from '../model/model.class';
 import { MessageService } from '../message.service';
 import { Router } from '@angular/router';
-import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-listmessage',
   templateUrl: './listmessage.component.html',
   styleUrls: ['./listmessage.component.css']
 })
-export class ListmessageComponent extends AppComponentListClass<Message> {
+export class ListmessageComponent extends AppComponentClass<Message, MessageForm> {
   
   constructor(protected data: MessageService, protected router: Router) { 
     super(data, router);

@@ -4,7 +4,7 @@ import { MessageService } from '../message.service';
 import { Option } from '../../shared/model/model.class';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { MessageForm, Message } from '../model/model.class';
 
 @Component({
@@ -13,11 +13,11 @@ import { MessageForm, Message } from '../model/model.class';
   styleUrls: ['./editmessage.component.css']
 })
 export class EditmessageComponent extends 
-AppComponentFormClass<Message,MessageForm> {
+AppComponentClass<Message,MessageForm> {
 
-  constructor(protected data: MessageService, protected fb: FormBuilder, protected router:Router) 
+  constructor(protected data: MessageService,  protected router:Router,protected fb: FormBuilder) 
   {
-    super(data, fb, router);
+    super(data, router, fb);
     this.cdata= new MessageForm(this.data.Data);
     this.nav="/main/message/listmessage";
     this.keyfield=this.data.Data.id;

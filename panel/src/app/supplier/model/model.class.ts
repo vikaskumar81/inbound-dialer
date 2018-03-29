@@ -1,17 +1,17 @@
 export interface Supplier
 {
-    id?:number,
-    name:string,
-    prefix:string,
-    ipaddr:string
+    id:number,
+    name?:string,
+    prefix?:string,
+    ipaddr?:string
     
 }
 
 export interface HTTPSupplier
 {
-    name:string,
-    prefix:string,
-    ipaddr:string
+    name?:string,
+    prefix?:string,
+    ipaddr?:string
    
 }
 

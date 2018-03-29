@@ -43,7 +43,7 @@
                     <mat-cell *matCellDef="let row">
                         <!--<action [label]="'Edit'" [icon]="'fas fa-pencil-alt fa-fw'" [data]=row (onClick)="EditDetail()"></action>-->
                         <button mat-raised-button color="primary" (click)="Edit(row)">Edit</button>
-                        <button mat-raised-button color="primary" (click)="Delete(row)">Delete</button>
+                        <button mat-raised-button color="primary" (click)="Delete(row, row.id)">Delete</button>
                     </mat-cell>
                   </ng-container> 
   

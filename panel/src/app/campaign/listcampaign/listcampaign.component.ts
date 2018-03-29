@@ -4,10 +4,10 @@ import {MatSortModule, MatSort} from '@angular/material/sort';
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 import 'rxjs/add/observable/of';
-import { Campaign } from '../model/campaign.model';
+import { Campaign, CampaignForm } from '../model/campaign.model';
 import { CampaignService } from '../campaign.service';
 import { Router } from '@angular/router';
-import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-listcampaign',
@@ -15,7 +15,7 @@ import { AppComponentListClass } from '../../shared/service/AppComponentList.cla
   styleUrls: ['./listcampaign.component.css']
 })
 
-export class ListcampaignComponent extends AppComponentListClass<Campaign>
+export class ListcampaignComponent extends AppComponentClass<Campaign, CampaignForm>
 {
   widgetdata =[{"icon":"account circle","data":205,"label":"Client"},{"icon":"explore","data":306,"label":"Tickets"},
   {"icon":"language","data":700,"label":"Emails"},{"icon":"contact phone","data":300,"label":"Agents"}];

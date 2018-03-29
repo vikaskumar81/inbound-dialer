@@ -7,7 +7,7 @@
               <form class="basic-form" (ngSubmit)="onSubmit()" #UploadForm="ngForm">
               <div fxLayout="row" fxLayoutWrap="wrap">
                 
-                  <div fxFlex.gt-md="100" fxFlex="100">
+                 <!-- <div fxFlex.gt-md="100" fxFlex="100">
                     <mat-form-field>
                       <input matInput placeholder="Enter File Name" [(ngModel)]="cdata.filename" name="filename">
                     </mat-form-field>
@@ -16,10 +16,20 @@
                     <mat-form-field>
                       <input matInput  placeholder="Enter Campaign ID" [(ngModel)]="cdata.id_campaign" type="number" name="id_campaign" >
                     </mat-form-field>
+                  </div>-->
+                  <div fxFlex.gt-sm="100" fxFlex="100">
+                    <mat-form-field>
+                      <mat-select placeholder="Select Campaign" [(ngModel)]="cdata.id_campaign"  id="id_campaign" name="id_campaign">
+                        <mat-option value="-1">Option 1</mat-option>
+                        <mat-option value="-1">Option 2</mat-option>
+                        <mat-option value="-1">Option 3</mat-option>
+                        <mat-option value="-1">Option 4</mat-option>
+                      </mat-select>
+                    </mat-form-field>
                   </div>
 
-
-                 
+                  <input id="filename" name="filename" type="file" />
+                         
                    <div fxFlex.gt-sm="100" fxFlex="100">
                       <button mat-raised-button color="primary" type="submit">Submit</button>
                     </div> 

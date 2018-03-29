@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { CampaignForm, Campaign } from '../model/campaign.model';
 import { MatSelect } from '@angular/material';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-addcampaign',
@@ -16,14 +16,14 @@ import { AppComponentFormClass } from '../../shared/service/AppComponentForm.cla
   styleUrls: ['./addcampaign.component.css']
 })
 
-export class AddcampaignComponent extends AppComponentFormClass <Campaign, CampaignForm>{
+export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignForm>{
   message : Option[];
   foundmessage: boolean;
   supplier : Option[];
   foundsupplier : boolean;
 
-  constructor(protected data: CampaignService, protected fb: FormBuilder, protected router:Router) {
-    super(data, fb, router);
+  constructor(protected data: CampaignService, protected router:Router,protected fb: FormBuilder) {
+    super(data,router, fb);
     this.nav="/main/campaign/listcampaign";
     this.cdata=new CampaignForm(null);
    }

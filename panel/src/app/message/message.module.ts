@@ -14,6 +14,7 @@ import { ListmessageComponent } from './listmessage/listmessage.component';
 import { MessageService } from './message.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditmessageComponent } from './editmessage/editmessage.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { EditmessageComponent } from './editmessage/editmessage.component';
     QuillModule,  
     ReactiveFormsModule,
     FileUploadModule,
-    RouterModule.forChild(MessageRoutes)
+    RouterModule.forChild(MessageRoutes),
+    HttpModule
   ],
   declarations: [ AddmessageComponent, ListmessageComponent, EditmessageComponent],
   providers: [MessageService]

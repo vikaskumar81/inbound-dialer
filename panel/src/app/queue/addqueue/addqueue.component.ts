@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { QueueForm, Queue } from '../model/model.class';
 import { MatSelect } from '@angular/material';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 
 @Component({
@@ -16,9 +16,9 @@ import { AppComponentFormClass } from '../../shared/service/AppComponentForm.cla
   templateUrl: './addqueue.component.html',
   styleUrls: ['./addqueue.component.css']
 })
-export class AddqueueComponent extends AppComponentFormClass<Queue, QueueForm> {
-  constructor(protected data: QueueService, protected fb: FormBuilder, protected router: Router) { 
-    super(data, fb, router);
+export class AddqueueComponent extends AppComponentClass<Queue, QueueForm> {
+  constructor(protected data: QueueService,  protected router: Router,protected fb: FormBuilder) { 
+    super(data, router, fb);
     this.nav='/main/queue/listqueue';
     this.cdata=new QueueForm(null);
   }

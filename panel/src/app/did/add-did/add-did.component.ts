@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { DIDForm , DID} from '../model/model.class';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { MatSelect } from '@angular/material';
 
 
@@ -18,10 +18,10 @@ import { MatSelect } from '@angular/material';
   templateUrl: './add-did.component.html',
   styleUrls: ['./add-did.component.css']
 })
-export class AddDidComponent extends AppComponentFormClass<DID, DIDForm> {
+export class AddDidComponent extends AppComponentClass<DID, DIDForm> {
  
-  constructor(protected data: DidService, protected fb: FormBuilder, protected router: Router) { 
-    super(data, fb, router);
+  constructor(protected data: DidService, protected router: Router,protected fb: FormBuilder) { 
+    super(data, router,fb);
     this.nav='/main/did/didlist';
     this.cdata=new DIDForm(null);
   }

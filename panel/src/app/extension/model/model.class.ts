@@ -2,18 +2,18 @@ export interface Extension
 {
     id?:number,
     username?:string,
-    password?:string,
+    secret?:string,
     callerid?:number,
-    extension?:string,
+    exten?:string,
     host?:string
 }
 
 export interface HTTPExtension
 {
     username?:string,
-    password?:string,
+    secret?:string,
     callerid?:number,
-    extension?:string,
+    exten?:string,
     host?:string
 }
 
@@ -22,7 +22,7 @@ export class ExtensionForm implements HTTPExtension
     public username:string;
     public secret:string;
     public callerid:number;
-    public extension:string;
+    public exten:string;
     public host:string;
 
     constructor(data:Extension) 
@@ -32,15 +32,15 @@ export class ExtensionForm implements HTTPExtension
             this.username="";
             this.secret="";
             this.callerid=-1;
-            this.extension="";
+            this.exten="";
             this.host="dynamic";
         }
         else
         {
             this.username=data.username;
-            this.secret=data.password;
+            this.secret=data.secret;
             this.callerid=data.callerid;
-            this.extension=data.extension;
+            this.exten=data.exten;
             this.host=data.host;
         }
     }    

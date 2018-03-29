@@ -4,7 +4,7 @@ import { Campaign, CampaignForm } from '../model/campaign.model';
 import { Option } from '../../shared/model/model.class';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-editcampaign',
@@ -13,15 +13,15 @@ import { AppComponentFormClass } from '../../shared/service/AppComponentForm.cla
 })
 
 export class EditcampaignComponent extends 
-AppComponentFormClass<Campaign,CampaignForm> {
+AppComponentClass<Campaign,CampaignForm> {
   message : Option[];
   foundmessage: boolean;
   supplier : Option[];
   foundsupplier : boolean;
 
-  constructor(protected data: CampaignService, protected fb: FormBuilder, protected router:Router) 
+  constructor(protected data: CampaignService, protected router:Router, protected fb: FormBuilder) 
   { 
-    super(data, fb, router);
+    super(data, router,fb);
     this.cdata= new CampaignForm(this.data.Data);
     this.nav="/main/campaign/listcampaign";
     this.keyfield=this.data.Data.id;

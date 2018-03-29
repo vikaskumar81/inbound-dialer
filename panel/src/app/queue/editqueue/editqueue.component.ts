@@ -4,7 +4,7 @@ import { QueueForm, Queue } from '../model/model.class';
 import { Option } from '../../shared/model/model.class';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { AddqueueComponent } from '../addqueue/addqueue.component';
 
 
@@ -14,11 +14,11 @@ import { AddqueueComponent } from '../addqueue/addqueue.component';
   styleUrls: ['./editqueue.component.css']
 })
 export class EditqueueComponent extends 
-AppComponentFormClass<Queue,QueueForm> {
+AppComponentClass<Queue,QueueForm> {
 
-  constructor(protected data: QueueService, protected fb: FormBuilder, protected router:Router) 
+  constructor(protected data: QueueService, protected router:Router, protected fb: FormBuilder) 
   {
-    super(data, fb, router);
+    super(data, router, fb);
     this.cdata= new QueueForm(this.data.Data);
     this.nav="/main/queue/listqueue";
     this.keyfield=this.data.Data.id;

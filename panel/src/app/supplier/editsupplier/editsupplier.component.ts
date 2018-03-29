@@ -4,7 +4,7 @@ import { SupplierForm, Supplier } from '../model/model.class';
 import { Option } from '../../shared/model/model.class';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { AddsupplierComponent } from '../addsupplier/addsupplier.component';
 
 
@@ -15,11 +15,11 @@ import { AddsupplierComponent } from '../addsupplier/addsupplier.component';
   styleUrls: ['./editsupplier.component.css']
 })
 export class EditsupplierComponent extends 
-AppComponentFormClass<Supplier,SupplierForm> {
+AppComponentClass<Supplier,SupplierForm> {
 
-  constructor(protected data: SupplierService, protected fb: FormBuilder, protected router:Router) 
+  constructor(protected data: SupplierService, protected router:Router, protected fb: FormBuilder) 
   {
-    super(data, fb, router);
+    super(data,  router,fb);
     this.cdata= new SupplierForm(this.data.Data);
     this.nav="/main/supplier/listsupplier";
     this.keyfield=this.data.Data.id;

@@ -4,7 +4,7 @@ import { UserForm, User } from '../model/model.class';
 import { Option } from '../../shared/model/model.class';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppComponentFormClass } from '../../shared/service/AppComponentForm.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { AdduserComponent } from '../adduser/adduser.component';
 
 
@@ -14,11 +14,11 @@ import { AdduserComponent } from '../adduser/adduser.component';
   styleUrls: ['./edituser.component.css']
 })
 export class EdituserComponent extends 
-AppComponentFormClass<User,UserForm> {
+AppComponentClass<User,UserForm> {
 
-  constructor(protected data: UserService, protected fb: FormBuilder, protected router:Router) 
+  constructor(protected data: UserService, protected router:Router, protected fb: FormBuilder) 
   {
-    super(data, fb, router);
+    super(data,  router,fb);
     this.cdata= new UserForm(this.data.Data);
     this.nav="/main/user/listuser";
     this.keyfield=this.data.Data.id;

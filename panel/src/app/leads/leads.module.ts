@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { SharedModule } from '../shared/shared.module';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -27,8 +28,8 @@ import { SharedModule } from '../shared/shared.module';
     QuillModule,  
     ReactiveFormsModule,
     FileUploadModule, 
-    RouterModule.forChild(LeadsRoutes)
-    
+    RouterModule.forChild(LeadsRoutes),
+    HttpModule    
   ],
   declarations: [ ListleadsComponent, UploadleadsComponent],
   providers : [LeadsService]

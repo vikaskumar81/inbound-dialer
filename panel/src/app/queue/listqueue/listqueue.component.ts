@@ -5,17 +5,17 @@ import { ButtonComponent } from '../../shared/button/button.component';
 import { Observable } from 'rxjs/Observable';
 import {DataSource} from '@angular/cdk/collections';
 import 'rxjs/add/observable/of';
-import { Queue } from '../model/model.class';
+import { Queue,QueueForm } from '../model/model.class';
 import { QueueService } from '../queue.service';
 import { Router } from '@angular/router';
-import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-listqueue',
   templateUrl: './listqueue.component.html',
   styleUrls: ['./listqueue.component.css']
 })
-export class ListqueueComponent extends AppComponentListClass<Queue> {
+export class ListqueueComponent extends AppComponentClass<Queue, QueueForm> {
 
   constructor(protected data: QueueService, protected router: Router) { 
     super(data, router);

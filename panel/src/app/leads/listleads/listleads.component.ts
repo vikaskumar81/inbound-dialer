@@ -8,14 +8,14 @@ import 'rxjs/add/observable/of';
 import { Upload, UploadForm } from '../model/model.class';
 import { LeadsService } from '../leads.service';
 import { Router } from '@angular/router';
-import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-listleads',
   templateUrl: './listleads.component.html',
   styleUrls: ['./listleads.component.css']
 })
-export class ListleadsComponent extends AppComponentListClass<Upload> {
+export class ListleadsComponent extends AppComponentClass<Upload, UploadForm> {
 
   constructor(protected data: LeadsService, protected router: Router) { 
     super(data, router);

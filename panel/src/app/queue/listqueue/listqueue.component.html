@@ -58,7 +58,7 @@
                   <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                   <mat-cell *matCellDef="let row">
                      
-                      <button mat-raised-button color="primary" (click)="DeleteDetail(row)">Delete</button>
+                      <button mat-raised-button color="primary" (click)="DeleteDetail(row,  row.id)">Delete</button>
                   </mat-cell>
                 </ng-container> 
   

@@ -15,6 +15,7 @@ import { UploadDidComponent } from './upload-did/upload-did.component';
 import { ListDidComponent } from './list-did/list-did.component';
 import { RouterModule } from '@angular/router';
 import { DidService } from './did.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { DidService } from './did.service';
     ReactiveFormsModule,
     FileUploadModule,
     RouterModule.forChild(DidRoutes),
+    HttpModule
   ],
   declarations: [ListDidComponent, AddDidComponent, UploadDidComponent],
   providers: [DidService]

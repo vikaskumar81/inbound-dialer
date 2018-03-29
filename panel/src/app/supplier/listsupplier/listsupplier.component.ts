@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTableModule, MatInputModule, MatButtonModule, MatSort, MatPaginator} from '@angular/material';
-import { Supplier } from '../model/model.class';
+import { Supplier,SupplierForm} from '../model/model.class';
 import { SupplierService } from '../supplier.service';
 import { Router } from '@angular/router';
-import { AppComponentListClass } from '../../shared/service/AppComponentList.class';
+import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
 @Component({
   selector: 'app-listsupplier',
@@ -11,7 +11,7 @@ import { AppComponentListClass } from '../../shared/service/AppComponentList.cla
   styleUrls: ['./listsupplier.component.css']
 })
 
-export class ListsupplierComponent extends AppComponentListClass<Supplier> {
+export class ListsupplierComponent extends AppComponentClass<Supplier, SupplierForm> {
   constructor(protected data: SupplierService, protected router: Router) 
   {
     super(data, router);

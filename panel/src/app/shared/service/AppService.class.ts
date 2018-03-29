@@ -55,8 +55,8 @@ export class AppService<T> {
       return this.http.put<string>(APIURL+this.appmod+key, {"data":data, "id":key}, { headers: {"Content-Type": "application/json"}, params: data });
     }
   
-    public deleteService(key:number)
+    public deleteService(key:number): Observable<string>
     {
-      this.http.delete(APIURL+this.appmod+key);
+      return this.http.delete<string>(APIURL+this.appmod+key, { headers: {"Content-Type": "application/json"}});
     }
   }
