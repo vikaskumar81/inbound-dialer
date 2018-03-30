@@ -17,6 +17,7 @@ module.exports = function(app) {
     // todoList Routes
     app.route('/option/message').get(Option.Message);
     app.route('/option/supplier').get(Option.Supplier);
+    app.route('/option/campaign').get(Option.Campaign);
 
     app.route('/user')
       .get(User.List)
