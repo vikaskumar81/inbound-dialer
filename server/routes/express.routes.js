@@ -40,7 +40,7 @@ module.exports = function(app) {
     
     app.route('/message')
       .get(Message.List)
-      .post(Message.AddNew);
+      .post(Message.Upload);
   
     app.route('/message/:id')
       .get(Message.Detail)
