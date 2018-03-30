@@ -3,6 +3,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from "@angular/material";
 import { Router } from "@angular/router";
 import { AppService } from './AppService.class';
 import { FormBuilder } from "@angular/forms";
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class AppComponentClass<T1, T2> implements OnInit {
     public displayedColumns : any[];
@@ -38,6 +39,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
 
     Edit(row:T1)
     {
+      console.log(row);
       this.data.Data=row;
       this.router.navigate ( [ this.editnav ] );
     }

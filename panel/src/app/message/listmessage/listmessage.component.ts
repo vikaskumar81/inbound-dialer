@@ -20,19 +20,7 @@ export class ListmessageComponent extends AppComponentClass<Message, MessageForm
   constructor(protected data: MessageService, protected router: Router) { 
     super(data, router);
     this.displayedColumns = ['name','filename','actions'];
-  }
-
-  Edit(row: Message)
-  {
-    this.data.Data=row;
-    console.log(row);
-    this.data.Action="edit";
-    this.router.navigate ( [ '/main/message/editmessage' ] );
-  }
-
-  Delete(row : Message)
-  {
-    this.data.Data=row;
-    console.log(row);
+    this.editnav="/main/message/";
+    this.deletenav="/main/message/";
   }
 }

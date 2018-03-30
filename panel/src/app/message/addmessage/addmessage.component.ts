@@ -26,7 +26,7 @@ export class AddmessageComponent  extends AppComponentClass<Message, MessageForm
  
   constructor(protected data: MessageService, protected router: Router, private el: ElementRef, private http: Http,protected fb: FormBuilder) { 
     super(data, router, fb);
-    this.nav='/main/message/listmessage';
+    this.nav='/main/message/';
     this.cdata=new MessageForm(null);
   }
   ngOnInit() {

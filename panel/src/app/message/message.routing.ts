@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { AddmessageComponent } from './addmessage/addmessage.component';
 import { ListmessageComponent } from './listmessage/listmessage.component';
 import { EditmessageComponent } from './editmessage/editmessage.component';
+import { MessageComponent } from './message/message.component';
 
 export const MessageRoutes: Routes = [
  { 
@@ -16,6 +17,10 @@ export const MessageRoutes: Routes = [
     },{
       path: 'listmessage', 
       component: ListmessageComponent
+    },
+    {
+      path: '', 
+      component: MessageComponent
     }]
   }
 ];
