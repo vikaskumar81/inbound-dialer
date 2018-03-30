@@ -64,8 +64,8 @@ exports.Upload=function(req, res, next){
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
-    src.on('end', function() { res.end('complete'); });
-    src.on('error', function(err) { res.end('error'); });    
+    src.on('end', function() { res.send('complete'); });
+    src.on('error', function(err) { res.send('error'); });    
     console.log("We are into upload function");
     console.log(req.file);  
     var filename = req.file.originalname;    
@@ -122,7 +122,7 @@ exports.Delete=function(req, res){
         "id":req.params.id
     };
     mysql.Remove(user, table, function(data) {
-		res.end(data);
+		res.send(data);
 	});
     mysql.Close();
 }

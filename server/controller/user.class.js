@@ -25,7 +25,7 @@ exports.List=function(req, res, next){
 
 exports.Update=function(req, res){
     mysql.Open();
-    var data= req.body.data;
+    var data= JSON.parse(req.body.data);
     var filter={
       "id":req.params.id
     };    
