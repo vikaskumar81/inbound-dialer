@@ -17,14 +17,14 @@ export interface Upload
 export interface HTTPUpload
 {
     filename:string,
-    id_campaign:number,
+    id_campaign:number
 }
 
 export class UploadForm implements HTTPUpload
 {
     public filename:string;
     public id_campaign:number;
-
+  
     constructor(data : Upload)
     {
         if(data==null)
@@ -36,6 +36,6 @@ export class UploadForm implements HTTPUpload
         {
             this.filename=data.filename;
             this.id_campaign=data.id_campaign;
-        }
+         }
     }
 }

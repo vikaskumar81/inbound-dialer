@@ -7,24 +7,13 @@
                 <mat-card-title>Add Message</mat-card-title>
                 <form class="basic-form" (ngSubmit)="onSubmit()"  #AddMessageForm="ngForm">
                 <div fxLayout="row" fxLayoutWrap="wrap">
-                    <div fxFlex.gt-md="100" fxFlex="100">
-                      <mat-form-field>
+                     <div fxFlex.gt-md="100" fxFlex="100">
+                    <mat-form-field>
                         <input matInput type="text" placeholder="Enter Name" [(ngModel)]="cdata.name" name="name">
                       </mat-form-field>
                     </div>
-                   <!-- <div fxFlex.gt-sm="100" fxFlex="100">
-                        <mat-form-field>
-                            <input matInput type="file" placeholder="Choose a file" [(ngModel)]="cdata.filename" name="filename">
-                        </mat-form-field>
-                    </div>-->
-                    <!-- <div fxFlex.gt-md="100" fxFlex="100">
-                        <mat-form-field>
-                          <input matInput type="text" placeholder="Enter file name" [(ngModel)]="cdata.filename" name="filename">
-                        </mat-form-field>
-                      </div>-->
-                      <input id="filename" name="filename" type="file" />
-                    
-                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <input id="filename" name="filename" type="file" />
+                        <div fxFlex.gt-sm="100" fxFlex="100">
                       <button mat-raised-button color="primary" type="submit">Submit</button>
                     </div>
                 </div>

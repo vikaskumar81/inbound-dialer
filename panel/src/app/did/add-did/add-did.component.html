@@ -6,22 +6,54 @@
               <!-- Message Form -->
               <mat-card-title>Add DID</mat-card-title>
               <form class="basic-form" (ngSubmit)="onSubmit()"  #AddDIDForm="ngForm">
-              <div fxLayout="row" fxLayoutWrap="wrap">
-                  <div fxFlex.gt-md="100" fxFlex="100">
-                    <mat-form-field>
-                      <input matInput placeholder="Enter DID Number" [(ngModel)]="cdata.number" type="number"  name="number">
-                    </mat-form-field>
+                  <div fxLayout="row" fxLayoutWrap="wrap">
+
+                      <div fxFlex.gt-sm="100" fxFlex="100">
+                          <mat-form-field>
+                            <mat-select placeholder="Select Didprovider" [(ngModel)]="cdata.didprovider" name="didprovider">
+                              <mat-option value="option">Select Did Provider</mat-option>
+                              <mat-option *ngFor="let d of didprovider" [value]="d.value">{{d.label}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+    
+                        <div fxFlex.gt-sm="100" fxFlex="100">
+                            <mat-form-field >
+                              <mat-select placeholder="Select Customer" [(ngModel)]="cdata.customer" name="customer">
+                                <mat-option value="option">Select Customer</mat-option>
+                                <mat-option *ngFor="let c of customer" [value]="c.value">{{c.label}}</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                    
+                     
+                        <div fxFlex.gt-sm="100" fxFlex="100">
+                            <mat-form-field >
+                              <mat-select placeholder="Select Queue" [(ngModel)]="cdata.id_queue" name="id_queue">
+                                <mat-option value="option">Select Queue</mat-option>
+                                <mat-option *ngFor="let q of queue" [value]="q.value">{{c.label}}</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+
+                          <div fxFlex.gt-sm="100" fxFlex="100">
+                              <mat-form-field>
+                                <input matInput placeholder="Enter Contact Number" [(ngModel)]="cdata.number" id="number"  name="number">
+                              </mat-form-field>
+                            </div>
+    
+                          <div fxFlex.gt-sm="100" fxFlex="100">
+                              <mat-form-field>
+                                  <textarea matInput placeholder="DID Descriptions" name="description" [(ngModel)]="cdata.description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                            </div>
+    
+                      <input id="filename" name="filename" type="file" />
+                      
+                      <div fxFlex.gt-sm="100" fxFlex="100">
+                        <button mat-raised-button color="primary" type="submit">Submit</button>
+                      </div>
                   </div>
-                  <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field>
-                        <input matInput placeholder="Enter Supplier id" [(ngModel)]="cdata.idsupplier" type="number"   name="idsupplier">
-                      </mat-form-field>
-                  </div>
-                  
-                  <div fxFlex.gt-sm="100" fxFlex="100">
-                    <button mat-raised-button color="primary" type="submit">Submit</button>
-                  </div>
-              </div>
               </form>
           </mat-card-content>
       </mat-card>

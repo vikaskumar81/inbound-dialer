@@ -18,7 +18,7 @@ AppComponentClass<User,UserForm> {
 
   constructor(protected data: UserService, protected router:Router, protected fb: FormBuilder) 
   {
-    super(data,  router,fb);
+    super(data,router,fb);
     this.cdata= new UserForm(this.data.Data);
     this.nav="/main/user/listuser";
     this.keyfield=this.data.Data.id;

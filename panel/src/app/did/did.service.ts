@@ -13,4 +13,17 @@ export class DidService extends AppService<DID> {
     super(http);
     this.appmod="did/";
   }
+  public getSupplier():Observable<Option[]>{
+    return super.getOption("supplier");
+  }
+  
+  public getQueue():Observable<Option[]>{
+    return super.getOption("queue");
+  }
+  public getDidprovider():Observable<Option[]>{
+    return super.getOption("didprovider");
+  }
+  public getCustomer():Observable<Option[]>{
+    return super.getOption("customer");
+  }
 }

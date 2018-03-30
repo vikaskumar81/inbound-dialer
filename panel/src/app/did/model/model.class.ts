@@ -2,43 +2,64 @@ export interface DID
 {
     id?:number,
     number?: number,
-    idsupplier?: number,
+    id_supplier?: number,
     supplier?:string,
-    idqueue?:number,
-    queue?:string
+    id_queue?:number,
+    queue?:string,
+    description?:string,
+    didprovider?:string,
+    customer?:string,
+    id_customer?: number
    
 }export interface HTTPDID
 {
     number?: number,
-    idsupplier?: number,
+    id_supplier?: number,
     supplier?:string,
-    idqueue?:number,
-    queue?:string
+    id_queue?:number,
+    queue?:string,
+    description?:string,
+    didprovider?:string,
+    customer?:string,
+    id_customer?: number
+   
 }
 export class DIDForm implements HTTPDID{
     public number:number;
-    public idsupplier:number;
+    public id_supplier:number;
     public supplier:string;
-    public idqueue:number;
+    public id_queue:number;
     public queue:string;
+    public description:string;
+    public didprovider?:string;
+    public customer?:string;
+    public id_customer?:number;
 
     constructor(data : DID) 
     {
         if(data==null)
         {
-            this.number=-1;
-            this.idsupplier=-1;
+            this.number=0;
+            this.id_supplier=-1;
             this.supplier="";
-            this.idqueue=-1;
+            this.id_queue=-1;
             this.queue="";
+            this.description="";
+            this.didprovider="";
+            this.customer="";
+            this.id_customer=-1;
         }
         else
         {
             this.number=data.number;
-            this.idsupplier=data.idsupplier;
+            this.id_supplier=data.id_supplier;
             this.supplier=data.supplier;
-            this.idqueue=data.idqueue;
+            this.id_queue=data.id_queue;
             this.queue=data.queue;
+            this.description=data.description;
+            this.id_customer=data.id_customer;
+            this.customer=data.customer;
+            this.didprovider=data.didprovider;
         }
     }
   }

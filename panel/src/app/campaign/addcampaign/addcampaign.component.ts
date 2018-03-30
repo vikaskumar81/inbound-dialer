@@ -38,6 +38,7 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
         {
           this.foundsupplier=true;
           this.supplier=data;
+         
         }
     });
 

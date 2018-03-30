@@ -23,6 +23,16 @@ const URL = 'http://72.249.184.208:3010/did';
 })
 export class UploadDidComponent  extends AppComponentClass<DID, DIDForm> {
 
+    queue : Option[];
+  foundqueue: boolean;
+  supplier : Option[];
+  foundsupplier : boolean;
+  didprovider : Option[];
+  founddidprovider : boolean;
+  customer : Option[];
+  foundcustomer : boolean;
+ 
+
   public uploader:FileUploader = new FileUploader({url: URL, itemAlias: 'filename'});
   
   constructor(protected data: DidService,  protected router: Router,private el: ElementRef, private http: Http,protected fb: FormBuilder) { 
@@ -33,6 +43,42 @@ export class UploadDidComponent  extends AppComponentClass<DID, DIDForm> {
 
   ngOnInit() {
     super.ngOnInit();
+
+    this.data.getSupplier().subscribe(
+        data => {
+          if(data.length>0)
+          {
+            this.foundsupplier=true;
+            this.supplier=data;
+          }
+      });
+  
+      this.data.getQueue().subscribe(
+        data => {
+          if(data.length>0)
+          {
+            this.foundqueue=true;
+            this.queue=data;
+          }
+      });
+
+      this.data.getDidprovider().subscribe(
+        data => {
+          if(data.length>0)
+          {
+            this.foundqueue=true;
+            this.queue=data;
+          }
+      });
+
+      this.data.getCustomer().subscribe(
+        data => {
+          if(data.length>0)
+          {
+            this.foundqueue=true;
+            this.queue=data;
+          }
+      });
    //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
      this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
    //overide the onCompleteItem property of the uploader so we are 

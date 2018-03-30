@@ -16,6 +16,7 @@ import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { SharedModule } from '../shared/shared.module';
 import { HttpModule } from '@angular/http';
 
+
 @NgModule({
   imports: [
     CommonModule,

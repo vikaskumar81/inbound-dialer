@@ -12,7 +12,9 @@ import { MessageForm, Message } from '../model/model.class';
 import { FileUploader } from 'ng2-file-upload';
 import { Http, Response } from '@angular/http';
 
-const URL = 'http://72.249.184.208:3010/leads';
+
+
+const URL = 'http://72.249.184.208:3010/message';
 
 @Component({
   selector: 'app-addmessage',

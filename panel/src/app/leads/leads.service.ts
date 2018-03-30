@@ -14,11 +14,9 @@ export class LeadsService extends AppService<Upload>{
     this.appmod="leads/";
    }
 
-   public getSupplier():Observable<Option[]>{
-    return super.getOption("supplier");
+   public getCampaign():Observable<Option[]>{
+    return super.getOption("campaign");
   }
   
-  public getMessage():Observable<Option[]>{
-    return super.getOption("message");
-  }
+  
 }
