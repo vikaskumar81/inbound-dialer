@@ -95,10 +95,8 @@ exports.Upload=function(req, res, next){
                     //var user=req.body;
                 var last_id = mysql.AddNew(table, updata, function(data) {
                         last_id = data;
-                        res.end(data);
-                    });
-                    
-                    for(var i = 0; i < lead; i++)
+                        res.send(data);
+                        for(var i = 0; i < lead; i++)
                     {
                         console.log("leads data : ");
                         console.log(jsondata);
@@ -109,9 +107,12 @@ exports.Upload=function(req, res, next){
                         };	
                         
                         mysql.AddNew(table2, leaddata, function(data) {
-                            res.end(data);
+                            res.send(data);
                         });
                     }
+                    });
+                    
+                    
                 });
     mysql.Close();
 }
