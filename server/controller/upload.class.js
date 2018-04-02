@@ -53,11 +53,11 @@ exports.Update=function(req, res){
  
 exports.Upload=function(req, res, next){
    
-    delay(10)
-            .then(() => {
-                mysql.Open();  
-                console.log("We are into upload function");
-               console.log(req.file);        
+    //delay(10)
+           // .then(() => {
+    mysql.Open();  
+    console.log("We are into upload function");
+    console.log(req.file);        
     /** The original name of the uploaded file
         stored in the variable "originalname". **/
     var target_path = '../server/uploads/' + req.file.originalname;
@@ -82,8 +82,8 @@ exports.Upload=function(req, res, next){
 		//console.log(JSON.stringify(MyData));
 
     });
-});
-    delay(100)
+//});
+    delay(10)
             .then(() => {
 
                     var jsondata = MyData;    
