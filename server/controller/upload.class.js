@@ -52,8 +52,11 @@ exports.Update=function(req, res){
 }
  
 exports.Upload=function(req, res, next){
-    mysql.Open();   
-
+    mysql.Open();  
+    console.log("We are into upload function");
+    console.log(req.file);  
+    delay(10)
+            .then(() => {
     /** The original name of the uploaded file
         stored in the variable "originalname". **/
     var target_path = '../server/uploads/' + req.file.originalname;
@@ -65,12 +68,10 @@ exports.Upload=function(req, res, next){
     src.pipe(dest);
     src.on('end', function() { res.send('complete'); });
     src.on('error', function(err) { res.send('error'); });    
-    console.log("We are into upload function");
-    console.log(req.file);  
+     
     var filename = req.file.originalname;    
     var last_id = '';
-    delay(10)
-            .then(() => {
+    
 	obj.from.path(DIR+filename).to.array(function (data) {
         console.log("Reads CSV files");
         console.log(data);
