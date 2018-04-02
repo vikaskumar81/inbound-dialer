@@ -52,12 +52,14 @@ exports.Update=function(req, res){
 }
  
 exports.Upload=function(req, res, next){
-    delay(5)
+    delay(10)
             .then(() => {
                      mysql.Open();  
+                     console.log("We are into upload function");
+                    console.log(req.file);
             });
     
-    delay(10)
+    delay(100)
             .then(() => {
     /** The original name of the uploaded file
         stored in the variable "originalname". **/
@@ -70,8 +72,7 @@ exports.Upload=function(req, res, next){
     src.pipe(dest);
     src.on('end', function() { res.send('complete'); });
     src.on('error', function(err) { res.send('error'); });    
-    console.log("We are into upload function");
-    console.log(req.file);  
+      
     var filename = req.file.originalname;    
     var last_id = '';
     
@@ -85,7 +86,7 @@ exports.Upload=function(req, res, next){
 
     });
 });
-    delay(100)
+    delay(500)
             .then(() => {
 
                     var jsondata = MyData;    
