@@ -52,10 +52,13 @@ exports.Update=function(req, res){
 }
  
 exports.Upload=function(req, res, next){
-    mysql.Open();  
+    delay(10)
+            .then(() => {
+                     mysql.Open();  
+            });
     console.log("We are into upload function");
     console.log(req.file);  
-    delay(10)
+    delay(50)
             .then(() => {
     /** The original name of the uploaded file
         stored in the variable "originalname". **/
