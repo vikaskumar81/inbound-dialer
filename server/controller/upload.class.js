@@ -52,13 +52,12 @@ exports.Update=function(req, res){
 }
  
 exports.Upload=function(req, res, next){
-    mysql.Open();
-    
-    var tmp_path = req.file.path;
+    mysql.Open();   
 
     /** The original name of the uploaded file
         stored in the variable "originalname". **/
     var target_path = '../server/uploads/' + req.file.originalname;
+    var tmp_path = req.file.path;
   
     /** A better way to copy the uploaded file. **/
     var src = fs.createReadStream(tmp_path);
@@ -95,7 +94,7 @@ exports.Upload=function(req, res, next){
                     //var user=req.body;
                 var last_id = mysql.AddNew(table, updata, function(data) {
                         last_id = data;
-                        res.send(data);
+                        //res.end(data);
                         for(var i = 0; i < lead; i++)
                     {
                         console.log("leads data : ");
