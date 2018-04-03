@@ -55,7 +55,7 @@ exports.AddNew=function(req, res){
     var user=JSON.parse(req.params.data);
 
     mysql.AddNew(table, user, function(data) {
-		res.end(data);
+		//res.end(data);
 	});
     mysql.Close();
 }
@@ -84,7 +84,7 @@ exports.Upload=function(req, res, next){
     };
     var last_id = mysql.AddNew(table, updata, function(data) {
     last_id = data;
-    res.end(data);
+    //res.end(data);
 });
     mysql.Close();
 }

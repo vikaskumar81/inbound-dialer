@@ -104,7 +104,7 @@ exports.AddNew=function(req, res){
     mysql.Open();
     var user=JSON.parse(req.body.data);
     mysql.AddNew("users", user, function(data) {
-		res.end(data);
+		//res.end(data);
 	});
     mysql.Close();
 }

@@ -61,7 +61,7 @@ exports.AddNew=function(req, res){
 	console.log("Hello We are in Add New row in table");
 	console.log(user);
     mysql.AddNew(table, user, function(data) {
-		res.end(data);
+		//res.end(data);
 	});
     mysql.Close();
 }

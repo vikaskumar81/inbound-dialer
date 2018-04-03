@@ -45,7 +45,7 @@ exports.Extension=function(req, res){
 
 exports.Customer=function(req, res){
     mysql.Open();
-    mysql.SqlQuery("SELECT `id`, `username`, FROM `users`");
+    mysql.SqlQuery("SELECT `id`, `username` FROM `users`");
     mysql.RunQuery(function(data) {
     	console.log(JSON.stringify(data));
     	res.send(data);

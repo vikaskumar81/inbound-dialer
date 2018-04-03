@@ -98,7 +98,7 @@ delay(20)
         var last_id = 0;
         mysql.AddNew(table, updata, function(data) {
              last_id = data;
-             res.end();
+             //res.end();
 
             for(var i = 0; i < lead; i++)
              {
@@ -113,7 +113,7 @@ delay(20)
                 };
 
                 mysql.AddNew(table2, leaddata, function(data) {
-                    res.end(data);
+                    //res.end(data);
                  });
                 }            
     });
