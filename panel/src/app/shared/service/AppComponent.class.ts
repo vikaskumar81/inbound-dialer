@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class AppComponentClass<T1, T2> implements OnInit {
     public displayedColumns : any[];
     public cdata : T2;
+    public cur_row : T1;
     protected insertdata:string;
     protected nav:string;
     protected keyfield:number;
@@ -18,12 +19,18 @@ export class AppComponentClass<T1, T2> implements OnInit {
     protected editnav:string;
     protected deletenav:string;
     protected deletestatus:string;
+    public tag_label:string;
     
     constructor(protected data: AppService<T1>, protected router: Router, protected fb?: FormBuilder) { }
 
     ngOnInit()
     {
         this.data.getService().subscribe(data => this.dataSource.data = data);
+        this.data.frm_label.subscribe(res=>{this.tag_label=res; console.log(res);});
+        /* this.data.solution.subscribe(res=>{
+          this.cur_row=res;
+          console.log(res);
+        }); */
     }
   
     applyFilter(filterValue: string) {
@@ -40,6 +47,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
     Edit(row:T1)
     {
       console.log(row);
+      this.data.changelabel("Edit Details");
       this.data.Data=row;
       this.router.navigate ( [ this.editnav ] );
     }

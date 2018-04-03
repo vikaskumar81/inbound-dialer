@@ -23,5 +23,4 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('isLoggedin', 'true');
     this.router.navigate ( [ '/main/home' ] );
   }
-
 }

@@ -3,11 +3,17 @@ import { HttpClient }   from '@angular/common/http';
 import { Observable }   from 'rxjs/Observable';
 import { APIURL } from '../../app.routing';
 import { Option } from '../model/model.class';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { serializePath } from '@angular/router/src/url_tree';
 
 export class AppService<T> {
     protected appmod : string;
     protected data : T;
     protected action : string;
+    protected service_data = new BehaviorSubject<T>(null);
+    public solution= this.service_data.asObservable();
+    protected label: string;
+    public frm_label= new BehaviorSubject<string>("Add New");
   
     constructor(protected http : HttpClient) { }
 
@@ -21,10 +27,16 @@ export class AppService<T> {
   
     public set Data(v : T) {
       this.data = v;
+      this.service_data.next(v);
     }
     
     public get Data() : T {
       return this.data;
+    }
+
+    changelabel(lbl:string)
+    {
+      this.frm_label.next(lbl);
     }
 
     public getOption(data:string):Observable<Option[]>{

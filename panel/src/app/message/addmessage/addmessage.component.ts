@@ -24,15 +24,21 @@ const URL = 'http://72.249.184.208:3010/message';
 export class AddmessageComponent  extends AppComponentClass<Message, MessageForm> {
 
   public uploader:FileUploader = new FileUploader({url: URL, itemAlias: 'filename'});
+  public tag_label:string;
 
  
   constructor(protected data: MessageService, protected router: Router, private el: ElementRef, private http: Http,protected fb: FormBuilder) { 
     super(data, router, fb);
     this.nav='/main/message/';
-    this.cdata=new MessageForm(null);
+    //this.cdata=new MessageForm(null);
   }
+
   ngOnInit() {
     super.ngOnInit();
+    this.data.solution.subscribe(res=>{
+        this.cdata=new MessageForm(res);
+    });
+
    //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
      this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
    //overide the onCompleteItem property of the uploader so we are 
