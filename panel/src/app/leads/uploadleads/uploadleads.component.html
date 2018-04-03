@@ -10,7 +10,7 @@
                  <mat-form-field  *ngIf="campaign">
                  <mat-select placeholder="Select Campaign" [(ngModel)]="cdata.id_campaign" name="id_campaign">
                    <mat-option value="option">Select Campaign</mat-option>
-                    <mat-option *ngFor="let c of campaign" [value]="c.value">{{c.label}}</mat-option>
+                    <mat-option *ngFor="let c of campaign" [value]="c.id">{{c.name}}</mat-option>
                   </mat-select>
               </mat-form-field>
                  </div>
