@@ -9,6 +9,7 @@ module.exports = function(app) {
     var Leads = require('../controller/upload.class');
     var Extension = require('../controller/extension.class');
     var Did = require('../controller/did.class');
+    var Queue = require('../controller/queue.class');
     var multer = require('multer');
     var DIR = '../server/uploads/';    
     var upload = multer({dest: DIR});
@@ -18,6 +19,9 @@ module.exports = function(app) {
     app.route('/option/message').get(Option.Message);
     app.route('/option/supplier').get(Option.Supplier);
     app.route('/option/campaign').get(Option.Campaign);
+    app.route('/option/extension').get(Option.Extension);
+    app.route('/option/customer').get(Option.Customer);
+    app.route('/option/queue').get(Option.Queue);
 
     app.route('/user')
       .get(User.List)
@@ -82,4 +86,14 @@ module.exports = function(app) {
       .get(Did.Detail)
       .put(Did.Update)
       .delete(Did.Delete);
+
+      app.route('/queue')
+      .get(Queue.List)
+      .post(Queue.AddNew);
+
+    app.route('/queue/:id')
+      .get(Queue.Detail)
+      .put(Queue.Update)
+      .delete(Queue.Delete);
+  
 }

@@ -52,69 +52,73 @@ exports.Update=function(req, res){
 }
  
 exports.Upload=function(req, res, next){
-   
-    //delay(10)
-           // .then(() => {
-    mysql.Open();  
+    mysql.Open();
     console.log("We are into upload function");
-    console.log(req.file);        
+    console.log(req.file);
     /** The original name of the uploaded file
-        stored in the variable "originalname". **/
+        stored in the variable "originalname". **/    
     var target_path = '../server/uploads/' + req.file.originalname;
     var tmp_path = req.file.path;
-  
+
     /** A better way to copy the uploaded file. **/
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);
-    src.pipe(dest);
+    //src.pipe(dest);
     src.on('end', function() { res.send('complete'); });
-    src.on('error', function(err) { res.send('error'); });    
-      
-    var filename = req.file.originalname;    
+    src.on('error', function(err) { res.send('error'); });
+    src.pipe(csv()).pipe(dest);
+    var filename = req.file.originalname;
     var last_id = '';
-    
-	obj.from.path(DIR+filename).to.array(function (data) {
-        console.log("Reads CSV files");
-        console.log(data);
-		for (var index = 0; index < data.length; index++) {
-			MyData.push(data[index]);
-		}
-		//console.log(JSON.stringify(MyData));
-
-    });
-//});
     delay(10)
             .then(() => {
 
-                    var jsondata = MyData;    
-                    var lead = MyData.length;
-                    var updata={
-                        "filename":filename,
-                        "datetime":currdate,
-                        "leads":lead
-                    };
-                    //var user=req.body;
-                var last_id = mysql.AddNew(table, updata, function(data) {
-                        last_id = data;
-                        //res.end(data);
-                        for(var i = 0; i < lead; i++)
-                    {
-                        console.log("leads data : ");
-                        console.log(jsondata);
-                        var leaddata = {
-                            "id_upload":last_id,
-                            "id_campaign":req.body.data.campaign_id,
-                            "phone":jsondata[i]
-                        };	
-                        
-                        mysql.AddNew(table2, leaddata, function(data) {
-                            res.send(data);
-                        });
-                    }
-                    });
-                    
-                    
-                });
+        obj.from.path(DIR+filename).to.array(function (data) {
+        console.log("Reads CSV files");
+        console.log(data);
+                for (var index = 0; index < data.length; index++) {
+                        MyData.push(data[index]);
+                }
+                console.log(JSON.stringify(MyData));
+
+    });
+});
+
+delay(20)
+.then(() => {
+
+            mysql.Open();
+            var jsondata = MyData;
+            var lead = MyData.length;
+            var updata={
+                    "filename":filename,
+                    "datetime":currdate,
+                    "leads":lead
+            };
+        //var user=req.body;
+        var last_id = 0;
+        mysql.AddNew(table, updata, function(data) {
+             last_id = data;
+             res.end();
+
+            for(var i = 0; i < lead; i++)
+             {
+                console.log("leads data : ");
+                console.log(jsondata);
+                var campdata = JSON.parse(req.body.data);
+                var camp_id = campdata.id_campaign;
+                var leaddata = {
+                    "id_upload":last_id,
+                    "id_campaign":camp_id,
+                    "phone":jsondata[i]
+                };
+
+                mysql.AddNew(table2, leaddata, function(data) {
+                    res.end(data);
+                 });
+                }            
+    });
+    });
+
     mysql.Close();
 }
 

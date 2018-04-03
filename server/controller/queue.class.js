@@ -1,10 +1,11 @@
 var mysql=require('../model/database.class');
-const fs = require('fs');
-var table="did";
+var table="queue";
+
 exports.List=function(req, res, next){
-    mysql.Open();    
-    mysql.SqlQuery("SELECT dd.`id`, dd.`idsupplier`, dd.`number`, que.`queue_name` FROM did dd JOIN queue que ON dd.`queue_name`=que.`id`");
-    mysql.RunQuery(function(data) {
+    mysql.Open();
+    var col=["id", "iduser", "queue_name", "strategy", "extension", "monitor_type", "timeout", "monitor_format", "announce_holdtime", "retry", "maxlen"];
+    mysql.GetList(col, table, function(data) {
+    	console.log(JSON.stringify(data));
     	res.send(data);
     });
     mysql.Close();
@@ -17,7 +18,7 @@ exports.Detail=function(req, res){
     var filter={
       "id":req.params.id
     };
-    var col=["id", "number", "idsupplier", "queue_name"];
+    var col=["id", "iduser", "queue_name", "strategy", "extension", "monitor_type", "timeout", "monitor_format", "announce_holdtime", "retry", "maxlen"];
     mysql.Detail(col, table, filter, function(data) {
     	console.log(JSON.stringify(data));
     	res.send(data);
@@ -29,12 +30,12 @@ exports.Detail=function(req, res){
 exports.Update=function(req, res){
     mysql.Open();
 	console.log("Hello We Are into Update function")
-    var data=JSON.parse(req.body.data);    
+    var data= JSON.parse(req.body.data);    
 	var filter={
       "id":req.params.id
     };
     mysql.Update(data, table, filter, function(data) {
-		res.end(data);
+		//res.send(data);
 	});
     mysql.Close();
     return res;
