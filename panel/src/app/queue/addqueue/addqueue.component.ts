@@ -17,9 +17,39 @@ import { AppComponentClass } from '../../shared/service/AppComponent.class';
   styleUrls: ['./addqueue.component.css']
 })
 export class AddqueueComponent extends AppComponentClass<Queue, QueueForm> {
+
+    customer : Option[];
+    foundcustomer : boolean;
+    extension : Option[];
+    foundextension : boolean;
+    
   constructor(protected data: QueueService,  protected router: Router,protected fb: FormBuilder) { 
     super(data, router, fb);
     this.nav='/main/queue/listqueue';
     this.cdata=new QueueForm(null);
   }
+
+  ngOnInit() {
+    super.ngOnInit();
+
+    this.data.getCustomer().subscribe(
+       data => {
+         if(data.length>0)
+         {
+           this.foundcustomer=true;
+           this.customer=data;
+           console.log(data);
+         }
+     });
+
+     this.data.getExtension().subscribe(
+      data => {
+        if(data.length>0)
+        {
+          this.foundextension=true;
+          this.extension=data;
+          console.log(data);
+        }
+    });
+    }
 }

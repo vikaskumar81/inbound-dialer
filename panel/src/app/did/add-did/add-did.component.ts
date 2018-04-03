@@ -19,10 +19,51 @@ import { MatSelect } from '@angular/material';
   styleUrls: ['./add-did.component.css']
 })
 export class AddDidComponent extends AppComponentClass<DID, DIDForm> {
+
+  supplier : Option[];
+  foundsupplier : boolean;
+  customer : Option[];
+  foundcustomer : boolean;
+  queue: Option[];
+  foundqueue : boolean;
  
   constructor(protected data: DidService, protected router: Router,protected fb: FormBuilder) { 
     super(data, router,fb);
     this.nav='/main/did/didlist';
     this.cdata=new DIDForm(null);
+  }
+
+  ngOnInit()
+  {
+    super.ngOnInit();
+    
+    this.data.getSupplier().subscribe(
+      data => {
+        if(data.length>0)
+        {
+          this.foundsupplier=true;
+          this.supplier=data;
+         
+        }
+    });
+
+    this.data.getCustomer().subscribe(
+      data => {
+        if(data.length>0)
+        {
+          this.foundcustomer=true;
+          this.customer=data;
+          console.log(data);
+        }
+    });
+    this.data.getQueue().subscribe(
+      data => {
+        if(data.length>0)
+        {
+          this.foundqueue=true;
+          this.queue=data;
+          console.log(data);
+        }
+    });
   }
 }

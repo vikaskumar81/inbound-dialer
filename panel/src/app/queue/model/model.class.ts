@@ -1,61 +1,78 @@
 export interface Queue
 {
     id?:number,
-    name?: string,
+    queue_name?: string,
     strategy?:string,
     maxlen?:number,
     retry?:number,
-    wrapuptime?:number,
-    announce_frequency?:number,
     announce_holdtime?:string,
-    ringinuser?:string
+    monitor_type?:number,
+    timeout?:number,
+    monitor_format?:number,
+    iduser:number,
+    extension:number
 }
 
 export interface HTTPQueue
 {
-    name?: string,
+    queue_name?: string,
     strategy?:string,
     maxlen?:number,
     retry?:number,
-    wrapuptime?:number,
-    announce_frequency?:number,
     announce_holdtime?:string,
-    ringinuser?:string
+    monitor_type?:number,
+    timeout?:number,
+    monitor_format?:number,
+    iduser:number,
+    extension:number
+
 }
 
 export class QueueForm implements HTTPQueue{
-    public name: string;
+    public queue_name: string;
     public strategy:string;
     public maxlen:number;
     public retry:number;
-    public wrapuptime:number;
-    public announce_frequency:number;
+   
     public announce_holdtime:string;
-    public ringinuser:string;
+  
+    public monitor_type:number;
+    public timeout:number;
+    public monitor_format:number;
+    public iduser:number;
+    public extension:number;
 
     constructor(data : Queue) 
     {
         if(data==null)
         {
-            this.name="";
+            this.queue_name="";
             this.strategy="roundrobin";
             this.maxlen=0;
             this.retry=0;
-            this.wrapuptime=60;
-            this.announce_frequency=90;
+           
             this.announce_holdtime="yes";
-            this.ringinuser="no";
+           
+            this.monitor_type=1;
+            this.timeout=1;
+            this.monitor_format=1;
+            this.iduser=1;
+            this.extension=1;
         }
         else
         {
-            this.name=data.name;
+            this.queue_name=data.queue_name;
             this.strategy=data.strategy;
             this.maxlen=data.maxlen;
             this.retry=data.retry;
-            this.wrapuptime=data.wrapuptime;
-            this.announce_frequency=data.announce_frequency;
+          
             this.announce_holdtime=data.announce_holdtime;
-            this.ringinuser=data.ringinuser;
+          
+            this.monitor_type=data.monitor_type;
+            this.timeout=data.timeout;
+            this.monitor_format=data.monitor_format;
+            this.iduser=data.iduser;
+            this.extension=data.extension;
         }
     }
   }

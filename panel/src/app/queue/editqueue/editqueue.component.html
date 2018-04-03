@@ -1,65 +1,86 @@
 
 <div fxLayout="row" fxLayoutWrap="wrap">
-        <div fxFlex.gt-sm="100" fxFlex="100">
-            <mat-card>
-                <mat-card-content>
-                    <!-- Message Form -->
-                    <mat-card-title>Edit Queue</mat-card-title>
-                    <form class="basic-form" (ngSubmit)="onUpdate()"  #AddQueueForm="ngForm">
-                    <div fxLayout="row" fxLayoutWrap="wrap">
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                              <input matInput placeholder="Enter Queue Name" [(ngModel)]="cdata.name" name="name">
-                          </mat-form-field>
+    <div fxFlex.gt-sm="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <!-- Message Form -->
+                <mat-card-title>Edit Queue</mat-card-title>
+                <form class="basic-form" (ngSubmit)="onUpdate()"  #AddQueueForm="ngForm">
+
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <mat-form-field  *ngIf="foundcustomer">
+                        <mat-select placeholder="Select Customer" [(ngModel)]="cdata.iduser" name="iduser">
+                          <mat-option value="option">Select Customer</mat-option>
+                           <mat-option *ngFor="let c of customer" [value]="c.id">{{c.username}}</mat-option>
+                         </mat-select>
+                     </mat-form-field>
                         </div>
-                        <div fxFlex.gt-sm="100" fxFlex="100">
-                            <mat-form-field>
-                                <input matInput placeholder="Enter Strategy" [(ngModel)]="cdata.strategy"  id="strategy" name="strategy">
-                            </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-sm="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter Length" [(ngModel)]="cdata.maxlen" type="number" id="maxlen" name="maxlen">
-                          </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter Retry number" [(ngModel)]="cdata.retry" id="retry" type="number"  name="retry">
-                          </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter Wrap_Up_Time" [(ngModel)]="cdata.wrapuptime" id="wrapuptime" type="number"  name="wrapuptime">
-                          </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter Announce_frequency" [(ngModel)]="cdata.announce_frequency" type="number" id="announce_frequency"  name="recordingformat">
-                          </mat-form-field>
-                        </div>
-                        
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter Announce Hold Time" [(ngModel)]="cdata.announce_holdtime" id="announce_holdtime"  name="announceholdtime">
-                          </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter User" [(ngModel)]="cdata.ringinuser" id="ringinuser"  name="ringinuser">
-                          </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-md="100" fxFlex="100">
-                          <mat-form-field>
-                            <input matInput placeholder="Enter Length" [(ngModel)]="cdata.maxlen" id="maxlen" type="number"  name="maxlen">
-                          </mat-form-field>
-                        </div>
-                        <div fxFlex.gt-sm="100" fxFlex="100">
-                          <button mat-raised-button color="primary" type="submit">Submit</button>
-                        </div>
+                   <div fxLayout="row" fxLayoutWrap="wrap">
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                          <input matInput placeholder="Enter Queue Name" [(ngModel)]="cdata.queue_name" id="queue_name" name="queue_name">
+                      </mat-form-field>
                     </div>
-                    </form>
-                </mat-card-content>
-            </mat-card>
-        </div>
-      </div>
-      
+
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                        <mat-form-field>
+                          <mat-select placeholder="Select Strategy" [(ngModel)]="cdata.strategy"  id="strategy" name="strategy">
+                            <mat-option value="-1">Round Robin</mat-option>
+                            <mat-option value="-1">Option 2</mat-option>
+                            <mat-option value="-1">Option 3</mat-option>
+                            <mat-option value="-1">Option 4</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div fxFlex.gt-sm="100" fxFlex="100">
+                          <mat-form-field  *ngIf="foundextension">
+                          <mat-select placeholder="Select Extension" [(ngModel)]="cdata.extension" name="extension">
+                            <mat-option value="option">Select Extension</mat-option>
+                             <mat-option *ngFor="let e of extension" [value]="e.callerid">{{e.username}}</mat-option>
+                           </mat-select>
+                       </mat-form-field>
+                          </div>
+
+                     
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Retry number" [(ngModel)]="cdata.retry" id="retry" type="number"  name="retry">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Monitor Type" [(ngModel)]="cdata.monitor_type" type="number" id="monitor_type"  name="monitor_type">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                        <mat-form-field>
+                          <input matInput placeholder="Enter Monitor Format" [(ngModel)]="cdata.monitor_format"  id="monitor_format"  name="monitor_format">
+                        </mat-form-field>
+                      </div>
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Timeout" [(ngModel)]="cdata.timeout"  type="number" id="timeout"  name="timeout">
+                      </mat-form-field>
+                    </div>
+                    
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                      <mat-form-field>
+                        <input matInput placeholder="Enter Announce Hold Time" [(ngModel)]="cdata.announce_holdtime"  id="announce_holdtime"  name="announce_holdtime">
+                      </mat-form-field>
+                    </div>
+                    
+                    <div fxFlex.gt-md="100" fxFlex="100">
+                        <mat-form-field>
+                          <input matInput placeholder="Enter Maxium Length" [(ngModel)]="cdata.maxlen" type="number" id="maxlen"  name="maxlen">
+                        </mat-form-field>
+                      </div>
+                    <div fxFlex.gt-sm="100" fxFlex="100">
+                      <button mat-raised-button color="primary" type="submit">Submit</button>
+                    </div>
+                </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+  

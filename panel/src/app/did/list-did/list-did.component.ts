@@ -20,7 +20,7 @@ export class ListDidComponent extends AppComponentClass<DID, DIDForm> {
   constructor(protected data: DidService, protected router: Router) 
   { 
     super(data, router);
-    this.displayedColumns = ['number','idsupplier','actions'];
+    this.displayedColumns = ['number','idsupplier','queue_name','actions'];
     
     this.deletenav="/main/did/didlist";
   }

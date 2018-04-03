@@ -13,4 +13,13 @@ export class QueueService extends AppService<Queue> {
     super(http);
     this.appmod="queue/";
   }
+
+  public getExtension():Observable<Option[]>{
+    return super.getOption("extension");
+  }
+  
+  public getCustomer():Observable<Option[]>{
+    return super.getOption("customer");
+  }
+  
 }
