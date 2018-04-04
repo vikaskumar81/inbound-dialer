@@ -15,7 +15,16 @@ export class AddsupplierComponent extends AppComponentClass<Supplier, SupplierFo
 
   constructor(protected data: SupplierService,  protected router: Router, protected fb: FormBuilder) { 
     super(data, router, fb);
-    this.nav='main/supplier/listsupplier';
-    this.cdata=new SupplierForm(null);
+    //this.nav='main/supplier/listsupplier';
+    this.nav='/main/supplier/';
+   // this.cdata=new SupplierForm(null);
+    
   }
+  ngOnInit() {
+    super.ngOnInit();
+    this.data.solution.subscribe(res=>{
+        this.cdata=new SupplierForm(res);
+    });
+  }
+
 }

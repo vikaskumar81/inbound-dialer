@@ -14,6 +14,7 @@ import { ListsupplierComponent } from './listsupplier/listsupplier.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 import { EditsupplierComponent } from './editsupplier/editsupplier.component';
 import { SupplierService } from './supplier.service';
+import { SupplierComponent } from './supplier/supplier.component';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { SupplierService } from './supplier.service';
     FileUploadModule,
     RouterModule.forChild(SupplierRoutes)
   ],
-  declarations: [ ListsupplierComponent, AddsupplierComponent, EditsupplierComponent],
+  declarations: [ ListsupplierComponent, AddsupplierComponent, EditsupplierComponent, SupplierComponent],
   providers: [SupplierService]
 })
 
