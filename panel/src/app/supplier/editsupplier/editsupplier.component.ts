@@ -19,7 +19,7 @@ AppComponentClass<Supplier,SupplierForm> {
 
   constructor(protected data: SupplierService, protected router:Router, protected fb: FormBuilder) 
   {
-    super(data,  router,fb);
+    super(data, router, fb);
     this.cdata= new SupplierForm(this.data.Data);
     this.nav="/main/supplier/listsupplier";
     this.keyfield=this.data.Data.id;
