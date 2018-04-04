@@ -96,4 +96,9 @@ export class AppComponentClass<T1, T2> implements OnInit {
         );
         this.router.navigate ( [ this.nav ] );
     }
+
+    onDestroy()
+    {
+      this.data.frm_label.unsubscribe();
+    }
   }
