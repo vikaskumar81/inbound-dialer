@@ -16,6 +16,7 @@ import { ChartistModule} from 'ng-chartist';
 import { ChartsModule } from 'ng2-charts';
 import { QuillModule } from 'ngx-quill';
 import { FileUploadModule } from 'ng2-file-upload';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     FileUploadModule,
     RouterModule.forChild(UserRoutes)
   ],
-  declarations: [AdduserComponent, EdituserComponent, ListuserComponent],
+  declarations: [AdduserComponent, EdituserComponent, ListuserComponent, UserComponent],
   providers: [UserService]
 })
 

@@ -21,7 +21,14 @@ export class AdduserComponent extends AppComponentClass<User, UserForm> {
  
   constructor(protected data: UserService, protected router: Router, protected fb: FormBuilder) { 
     super(data, router, fb);
-    this.nav='/main/user/listuser';
-    this.cdata=new UserForm(null);
+    //this.nav='/main/user/listuser';
+    //this.cdata=new UserForm(null);
+    this.nav='/main/user/';
+  }
+  ngOnInit() {
+    super.ngOnInit();
+    this.data.solution.subscribe(res=>{
+        this.cdata=new UserForm(res);
+    });
   }
 }
