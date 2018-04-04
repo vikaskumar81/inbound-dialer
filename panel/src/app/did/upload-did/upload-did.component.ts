@@ -52,26 +52,17 @@ export class UploadDidComponent  extends AppComponentClass<DID, DIDForm> {
             this.supplier=data;
           }
       });
-  
-      this.data.getQueue().subscribe(
-        data => {
-          if(data.length>0)
-          {
-            this.foundqueue=true;
-            this.queue=data;
-          }
-      });
-
-      this.data.getDidprovider().subscribe(
-        data => {
-          if(data.length>0)
-          {
-            this.foundqueue=true;
-            this.queue=data;
-          }
-      });
 
       this.data.getCustomer().subscribe(
+        data => {
+          if(data.length>0)
+          {
+            this.foundcustomer=true;
+            this.customer=data;
+          }
+      });
+
+      this.data.getQueue().subscribe(
         data => {
           if(data.length>0)
           {

@@ -10,38 +10,42 @@
 
                   <div fxFlex.gt-sm="100" fxFlex="100">
                       <mat-form-field>
-                        <mat-select placeholder="Select Didprovider" [(ngModel)]="cdata.didprovider" name="didprovider">
-                          <mat-option value="option">Select Did Provider</mat-option>
-                          <mat-option *ngFor="let d of didprovider" [value]="d.value">{{d.label}}</mat-option>
-                        </mat-select>
+                        <input matInput placeholder="DID Provider" [(ngModel)]="cdata.number" name="number" >
                       </mat-form-field>
                     </div>
 
-                    <div fxFlex.gt-sm="100" fxFlex="100">
-                        <mat-form-field >
-                          <mat-select placeholder="Select Customer" [(ngModel)]="cdata.customer" name="customer">
-                            <mat-option value="option">Select customer</mat-option>
-                            <mat-option *ngFor="let c of customer" [value]="c.value">{{c.label}}</mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                      </div>
-                
-                  
+                <div fxFlex.gt-sm="100" fxFlex="100">
+                  <mat-form-field  *ngIf="foundsupplier">
+                    <mat-select placeholder="Select Supplier" [(ngModel)]="cdata.idsupplier" name="idsupplier">
+                      <mat-option value="option">Select Supplier</mat-option>
+                      <mat-option *ngFor="let s of supplier" [value]="s.value">{{s.label}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
 
                     <div fxFlex.gt-sm="100" fxFlex="100">
-                        <mat-form-field >
-                          <mat-select placeholder="Select Queue" [(ngModel)]="cdata.id_queue" name="id_queue">
-                            <mat-option value="option">Select Queue</mat-option>
-                            <mat-option *ngFor="let q of queue" [value]="q.value">{{c.label}}</mat-option>
-                          </mat-select>
-                        </mat-form-field>
+                      <mat-form-field  *ngIf="foundcustomer">
+                      <mat-select placeholder="Select Customer" [(ngModel)]="cdata.iduser" name="iduser">
+                        <mat-option value="option">Select Customer</mat-option>
+                         <mat-option *ngFor="let c of customer" [value]="c.id">{{c.username}}</mat-option>
+                       </mat-select>
+                   </mat-form-field>
                       </div>
 
                       <div fxFlex.gt-sm="100" fxFlex="100">
-                          <mat-form-field>
-                              <textarea matInput placeholder="DID Descriptions" name="description" [(ngModel)]="cdata.description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
-                          </mat-form-field>
+                        <mat-form-field  *ngIf="foundqueue">
+                        <mat-select placeholder="Select Queue" [(ngModel)]="cdata.queue_name" name="queue_name">
+                          <mat-option value="option">Select Customer</mat-option>
+                           <mat-option *ngFor="let q of queue" [value]="q.id">{{q.queue_name}}</mat-option>
+                         </mat-select>
+                     </mat-form-field>
                         </div>
+                
+                  
+
+                   
+
+                     
 
                   <input id="filename" name="filename" type="file" />
                   

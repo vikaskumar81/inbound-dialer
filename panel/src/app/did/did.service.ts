@@ -20,9 +20,7 @@ export class DidService extends AppService<DID> {
   public getQueue():Observable<Option[]>{
     return super.getOption("queue");
   }
-  public getDidprovider():Observable<Option[]>{
-    return super.getOption("didprovider");
-  }
+ 
   public getCustomer():Observable<Option[]>{
     return super.getOption("customer");
   }
