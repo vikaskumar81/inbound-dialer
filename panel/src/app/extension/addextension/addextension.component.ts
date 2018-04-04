@@ -21,7 +21,14 @@ export class AddextensionComponent extends AppComponentClass<Extension, Extensio
 
   constructor(protected data: ExtensionService, protected router: Router, protected fb: FormBuilder) { 
     super(data, router, fb);
-    this.nav='/main/extension/listextension';
-    this.cdata=new ExtensionForm(null);
+    //this.nav='/main/extension/listextension';
+    this.nav='/main/extension/';
+    //this.cdata=new ExtensionForm(null);
+  }
+  ngOnInit() {
+    super.ngOnInit();
+    this.data.solution.subscribe(res=>{
+        this.cdata=new ExtensionForm(res);
+    });
   }
 }

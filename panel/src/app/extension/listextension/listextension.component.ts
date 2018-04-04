@@ -19,8 +19,8 @@ export class ListextensionComponent extends AppComponentClass<Extension, Extensi
   constructor(protected data: ExtensionService, protected router: Router) {
     super(data, router);
     this.displayedColumns = ['username','secret','callerid','exten','host','status','actions'];
-    this.editnav="/main/extension/editextension";
-    this.deletenav="/main/extension/listextension";
+    //this.editnav="/main/extension/editextension";
+    //this.deletenav="/main/extension/listextension";
    }  
    
  

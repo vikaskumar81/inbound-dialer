@@ -1,4 +1,11 @@
-<mat-grid-list cols="1" rowHeight="2:1">
-    <mat-grid-tile><app-listsupplier></app-listsupplier></mat-grid-tile>
-    <mat-grid-tile><app-addsupplier></app-addsupplier></mat-grid-tile>
-  </mat-grid-list>
+
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+      <app-addsupplier></app-addsupplier>
+  </div>
+</div>    
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+      <app-listsupplier></app-listsupplier>
+  </div>
+</div>

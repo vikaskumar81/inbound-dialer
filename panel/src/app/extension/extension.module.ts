@@ -17,6 +17,7 @@ import { EditextensionComponent } from './editextension/editextension.component'
 import { ListextensionComponent } from './listextension/listextension.component';
 import { RouterModule } from '@angular/router';
 import { ExtensionService } from './extension.service';
+import { ExtensionComponent } from './extension/extension.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ import { ExtensionService } from './extension.service';
     FileUploadModule,
     RouterModule.forChild(ExtenstionRoutes),
   ],
-  declarations: [AddextensionComponent, EditextensionComponent, ListextensionComponent],
+  declarations: [AddextensionComponent, EditextensionComponent, ListextensionComponent, ExtensionComponent],
   providers: [ExtensionService]
 })
 export class ExtensionModule { }

@@ -6,17 +6,15 @@
                 <!-- Message Form -->
                 <mat-card-title>{{tag_label}}</mat-card-title>
                 <form class="basic-form" (ngSubmit)="onSubmit()"  #AddMessageForm="ngForm">
-                <div fxLayout="row" fxLayoutWrap="wrap">
-                     <div fxFlex.gt-md="100" fxFlex="100">
-                    <mat-form-field>
-                        <input matInput type="text" placeholder="Enter Name" [(ngModel)]="cdata.name" name="name">
-                      </mat-form-field>
-                    </div>
-                        <input id="filename" name="filename" type="file" />
-                        <div fxFlex.gt-sm="100" fxFlex="100">
-                      <button mat-raised-button color="primary" type="submit">Submit</button>
-                    </div>
-                </div>
+                                  <mat-grid-list cols="1" rowHeight="100px">
+                                    <mat-grid-tile><mat-form-field><input matInput type="text" placeholder="Enter Name" [(ngModel)]="cdata.name" name="name"></mat-form-field></mat-grid-tile>
+                                   
+                                   </mat-grid-list>  
+                                  <mat-grid-list cols="2" rowHeight="100px">
+                                        <mat-grid-tile><input id="filename" class="form-control b-b margin-bottom" name="filename" type="file" />
+                                        </mat-grid-tile>
+                                        <mat-grid-tile> <button mat-raised-button color="primary" type="submit">Submit</button></mat-grid-tile>
+                                      </mat-grid-list> 
                 </form>
             </mat-card-content>
         </mat-card>

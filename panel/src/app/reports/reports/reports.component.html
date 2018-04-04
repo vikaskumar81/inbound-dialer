@@ -1,0 +1,22 @@
+<!-- ============================================================== -->
+<!-- row -->
+<!-- ============================================================== -->
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <!-- Card column -->
+    <div fxFlex.gt-sm="100%" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>Basic Tab </mat-card-title>
+                <mat-card-subtitle>Check the <code class=""><a href="https://material.angular.io/components/tabs/overview">Official Component</a></code></mat-card-subtitle>
+            </mat-card-content>
+            <mat-tab-group>
+                <mat-tab label="CDR"><mat-card-content><app-calldetails></app-calldetails></mat-card-content></mat-tab>
+                <mat-tab label="Page And Stack"><mat-card-content><app-currentcalls></app-currentcalls></mat-card-content></mat-tab>
+                <mat-tab label="Agent"><mat-card-content>Content 3</mat-card-content></mat-tab>
+                <mat-tab label="Calls"><mat-card-content>Content 4</mat-card-content></mat-tab>
+                <mat-tab label="Overly"><mat-card-content>Content 5</mat-card-content></mat-tab>
+                <mat-tab label="Delly Report"><mat-card-content>Content 6</mat-card-content></mat-tab>
+            </mat-tab-group>
+        </mat-card>    
+    </div>
+</div>

@@ -59,7 +59,7 @@ const MENUITEMS = [
     state: 'message',
     name: 'Message',
     type: 'sub',
-    icon: 'record voice over',
+    icon: 'message',
     children: [
       {state: 'addmessage', name: 'Add'},
       {state: 'listmessage', name: 'List'}
@@ -74,7 +74,7 @@ const MENUITEMS = [
     state: 'extension',
     name: 'Extension',
     type: 'sub',
-    icon: 'perm phone msg',
+    icon: 'phone',
     children: [
       {state: 'addextension', name: 'Add'},
       {state: 'listextension', name: 'List'}          
@@ -121,7 +121,7 @@ const MENUITEMS = [
     state: 'user',
     name: 'User',
     type: 'sub',
-    icon: 'supervisor account',
+    icon: 'face',
     children: [
       
       {state: 'adduser', name: 'Add'},

@@ -15,6 +15,8 @@ import { DailyComponent } from './daily/daily.component';
 import { QueueReportComponent } from './queue-report/queue-report.component';
 import { DidReportComponent } from './did-report/did-report.component';
 import { SupplierComponent } from './supplier/supplier.component';
+import { ReportsComponent} from './reports/reports.component';
+
 
 @NgModule({
   imports: [
@@ -26,7 +28,7 @@ import { SupplierComponent } from './supplier/supplier.component';
     RouterModule.forChild(ReportsRoutes)
     
   ],
-  declarations: [ CalldetailsComponent, CurrentcallsComponent, HourlyComponent, DailyComponent, QueueReportComponent, DidReportComponent, SupplierComponent],
+  declarations: [ CalldetailsComponent, CurrentcallsComponent, HourlyComponent, DailyComponent, QueueReportComponent, DidReportComponent, SupplierComponent , ReportsComponent],
   providers:[ReportsService]
 })
 
