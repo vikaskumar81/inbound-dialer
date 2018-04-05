@@ -100,7 +100,7 @@ exports.RunQueryFilter=function(filter, callback){
         else
         {
             console.log('Error : '+error);
-	    callback("Error in function");
+	        callback("Error in function");
         }
     });
 }
@@ -132,7 +132,7 @@ exports.Detail=function(col, table, filter, callback){
         else
         {
             console.log('Error : '+error);
-	    callback("Error in function");
+	        callback("Error in function");
         }
     });
 }

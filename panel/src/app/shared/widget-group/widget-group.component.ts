@@ -9,12 +9,13 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 export class WidgetGroupComponent implements OnInit {
   column: number;
   @Input() data: any[];
-  @Output() event: EventEmitter<any> = new EventEmitter();
+  //@Output() event: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 /*widget*/
   ngOnInit() {
     this.column=this.data.length;
+    //console.log(this.column);
+    //console.log(JSON.stringify(this.data));
   }
-
 }
