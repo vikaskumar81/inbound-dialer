@@ -14,7 +14,7 @@ export class AppService<T> {
     public solution= this.service_data.asObservable();
     protected label: string;
     public frm_label= new BehaviorSubject<string>("Add New");
-  
+      
     constructor(protected http : HttpClient) { }
 
     public get Action() : string {
