@@ -24,13 +24,16 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
 
   constructor(protected data: CampaignService, protected router:Router,protected fb: FormBuilder) {
     super(data,router, fb);
-    this.nav="/main/campaign/listcampaign";
-    this.cdata=new CampaignForm(null);
+    this.nav="/main/campaign/";
+    //this.cdata=new CampaignForm(null);
    }
 
   ngOnInit()
   {
     super.ngOnInit();
+    this.data.solution.subscribe(res=>{
+      this.cdata=new CampaignForm(res);
+  });
     
     this.data.getSupplier().subscribe(
       data => {

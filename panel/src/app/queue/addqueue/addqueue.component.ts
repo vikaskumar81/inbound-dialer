@@ -25,12 +25,16 @@ export class AddqueueComponent extends AppComponentClass<Queue, QueueForm> {
     
   constructor(protected data: QueueService,  protected router: Router,protected fb: FormBuilder) { 
     super(data, router, fb);
-    this.nav='/main/queue/listqueue';
-    this.cdata=new QueueForm(null);
+    this.nav='/main/queue/';
+   // this.cdata=new QueueForm(null);
   }
 
   ngOnInit() {
     super.ngOnInit();
+
+    this.data.solution.subscribe(res=>{
+      this.cdata=new QueueForm(res);
+  });
 
     this.data.getCustomer().subscribe(
        data => {

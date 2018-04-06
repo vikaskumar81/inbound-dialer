@@ -38,32 +38,20 @@ const MENUITEMS = [
   },{
     state: 'campaign',
     name: 'Campaign',
-    type: 'sub',
+    type: 'link',
     icon: 'bubble_chart',
-    children: [
-      {state: 'addcampaign', name: 'Add'},
-      {state: 'listcampaign', name: 'List'}     
-    ]
   },
   {
     state: 'leads',
     name: 'Leads',
-    type: 'sub',
+    type: 'link',
     icon: 'toc',
-    children: [
-      {state: 'uploadleads', name: 'Upload'},
-      {state: 'listleads', name: 'List'}
-    ]
   },
   {
     state: 'message',
     name: 'Message',
-    type: 'sub',
+    type: 'link',
     icon: 'message',
-    children: [
-      {state: 'addmessage', name: 'Add'},
-      {state: 'listmessage', name: 'List'}
-    ]
   },
   { state: '',
     name: 'Inbound-Bound',
@@ -73,22 +61,14 @@ const MENUITEMS = [
   {
     state: 'extension',
     name: 'Extension',
-    type: 'sub',
+    type: 'link',
     icon: 'phone',
-    children: [
-      {state: 'addextension', name: 'Add'},
-      {state: 'listextension', name: 'List'}          
-    ]
   },
   {
     state: 'queue',
     name: 'Queue',
-    type: 'sub',
+    type: 'link',
     icon: 'web',
-    children: [
-      {state: 'addqueue', name: 'Add'},
-      {state: 'listqueue', name: 'List'}          
-    ]
   },
   {
     state: 'did',
@@ -104,29 +84,19 @@ const MENUITEMS = [
   { state: '',
     name: 'Common',
     type: 'saperator',
-    icon: 'av_timer'  
+    icon: 'av_timer',  
   },
   {
     state: 'supplier',
     name: 'Supplier',
-    type: 'sub',
+    type: 'link',
     icon: 'web',
-    children: [
-      
-      {state: 'addsupplier', name: 'Add'},
-      {state: 'listsupplier', name: 'List'}          
-    ]
   },
   {
     state: 'user',
     name: 'User',
-    type: 'sub',
+    type: 'link',
     icon: 'face',
-    children: [
-      
-      {state: 'adduser', name: 'Add'},
-      {state: 'listuser', name: 'List'}          
-    ]
   },
   { state: '',
     name: 'Report/Details',
@@ -136,14 +106,8 @@ const MENUITEMS = [
   {
     state: 'reports',
     name: 'Reports',
-    type: 'sub',
+    type: 'link',
     icon: 'border_all',
-    children: [
-      {state: 'currentcalls', name: 'Current-Calls'},
-      {state: 'calldetails', name: 'Call-Details'},
-      {state: 'daily', name: 'Daily'} ,
-      {state: 'hourly', name: 'Hourly'}
-    ]
   }    
 ];
 

@@ -32,12 +32,18 @@ export class UploadleadsComponent extends AppComponentClass <Upload, UploadForm>
 
   constructor(protected data: LeadsService,  protected router:Router, private el: ElementRef, private http: Http,protected fb: FormBuilder) {
     super(data, router, fb);
-    this.nav="/main/leads/listleads";
-    this.cdata=new UploadForm(null);
+    
+    this.nav="/main/leads/";
+    //this.cdata=new UploadForm(null);
    }
 
    ngOnInit() {
      super.ngOnInit();
+     this.data.solution.subscribe(res=>{
+      this.cdata=new UploadForm(res);
+  });
+    
+
 
      this.data.getCampaign().subscribe(
         data => {

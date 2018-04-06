@@ -12,6 +12,7 @@ import { EditqueueComponent } from './editqueue/editqueue.component';
 import { ListqueueComponent } from './listqueue/listqueue.component';
 import { QueueService } from './queue.service';
 import { QueueRoutes } from './queue-routing.module';
+import { QueueComponent } from './queue/queue.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { QueueRoutes } from './queue-routing.module';
     FileUploadModule,
     RouterModule.forChild(QueueRoutes),
   ],
-  declarations: [AddqueueComponent, EditqueueComponent, ListqueueComponent],
+  declarations: [AddqueueComponent, EditqueueComponent, ListqueueComponent, QueueComponent],
   providers: [QueueService]
 })
 export class QueueModule { }

@@ -15,6 +15,7 @@ import { QuillModule } from 'ngx-quill';
 import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { SharedModule } from '../shared/shared.module';
 import { HttpModule } from '@angular/http';
+import { LeadsComponent } from './leads/leads.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { HttpModule } from '@angular/http';
     RouterModule.forChild(LeadsRoutes),
     HttpModule    
   ],
-  declarations: [ ListleadsComponent, UploadleadsComponent],
+  declarations: [ ListleadsComponent, UploadleadsComponent, LeadsComponent],
   providers : [LeadsService]
 })
 

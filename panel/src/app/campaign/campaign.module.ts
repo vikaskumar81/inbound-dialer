@@ -13,6 +13,7 @@ import { EditcampaignComponent } from './editcampaign/editcampaign.component';
 import { ListcampaignComponent } from './listcampaign/listcampaign.component';
 import { CampaignService } from './campaign.service';
 import { Campaign } from './model/campaign.model';
+import { CampaignComponent } from './campaign/campaign.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { Campaign } from './model/campaign.model';
     FileUploadModule
   ],
   providers: [CampaignService],
-  declarations: [ AddcampaignComponent, EditcampaignComponent, ListcampaignComponent]
+  declarations: [ AddcampaignComponent, EditcampaignComponent, ListcampaignComponent, CampaignComponent]
 })
 
 export class CampaignModule {}

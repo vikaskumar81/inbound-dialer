@@ -21,7 +21,7 @@ export class ListleadsComponent extends AppComponentClass<Upload, UploadForm> {
     super(data, router);
     this.displayedColumns = ["filename", "leads", "dialed", "answered", "noanswer","busy","failed","conjestion","duration","actions"];
    
-    this.deletenav="/main/leads/listleads";
+   // this.deletenav="/main/leads/listleads";
   }
 
  

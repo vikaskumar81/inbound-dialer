@@ -20,8 +20,8 @@ export class ListqueueComponent extends AppComponentClass<Queue, QueueForm> {
   constructor(protected data: QueueService, protected router: Router) { 
     super(data, router);
     this.displayedColumns = ['queue_name','strategy','maxlen','retry','extension','monitor_format','announce_holdtime','monitor_type','timeout','actions'];
-    this.editnav="/main/queue/editqueue";
-    this.deletenav="/main/queue/listqueue";
+    //this.editnav="/main/queue/editqueue";
+    //this.deletenav="/main/queue/listqueue";
   }
 }
 
