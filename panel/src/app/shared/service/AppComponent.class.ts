@@ -27,6 +27,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
     {
         this.data.getService().subscribe(data => this.dataSource.data = data);
         this.data.frm_label.subscribe(res=>{this.tag_label=res; console.log(res);});
+        this.keyfield=-1;
         /* this.data.solution.subscribe(res=>{
           this.cur_row=res;
           console.log(res);
@@ -65,23 +66,44 @@ export class AppComponentClass<T1, T2> implements OnInit {
         }
       );
       
-      this.router.navigate ( [ this.deletenav ] );
+      //this.router.navigate ( [ this.deletenav ] );
     }
 
     onSubmit()
     {
         console.log("Thanks for submitting! Data: " + JSON.stringify(this.cdata));
-        this.data.saveService(JSON.stringify(this.cdata)).subscribe( data =>  {
+        console.log(this.keyfield);
+        if(this.keyfield==-1)
+        {
+          this.data.saveService(JSON.stringify(this.cdata)).subscribe( data =>  {
             console.log(data);
             this.insertdata=data;
-            this.data.getService().subscribe(data => this.dataSource.data = data);
+            this.data.getService().subscribe(data =>{ 
+              this.dataSource.data = data;
+              console.log(data);
+            });
           });
+        }
+        else
+        {
+          this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( data => 
+            {
+              console.log(data);
+              this.insertdata=data;
+              this.data.getService().subscribe(data => 
+                {
+                    this.dataSource.data = data;
+                    console.log(data);
+                });
+            });
+        }
+        this.data.changefrm(false);
         this.router.navigate ( [ this.nav ] );
     }
 
-    onUpdate()
+    /* onUpdate()
     {
-        this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( data => 
+          this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( data => 
             {
               console.log(data);
               this.insertdata=data;
@@ -92,8 +114,9 @@ export class AppComponentClass<T1, T2> implements OnInit {
                 });
             }
         );
-        this.router.navigate ( [ this.nav ] );
-    }
+        this.data.changefrm(false);
+        //this.router.navigate ( [ this.nav ] );
+    } */
 
     onDestroy()
     {

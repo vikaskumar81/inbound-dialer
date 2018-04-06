@@ -23,11 +23,11 @@ export class ListcampaignComponent extends AppComponentClass<Campaign, CampaignF
     this.displayedColumns=['name', 'provider', 'filename', 'channel', 'ppm', 'ringtime', 'answertime', 'status', 'actions'];
     //this.editnav="/main/campaign/editcampaign";
    // this.deletenav="/main/campaign/listcampaign";
+   this.nav="/main/campaign/";
   }
 
   AddNew()
   {
-    console.log("Add new clicked");
     this.data.changefrm(true);
   }
 }
