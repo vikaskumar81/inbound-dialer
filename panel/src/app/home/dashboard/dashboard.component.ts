@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  widgetdata =[{icon:"account circle",data:205,label:"Agents"},{icon:"explore",data:1306,label:"Calls"},
-  {icon:"language",data:400,label:"Minutes"},{icon:"contact phone",data:30000,label:"Leads"}];
+  widgetdata =[{icon:"account_circle",data:205,label:"Agents"},{icon:"explore",data:1306,label:"Calls"},
+  {icon:"language",data:400,label:"Minutes"},{icon:"contact",data:30000,label:"Leads"}];
 
   public geoChartData:any =  {
     chartType: 'GeoChart',
