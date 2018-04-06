@@ -14,6 +14,8 @@ export class AppService<T> {
     public solution= this.service_data.asObservable();
     protected label: string;
     public frm_label= new BehaviorSubject<string>("Add New");
+    public frm_status= new BehaviorSubject<boolean>(false);
+    public status=this.frm_status.asObservable();
       
     constructor(protected http : HttpClient) { }
 
@@ -32,6 +34,11 @@ export class AppService<T> {
     
     public get Data() : T {
       return this.data;
+    }
+
+    changefrm(value:boolean)
+    {
+      this.frm_status.next(value);
     }
 
     changelabel(lbl:string)

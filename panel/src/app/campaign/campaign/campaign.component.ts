@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CampaignService } from '../campaign.service';
 
 @Component({
   selector: 'app-campaign',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./campaign.component.css']
 })
 export class CampaignComponent implements OnInit {
-
-  constructor() { }
+  status: boolean;
+  constructor(protected data: CampaignService) { }
 
   ngOnInit() {
+    this.data.status.subscribe(res=>this.status=res);
   }
-
 }

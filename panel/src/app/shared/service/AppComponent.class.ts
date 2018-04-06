@@ -46,13 +46,11 @@ export class AppComponentClass<T1, T2> implements OnInit {
 
     Edit(row:T1)
     {
-      console.log(row);
       this.data.changelabel("Edit Details");
       this.data.Data=row;
-      this.router.navigate ( [ this.editnav ] );
+      //this.router.navigate ( [ this.editnav ] );
+      this.data.changefrm(true);
     }
-
-    
 
     Delete(row:T1, id:number)
     {
