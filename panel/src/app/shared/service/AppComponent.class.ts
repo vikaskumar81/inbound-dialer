@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AppService } from './AppService.class';
 import { FormBuilder } from "@angular/forms";
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { MatSnackBar } from '@angular/material';
 
 export class AppComponentClass<T1, T2> implements OnInit {
     public displayedColumns : any[];
@@ -21,7 +22,8 @@ export class AppComponentClass<T1, T2> implements OnInit {
     protected deletestatus:string;
     public tag_label:string;
     
-    constructor(protected data: AppService<T1>, protected router: Router, protected fb?: FormBuilder) { }
+    constructor(protected data: AppService<T1>, protected router: Router, 
+      protected fb?: FormBuilder, protected snackBar?: MatSnackBar) { }
 
     ngOnInit()
     {
@@ -63,10 +65,17 @@ export class AppComponentClass<T1, T2> implements OnInit {
           console.log(data);
           this.deletestatus=data;
           this.data.getService().subscribe(data => this.dataSource.data = data);
+          this.openSnackBar("Data is deleted successfully","Clear");
         }
       );
       
       //this.router.navigate ( [ this.deletenav ] );
+    }
+
+    openSnackBar(message: string, action: string) {
+      this.snackBar.open(message, action, {
+        duration: 2000,
+      });
     }
 
     onSubmit()
@@ -81,6 +90,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
             this.data.getService().subscribe(data =>{ 
               this.dataSource.data = data;
               console.log(data);
+              this.openSnackBar("Data is added successfully","Clear");
             });
           });
         }
@@ -94,6 +104,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
                 {
                     this.dataSource.data = data;
                     console.log(data);
+                    this.openSnackBar("Data is updated successfully","Clear");
                 });
             });
         }

@@ -6,7 +6,7 @@ import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
 import { CampaignForm, Campaign } from '../model/campaign.model';
-import { MatSelect } from '@angular/material';
+import { MatSelect, MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
@@ -22,8 +22,8 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
   supplier : Option[];
   foundsupplier : boolean;
 
-  constructor(protected data: CampaignService, protected router:Router,protected fb: FormBuilder) {
-    super(data,router, fb);
+  constructor(protected data: CampaignService, protected router:Router,protected fb: FormBuilder, protected msg: MatSnackBar) {
+    super(data,router, fb, msg);
     this.nav="/main/campaign/";
     //this.cdata=new CampaignForm(null);
    }
