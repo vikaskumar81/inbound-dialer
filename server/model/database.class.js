@@ -110,20 +110,18 @@ exports.RunQuery=function(callback){
     var qry=connection.query(sqlquery, function(error, data){
         if(!error)
         {
-            console.log('Data output is: '+ JSON.stringify(data));
             callback(data);
         }
         else
         {
-            console.log('Error : '+error);
-	        callback("Error in function");
+            console.log('Error : '+error+', SQL : '+sqlquery);
+	        callback('{"error":"400", "message":"Error in data Loading"}');
         }
     });
 }
 
 exports.Detail=function(col, table, filter, callback){
     var sql = mysql.format('SELECT ?? FROM ?? WHERE ?', [col, table, filter]);
-    console.log('SQL('+connection+') : '+sql);
     var qry=connection.query(sql, function(error, data){
         if(!error)
         {
@@ -132,14 +130,13 @@ exports.Detail=function(col, table, filter, callback){
         else
         {
             console.log('Error : '+error);
-	        callback("Error in function");
+	        callback('{"error":"400", "message":"Error in data loading"}');
         }
     });
 }
 
 exports.GetList=function(col, table, callback){
     var sql = mysql.format('SELECT ?? FROM ??', [col, table]);
-    console.log('SQL('+connection+') : '+sql);
     var qry=connection.query(sql, function(error, data){
         if(!error)
         {
@@ -148,54 +145,51 @@ exports.GetList=function(col, table, callback){
         else
         {
             console.log('Error : '+error);
-	    callback("Error in function");
+	        callback('{"error":"400", "message":"Error in data loading"}');
         }
     });
 }
 
 exports.Remove=function(id, table, callback){
     var sql = mysql.format('DELETE FROM ?? WHERE ?', [table, id]);
-    console.log('SQL (Remove) : '+sql);
     connection.query(sql, function (error, rows) {
         if (!error)
         {
-            console.log('Data output is: ', rows.affectedRows);
-			callback('{"Delete Status":"'+rows.affectedRows+'"}');
-            return rows.affectedRows;
+			callback('{"error":"200", "message":"'+rows.affectedRows+'", "id":"'+id+'"}');
         }
         else
+        {
             console.log('Error : ', sql);
+            callback('{"error":"400", "message":"Error in data delete"}');
+        }
         });
 }
 
 exports.Update=function(data, table, condition, callback){
     var sql = mysql.format('UPDATE ?? SET ? WHERE ?', [table, data, condition]);
-    console.log(sql);
     connection.query(sql, function (error, rows) {
         // error will be an Error if one occurred during the query
         if (!error)
         {
-            console.log("Update Status : "+rows.affectedRows);
-            callback(condition);
+            callback('{"error":"200", "message":"Updated data successfully"}');
         }
         else
             console.log('Error : '+sql);
+            callback('{"error":"400", "message":"Error in data update"}');
         });
 }
 
 exports.AddNew=function(table, data, callback){
     var sql = mysql.format("INSERT INTO ?? SET ?", [table, data]);
-	console.log(sql);
     connection.query(sql, function (error, rows) {
         // error will be an Error if one occurred during the query
         if (!error)
         {
             last_id=rows.insertId;
-            console.log('Data output is: ', last_id);
-			callback("{\"id\" :"+last_id+"}");
+			callback('{"error":"200", "message":"Added data successfully", "id":"'+last_id+'"}');
         }
         else
             console.log('Error : '+sql);
-            callback("{\"Error\":\"Error in request\"");
+            callback('{"error":"400", "message":"Error in data add"}');
         });
 }		
