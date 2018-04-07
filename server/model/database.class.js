@@ -176,7 +176,7 @@ exports.Update=function(data, table, condition, callback){
         if (!error)
         {
             console.log("Update Status : "+rows.affectedRows);
-            callback(rows.affectedRows);
+            callback(condition);
         }
         else
             console.log('Error : '+sql);
