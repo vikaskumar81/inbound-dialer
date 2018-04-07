@@ -2,7 +2,14 @@
   <div fxFlex.gt-sm="100" fxFlex="100">
       <mat-card>
           <mat-card-content>
-              <mat-card-title>{{tag_label}}</mat-card-title>
+              <mat-grid-list cols="4" rowHeight="40px">
+                  <mat-grid-tile [colspan]=3>
+                      <mat-card-title>{{tag_label}}</mat-card-title>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <button mat-raised-button color="primary" (click)="Close()"><mat-icon>close</mat-icon></button>
+                  </mat-grid-tile>
+                </mat-grid-list>
               <!-- ============================================================== -->
               <!-- column -->
               <!-- ============================================================== -->

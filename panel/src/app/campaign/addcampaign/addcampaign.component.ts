@@ -13,7 +13,7 @@ import { AppComponentClass } from '../../shared/service/AppComponent.class';
 @Component({
   selector: 'app-addcampaign',
   templateUrl: './addcampaign.component.html',
-  styleUrls: ['./addcampaign.component.css']
+  styleUrls: ['./addcampaign.component.css'],
 })
 
 export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignForm>{
@@ -54,5 +54,10 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
           this.message=data;
         }
     });
+  }
+
+  Close()
+  {
+    this.data.changefrm(false);
   }
 }
