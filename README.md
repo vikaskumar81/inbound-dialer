@@ -4,12 +4,12 @@ PBX-Asterisk-NodeJS-Angular, Its a project about telling the how simply we can t
 Below business solution we discussed are multi-tenant based, so admin can create customers as many as he wants. And each customer can manage the each business component with proper solution and there activities.
 Currently Solution has covered 2 business component:
 1. Dialer/BroadCasting: Campaign can be created and can be activated to dial-out at a given pace and channel allocated to each campaign with selected supplier.
-Features requirements:
-1.1. Campaign Management
-1.2. Mesasage Management
-1.3. Supplier Management
-1.4. Upload Management
-1.5. Leads Management
+Features requirements:<br/>
+1.1. Campaign Management<br/>
+1.2. Mesasage Management<br/>
+1.3. Supplier Management<br/>
+1.4. Upload Management<br/>
+1.5. Leads Management<br/>
 
 2. Generate calls might be get inbound calls as per customers are going to call back us on the displayed ANI's. These calls must be automatically handled with a customer sevice representative.
 Features requirements:
