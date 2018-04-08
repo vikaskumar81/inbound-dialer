@@ -5,6 +5,9 @@ import { AppService } from './AppService.class';
 import { FormBuilder } from "@angular/forms";
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { MatSnackBar } from '@angular/material';
+import { Observable }   from 'rxjs/Observable';
+import { toBase64String } from "@angular/compiler/src/output/source_map";
+import { Subscription } from "rxjs/Subscription";
 
 export class AppComponentClass<T1, T2> implements OnInit {
     public displayedColumns : any[];
@@ -14,26 +17,25 @@ export class AppComponentClass<T1, T2> implements OnInit {
     protected nav:string;
     protected keyfield:number;
 
-    public dataSource = new MatTableDataSource();
+    public dataSource = new MatTableDataSource<T1>();
+
     @ViewChild(MatSort) protected sort: MatSort;
     @ViewChild(MatPaginator) protected paginator: MatPaginator;
     protected editnav:string;
     protected deletenav:string;
     protected deletestatus:string;
     public tag_label:string;
+    protected subscribe: Subscription;
     
     constructor(protected data: AppService<T1>, protected router: Router, 
       protected fb?: FormBuilder, protected snackBar?: MatSnackBar) { }
 
     ngOnInit()
     {
-        this.data.getService().subscribe(data => this.dataSource.data = data);
+        this.subscribe=this.data.getService().subscribe(res=>{this.dataSource.data=res;});
+        
         this.data.frm_label.subscribe(res=>{this.tag_label=res; console.log(res);});
         this.keyfield=-1;
-        /* this.data.solution.subscribe(res=>{
-          this.cur_row=res;
-          console.log(res);
-        }); */
     }
   
     applyFilter(filterValue: string) {
@@ -64,7 +66,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
         {
           console.log(data);
           this.deletestatus=data;
-          this.data.getService().subscribe(data => this.dataSource.data = data);
+          this.data.getService();
           this.openSnackBar("Data is deleted successfully","Clear");
         }
       );
@@ -84,32 +86,26 @@ export class AppComponentClass<T1, T2> implements OnInit {
         console.log(this.keyfield);
         if(this.keyfield==-1)
         {
-          this.data.saveService(JSON.stringify(this.cdata)).subscribe( data =>  {
-            console.log(data);
-            this.insertdata=data;
-            this.data.getService().subscribe(data =>{ 
-              this.dataSource.data = data;
-              console.log(data);
-              this.openSnackBar("Data is added successfully","Clear");
-            });
+          //this.openSnackBar("Data is added successfully","Clear");
+          this.data.saveService(JSON.stringify(this.cdata)).subscribe( rs =>  {
+            //console.log(rs);
+            //this.insertdata=rs;
+            this.data.getService();
+            this.openSnackBar("Data is added successfully","Clear");
           });
         }
         else
         {
-          this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( data => 
+            this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( rs => 
             {
-              console.log(data);
-              this.insertdata=data;
-              this.data.getService().subscribe(data => 
-                {
-                    this.dataSource.data = data;
-                    console.log(data);
-                    this.openSnackBar("Data is updated successfully","Clear");
-                });
+              console.log( JSON.stringify(rs));
+              //this.insertdata=rs;
+              this.data.getService();
+              this.openSnackBar("Data is updated successfully","Clear");
             });
         }
         this.data.changefrm(false);
-        this.router.navigate ( [ this.nav ] );
+        //this.router.navigate ( [ this.nav ] );
     }
 
     /* onUpdate()
@@ -132,5 +128,6 @@ export class AppComponentClass<T1, T2> implements OnInit {
     onDestroy()
     {
       this.data.frm_label.unsubscribe();
+      this.subscribe.unsubscribe();
     }
   }

@@ -51,12 +51,13 @@ export class AppService<T> {
     }
   
     public getService(): Observable<T[]> {
+      console.log("Called data display update");
       return this.http.get<T[]>(APIURL+this.appmod);
     }
   
-    public saveService(data:any): Observable<string>
+    public saveService(data:any): Observable<any>
     {
-      return this.http.post<string>(APIURL+this.appmod, {"data":data},{ headers: {"Content-Type": "application/json"}, params: {"data": data} });
+      return this.http.post<any>(APIURL+this.appmod, {"data":data},{ headers: {"Content-Type": "application/json"}, params: {"data": data} });
     }
   
     public detailService(key:number):Observable<T>
@@ -69,13 +70,13 @@ export class AppService<T> {
       return this.http.post<string>(APIURL+this.appmod+key, {"data":data, "id":key}, { headers: {"Content-Type": "application/json"}, params: data });
     }
   
-    public updateService(data:any, key:number): Observable<string>
+    public updateService(data:any, key:number): Observable<any>
     {
-      return this.http.put<string>(APIURL+this.appmod+key, {"data":data, "id":key}, { headers: {"Content-Type": "application/json"}, params: data });
+      return this.http.put<any>(APIURL+this.appmod+key, {"data":data, "id":key}, { headers: {"Content-Type": "application/json"}, params: data });
     }
   
-    public deleteService(key:number): Observable<string>
+    public deleteService(key:number): Observable<any>
     {
-      return this.http.delete<string>(APIURL+this.appmod+key, { headers: {"Content-Type": "application/json"}});
+      return this.http.delete<any>(APIURL+this.appmod+key, { headers: {"Content-Type": "application/json"}});
     }
   }
