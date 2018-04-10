@@ -13,6 +13,7 @@ import { WidgetGroupComponent } from './widget-group/widget-group.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { KeysPipe } from './data-table/keypipe/keypipe';
 import { SearchPipe } from './data-table/keypipe/searchpipe';
+import { FormdetailComponent } from './formdetail/formdetail.component';
 
 @NgModule({
   imports:[
@@ -31,7 +32,9 @@ import { SearchPipe } from './data-table/keypipe/searchpipe';
     WidgetGroupComponent,
     DataTableComponent, 
     KeysPipe,
-    SearchPipe
+    SearchPipe,
+    FormdetailComponent,
+    FormdetailComponent
   ],
   exports: [
     AccordionAnchorDirective,
@@ -41,7 +44,8 @@ import { SearchPipe } from './data-table/keypipe/searchpipe';
     ButtonComponent,
     StatusComponent,
     WidgetGroupComponent,
-    DataTableComponent
+    DataTableComponent,
+    FormdetailComponent
    ],
   providers: [ MenuItems, TitleNavigationService ]
 })

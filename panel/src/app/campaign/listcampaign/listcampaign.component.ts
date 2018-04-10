@@ -27,9 +27,4 @@ export class ListcampaignComponent extends AppComponentClass<Campaign, CampaignF
    // this.deletenav="/main/campaign/listcampaign";
    this.nav="/main/campaign/";
   }
-
-  AddNew()
-  {
-    this.data.changefrm(true);
-  }
 }

@@ -37,11 +37,12 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
     });
     
     this.data.getSupplier().subscribe(
-      data => {
-        if(data.length>0)
+      res => {
+        if(res.length>0)
         {
           this.foundsupplier=true;
-          this.supplier=data;
+          this.supplier=res;
+          console.log(res);
          
         }
     });
@@ -54,10 +55,5 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
           this.message=data;
         }
     });
-  }
-
-  Close()
-  {
-    this.data.changefrm(false);
   }
 }

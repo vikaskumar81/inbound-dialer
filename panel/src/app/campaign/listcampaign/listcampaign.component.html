@@ -1,18 +1,18 @@
-
+<!-- ============================================================== -->
+<!-- row -->
+<!-- ============================================================== -->
 <div fxLayout="row" fxLayoutWrap="wrap">
   <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
     <mat-card>
       <mat-card-content> 
         <div class="example-header">
-          <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile [colspan]=3>
+          <mat-grid-list cols="1" rowHeight="40px">
+            <mat-grid-tile>
               <mat-form-field>
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
               </mat-form-field>
             </mat-grid-tile>
-            <mat-grid-tile>
-              <button mat-raised-button color="primary" (click)="AddNew()"><mat-icon>add</mat-icon></button>
-            </mat-grid-tile>
+           
           </mat-grid-list>
         </div>
         <div>

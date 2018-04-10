@@ -1,6 +1,8 @@
+<formdetail [tag_label]="tag_label" [open_frm]="open_frm" [close_frm]="close_frm" (close)="onClose()" (AddNew)="onAddNew()"></formdetail>
 
-<div fxLayout="row">
-  <div fxFlex.gt-sm="100%" *ngIf="status">
+
+<div fxLayout="row" *ngIf="close">
+  <div fxFlex.gt-sm="100%">
     <app-addcampaign></app-addcampaign>
   </div>
 </div>    
@@ -10,4 +12,3 @@
       <app-listcampaign></app-listcampaign>
   </div>
 </div>
-

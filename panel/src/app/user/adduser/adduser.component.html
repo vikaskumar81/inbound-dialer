@@ -6,32 +6,43 @@
               <!-- Message Form -->
               <mat-card-title>{{tag_label}}</mat-card-title>
               <form class="basic-form" (ngSubmit)="onSubmit()"  #AddUserForm="ngForm">
-              <div fxLayout="row" fxLayoutWrap="wrap">
-                  <div fxFlex.gt-md="100" fxFlex="100">
-                    <mat-form-field>
-                      <input matInput placeholder="Enter User Name" [(ngModel)]="cdata.username" id="username"  name="username">
-                    </mat-form-field>
-                  </div>
-                  <div fxFlex.gt-sm="100" fxFlex="100">
-                      <mat-form-field>
-                          <input matInput placeholder="Enter Password" [(ngModel)]="cdata.password"  id="password" name="password">
-                      </mat-form-field>
-                  </div>
-                  <div fxFlex.gt-sm="100" fxFlex="100">
-                    <mat-form-field>
-                      <input matInput placeholder="Enter Company Name" [(ngModel)]="cdata.company"  id="company" name="company">
-                    </mat-form-field>
-                  </div>
-                  <div fxFlex.gt-sm="100" fxFlex="100">
+              
+                  <mat-grid-list cols="2" rowHeight="100px">
+                      <mat-grid-tile [colspan]="1">
+                        <div class="div-info">
+                          <mat-form-field>
+                            <input matInput placeholder="Enter User Name" [(ngModel)]="cdata.username" id="username"  name="username">
+                          </mat-form-field>
+                        </div>
+                      </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1">
+                      <div class="div-info">
+                          <mat-form-field>
+                              <input matInput placeholder="Enter Password" [(ngModel)]="cdata.password"  id="password" name="password">
+                          </mat-form-field>
+                      </div>
+                    </mat-grid-tile>
+                  <mat-grid-tile [colspan]="1">
+                      <div class="div-info">
+                        <mat-form-field>
+                          <input matInput placeholder="Enter Company Name" [(ngModel)]="cdata.company"  id="company" name="company">
+                        </mat-form-field>
+                      </div>
+                 </mat-grid-tile>
+                 <mat-grid-tile [colspan]="1">
+                    <div class="div-info">
                     <mat-form-field>
                       <input matInput placeholder="Enter Contact Number" [(ngModel)]="cdata.contact" id="contact"  name="contact">
                     </mat-form-field>
-                  </div>
-                
-                  <div fxFlex.gt-sm="100" fxFlex="100">
+                    </div>
+                 </mat-grid-tile>
+                 <mat-grid-tile [colspan]="1" >
+                   <div  class="left-text">
                     <button mat-raised-button color="primary" type="submit">Submit</button>
                   </div>
-              </div>
+                </mat-grid-tile>
+                </mat-grid-list>
+              
               </form>
           </mat-card-content>
       </mat-card>
