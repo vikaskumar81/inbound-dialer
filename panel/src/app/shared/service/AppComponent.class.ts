@@ -32,10 +32,14 @@ export class AppComponentClass<T1, T2> implements OnInit {
 
     ngOnInit()
     {
-        this.subscribe=this.data.getService().subscribe(res=>{this.dataSource.data=res;});
-        
         this.data.frm_label.subscribe(res=>{this.tag_label=res; console.log(res);});
         this.keyfield=-1;
+        this.loadDataSource();
+    }
+
+    loadDataSource()
+    {
+      this.subscribe=this.data.getService().subscribe(res=>{this.dataSource.data=res;});
     }
   
     applyFilter(filterValue: string) {
@@ -66,7 +70,7 @@ export class AppComponentClass<T1, T2> implements OnInit {
         {
           console.log(data);
           this.deletestatus=data;
-          this.data.getService();
+          this.loadDataSource();
           this.openSnackBar("Data is deleted successfully","Clear");
         }
       );
@@ -88,21 +92,21 @@ export class AppComponentClass<T1, T2> implements OnInit {
         {
           //this.openSnackBar("Data is added successfully","Clear");
           this.data.saveService(JSON.stringify(this.cdata)).subscribe( rs =>  {
-            //console.log(rs);
-            //this.insertdata=rs;
-            this.data.getService();
+            this.loadDataSource();
             this.openSnackBar("Data is added successfully","Clear");
           });
+
+          this.subscribe=this.data.getService().subscribe(res=>{this.dataSource.data=res;});
         }
         else
         {
             this.data.updateService(JSON.stringify(this.cdata), this.keyfield).subscribe( rs => 
             {
-              console.log( JSON.stringify(rs));
-              //this.insertdata=rs;
-              this.data.getService();
               this.openSnackBar("Data is updated successfully","Clear");
+              this.loadDataSource();
+              //this.subscribe=
             });
+
         }
         this.data.changefrm(false);
         //this.router.navigate ( [ this.nav ] );

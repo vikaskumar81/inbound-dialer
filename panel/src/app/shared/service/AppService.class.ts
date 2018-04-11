@@ -10,10 +10,12 @@ export class AppService<T> {
     protected appmod : string;
     protected data : T;
     protected action : string;
-    protected service_data = new BehaviorSubject<T>(null);
+
+    public service_data = new BehaviorSubject<T>(null);
     public solution= this.service_data.asObservable();
-    protected label: string;
-    public frm_label= new BehaviorSubject<string>("Add New");
+
+    public frm_label= new BehaviorSubject<string>("List Details");
+    public label=this.frm_label.asObservable();
     public frm_status= new BehaviorSubject<boolean>(false);
     public status=this.frm_status.asObservable();
       

@@ -1,7 +1,6 @@
-<formdetail [tag_label]="tag_label" [open_frm]="open_frm" [close_frm]="close_frm" (close)="onClose()" (AddNew)="onAddNew()"></formdetail>
+<FormDetail [dataservice]="data" (close)="onClose($event)"></FormDetail>
 
-
-<div fxLayout="row" *ngIf="close">
+<div fxLayout="row" *ngIf="state">
   <div fxFlex.gt-sm="100%">
     <app-addcampaign></app-addcampaign>
   </div>

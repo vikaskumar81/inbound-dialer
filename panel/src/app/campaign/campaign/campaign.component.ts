@@ -21,37 +21,17 @@ import { FormdetailComponent } from '../../shared/formdetail/formdetail.componen
   ]
 })
 export class CampaignComponent implements OnInit {
-  close_frm:boolean;
-  open_frm:boolean;
-  tag_label:string;
-  constructor(protected data: CampaignService) { }
+  state:boolean;
+  
+  constructor(public data: CampaignService) { }
 
-  ngOnInit() {
-    this.data.status.subscribe(res=>{
-      this.close_frm=res;
-      if(res)
-        this.open_frm=false;
-      else
-        this.open_frm=true;
-    });
-    this.data.label.subscribe(res=>this.tag_label=res);
-  }
+  ngOnInit() { }
 
-  onAddNew()
+  onClose(status)
   {
-    this.data.changefrm(true);
-    this.data.changelabel("Add New");
-    this.data.Data=null;
+    console.log("Current Status : "+status);
+    this.state=status;
   }
 
-  onClose()
-  {
-    this.data.changefrm(false);
-    this.data.changelabel("List Details");
-  }
-
-  ngOnDestory(){
-    this.data.frm_label.unsubscribe();
-    this.data.frm_status.unsubscribe();
-  }
+  ngOnDestory(){ }
 }

@@ -33,7 +33,7 @@ export class AddcampaignComponent extends AppComponentClass <Campaign, CampaignF
     super.ngOnInit();
     this.data.solution.subscribe(res=>{
       this.cdata=new CampaignForm(res);
-      this.keyfield=res.id;
+      //this.keyfield=res.id;
     });
     
     this.data.getSupplier().subscribe(

@@ -1,25 +1,25 @@
-<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="open_frm">
+<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="open_status">
     <!-- Card column -->
     <div fxFlex.gt-sm="100%" fxFlex="100">
         <mat-card>
             <mat-card-content >
                 <mat-grid-list cols="2" rowHeight="40px">
                     <mat-grid-tile [colspan]="1" ><div class="left-text"><h2>{{tag_label}}</h2></div></mat-grid-tile>
-                    <mat-grid-tile [colspan]="1" ><div class="right-text"> <button mat-raised-button color="primary"><mat-icon>add</mat-icon></button></div> </mat-grid-tile>   
+                    <mat-grid-tile [colspan]="1" ><div class="right-text"> <button mat-raised-button color="primary" (click)="onAddNew()"><mat-icon>add</mat-icon></button></div> </mat-grid-tile>   
                   </mat-grid-list>
             </mat-card-content>
         </mat-card>    
     </div>
 </div> 
 
-<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="close_frm">
+<div fxLayout="row" fxLayoutWrap="wrap" *ngIf="close_status">
     <!-- Card column -->
     <div fxFlex.gt-sm="100%" fxFlex="100">
         <mat-card>
             <mat-card-content >
                 <mat-grid-list cols="2" rowHeight="40px">
                     <mat-grid-tile [colspan]="1" ><div class="left-text"><h2>{{tag_label}}</h2></div></mat-grid-tile>
-                    <mat-grid-tile [colspan]="1" ><div class="right-text"> <button mat-raised-button color="primary"><mat-icon>close</mat-icon></button></div> </mat-grid-tile>   
+                    <mat-grid-tile [colspan]="1" ><div class="right-text"> <button mat-raised-button color="primary" (click)="onClose()"><mat-icon>close</mat-icon></button></div> </mat-grid-tile>   
                   </mat-grid-list>
             </mat-card-content>
           
