@@ -3,9 +3,14 @@
     <mat-card>
       <mat-card-content> 
         <div class="example-header">
-          <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-          </mat-form-field>
+          <mat-grid-list cols="1" rowHeight="40px">
+            <mat-grid-tile>
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
+            </mat-grid-tile>
+           
+          </mat-grid-list>
         </div>
         <div class="table-rasponsive">
             <mat-table #table [dataSource]="dataSource" matSort>

@@ -1,0 +1,12 @@
+.right-text
+{
+    text-align: right;
+    float:right;
+    width: 100%;
+}
+.left-text
+{
+    text-align: left;
+    float:left;
+    width: 100%;
+}

@@ -13,7 +13,7 @@ import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { FileUploader } from 'ng2-file-upload';
 import { Http, Response } from '@angular/http';
 import { Option } from '../../shared/model/model.class';
-import { MatSelect } from '@angular/material';
+import { MatSelect, MatSnackBar } from '@angular/material';
 
 const URL = 'http://72.249.184.208:3010/leads';
 
@@ -30,7 +30,7 @@ export class UploadleadsComponent extends AppComponentClass <Upload, UploadForm>
  
   public uploader:FileUploader = new FileUploader({url: URL, itemAlias: 'filename'});
 
-  constructor(protected data: LeadsService,  protected router:Router, private el: ElementRef, private http: Http,protected fb: FormBuilder) {
+  constructor(protected data: LeadsService,  protected router:Router, private el: ElementRef, private http: Http,protected fb: FormBuilder,protected msg: MatSnackBar) {
     super(data, router, fb);
     
     this.nav="/main/leads/";
