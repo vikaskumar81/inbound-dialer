@@ -17,7 +17,6 @@ import { SharedModule } from '../shared/shared.module';
 import { HttpModule } from '@angular/http';
 import { LeadsComponent } from './leads/leads.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

@@ -12,7 +12,6 @@ import { QuillModule } from 'ngx-quill';
 import { FileUploadModule } from 'ng2-file-upload';
 import { ListsupplierComponent } from './listsupplier/listsupplier.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
-import { EditsupplierComponent } from './editsupplier/editsupplier.component';
 import { SupplierService } from './supplier.service';
 import { SupplierComponent } from './supplier/supplier.component';
 import { SharedModule } from '../shared/shared.module';
@@ -32,7 +31,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     RouterModule.forChild(SupplierRoutes)
   ],
-  declarations: [ ListsupplierComponent, AddsupplierComponent, EditsupplierComponent, SupplierComponent],
+  declarations: [ ListsupplierComponent, AddsupplierComponent, SupplierComponent],
   providers: [SupplierService]
 })
 

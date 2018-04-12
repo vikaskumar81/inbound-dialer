@@ -13,7 +13,6 @@ import { FileUploadModule } from 'ng2-file-upload';
 
 import { ExtenstionRoutes } from './extension-routing.module';
 import { AddextensionComponent } from './addextension/addextension.component';
-import { EditextensionComponent } from './editextension/editextension.component';
 import { ListextensionComponent } from './listextension/listextension.component';
 import { RouterModule } from '@angular/router';
 import { ExtensionService } from './extension.service';
@@ -34,7 +33,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     RouterModule.forChild(ExtenstionRoutes)
   ],
-  declarations: [AddextensionComponent, EditextensionComponent, ListextensionComponent, ExtensionComponent],
+  declarations: [AddextensionComponent, ListextensionComponent, ExtensionComponent],
   providers: [ExtensionService]
 })
 export class ExtensionModule { }

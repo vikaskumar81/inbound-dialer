@@ -9,7 +9,6 @@ import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { SharedModule } from '../shared/shared.module';
 import { CampaignRoutes } from './campaign.routing';
 import { AddcampaignComponent } from './addcampaign/addcampaign.component';
-import { EditcampaignComponent } from './editcampaign/editcampaign.component';
 import { ListcampaignComponent } from './listcampaign/listcampaign.component';
 import { CampaignService } from './campaign.service';
 import { Campaign } from './model/campaign.model';
@@ -27,7 +26,7 @@ import { CampaignComponent } from './campaign/campaign.component';
     FileUploadModule
   ],
   providers: [CampaignService],
-  declarations: [ AddcampaignComponent, EditcampaignComponent, ListcampaignComponent, CampaignComponent]
+  declarations: [ AddcampaignComponent, ListcampaignComponent, CampaignComponent]
 })
 
 export class CampaignModule {}

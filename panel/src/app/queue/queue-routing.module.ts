@@ -7,17 +7,5 @@ import { QueueComponent } from './queue/queue.component';
 
 export const QueueRoutes: Routes = [{ 
   path: '',
-  children: [{
-    path: 'addqueue', 
-    component: AddqueueComponent
-  },{
-    path: 'editqueue', 
-    component: EditqueueComponent
-  },{
-    path: 'listqueue', 
-    component: ListqueueComponent
-  },{
-    path:'',
-    component: QueueComponent
-  }]
+  component: QueueComponent
 }];

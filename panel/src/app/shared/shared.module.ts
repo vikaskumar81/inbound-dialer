@@ -33,7 +33,6 @@ import { FormdetailComponent } from './formdetail/formdetail.component';
     DataTableComponent, 
     KeysPipe,
     SearchPipe,
-    FormdetailComponent,
     FormdetailComponent
   ],
   exports: [

@@ -67,7 +67,7 @@ export class FormdetailComponent<T> implements OnInit {
 
   ngOnDestory()
   {
-    this.data.frm_label.unsubscribe();
-    this.data.frm_status.unsubscribe();
+    this.dataservice.frm_label.unsubscribe();
+    this.dataservice.frm_status.unsubscribe();
   }
 }

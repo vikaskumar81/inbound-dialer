@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserRoutes } from './user-routing.module';
 import { AdduserComponent } from './adduser/adduser.component';
-import { EdituserComponent } from './edituser/edituser.component';
 import { ListuserComponent } from './listuser/listuser.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
@@ -32,7 +31,7 @@ import { UserComponent } from './user/user.component';
     SharedModule,
     RouterModule.forChild(UserRoutes)
   ],
-  declarations: [AdduserComponent, EdituserComponent, ListuserComponent, UserComponent],
+  declarations: [AdduserComponent, ListuserComponent, UserComponent],
   providers: [UserService]
 })
 

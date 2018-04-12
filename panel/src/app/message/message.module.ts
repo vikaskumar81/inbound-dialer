@@ -13,7 +13,6 @@ import { AddmessageComponent } from './addmessage/addmessage.component';
 import { ListmessageComponent } from './listmessage/listmessage.component';
 import { MessageService } from './message.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditmessageComponent } from './editmessage/editmessage.component';
 import { HttpModule } from '@angular/http';
 import { MessageComponent } from './message/message.component';
 import { SharedModule } from '../shared/shared.module';
