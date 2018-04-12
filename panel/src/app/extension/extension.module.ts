@@ -18,6 +18,7 @@ import { ListextensionComponent } from './listextension/listextension.component'
 import { RouterModule } from '@angular/router';
 import { ExtensionService } from './extension.service';
 import { ExtensionComponent } from './extension/extension.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ExtensionComponent } from './extension/extension.component';
     QuillModule,  
     ReactiveFormsModule,
     FileUploadModule,
-    RouterModule.forChild(ExtenstionRoutes),
+    SharedModule,
+    RouterModule.forChild(ExtenstionRoutes)
   ],
   declarations: [AddextensionComponent, EditextensionComponent, ListextensionComponent, ExtensionComponent],
   providers: [ExtensionService]

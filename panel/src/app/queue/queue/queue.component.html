@@ -1,10 +1,9 @@
-
-<div fxLayout="row">
+<FormDetail [dataservice]="data" (close)="onClose($event)"></FormDetail>
+<div fxLayout="row" *ngIf="state">
   <div fxFlex.gt-sm="100%" >
     <app-addqueue></app-addqueue>
   </div>
 </div>    
-
 <div fxLayout="row">
   <div fxFlex.gt-sm="100%" >
       <app-listqueue></app-listqueue>

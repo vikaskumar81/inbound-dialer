@@ -29,6 +29,7 @@ import { UserComponent } from './user/user.component';
     QuillModule,  
     ReactiveFormsModule,
     FileUploadModule,
+    SharedModule,
     RouterModule.forChild(UserRoutes)
   ],
   declarations: [AdduserComponent, EdituserComponent, ListuserComponent, UserComponent],

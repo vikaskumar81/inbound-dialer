@@ -14,6 +14,8 @@ import { QueueService } from './queue.service';
 import { QueueRoutes } from './queue-routing.module';
 import { QueueComponent } from './queue/queue.component';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { QueueComponent } from './queue/queue.component';
     FormsModule,
     QuillModule,  
     ReactiveFormsModule,
+    SharedModule,
     FileUploadModule,
     RouterModule.forChild(QueueRoutes),
   ],

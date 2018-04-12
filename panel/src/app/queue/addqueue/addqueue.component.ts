@@ -6,7 +6,7 @@ import { Option } from '../../shared/model/model.class';
 import { DataSource } from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
 import { QueueForm, Queue } from '../model/model.class';
-import { MatSelect } from '@angular/material';
+import { MatSelect, MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { AppComponentClass } from '../../shared/service/AppComponent.class';
 
@@ -23,8 +23,8 @@ export class AddqueueComponent extends AppComponentClass<Queue, QueueForm> {
     extension : Option[];
     foundextension : boolean;
     
-  constructor(protected data: QueueService,  protected router: Router,protected fb: FormBuilder) { 
-    super(data, router, fb);
+  constructor(protected data: QueueService,  protected router: Router,protected fb: FormBuilder,protected msg: MatSnackBar) {
+    super(data, router, fb ,msg);
     this.nav='/main/queue/';
    // this.cdata=new QueueForm(null);
   }

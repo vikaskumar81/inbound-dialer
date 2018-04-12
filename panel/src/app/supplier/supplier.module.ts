@@ -15,6 +15,7 @@ import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 import { EditsupplierComponent } from './editsupplier/editsupplier.component';
 import { SupplierService } from './supplier.service';
 import { SupplierComponent } from './supplier/supplier.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SupplierComponent } from './supplier/supplier.component';
     QuillModule,  
     ReactiveFormsModule,
     FileUploadModule,
+    SharedModule,
     RouterModule.forChild(SupplierRoutes)
   ],
   declarations: [ ListsupplierComponent, AddsupplierComponent, EditsupplierComponent, SupplierComponent],

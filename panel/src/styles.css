@@ -5,8 +5,33 @@
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';    
 
-
+.top-header
+{
+    float: right;
+    text-align: right;
+    margin-left: 80%;
+}
+body
+{
+    font-size: 20px !important;
+}
+.mat-card .mat-card-content
+{
+    padding: 15px !important;
+}
+h2
+{
+    font-size: 16px !important;
+}
+#snav .mat-list-item a
+{
+    height: 38px !important;
+    padding: 0 5px !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+}
 @media  only screen and (max-width: 760px),  (min-device-width: 768px) and (max-device-width: 1024px) {
+    
 
    
     table, thead, tbody, th, td, tr {

@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponentClass } from '../../shared/service/AppComponent.class';
 import { MessageForm, Message } from '../model/model.class';
+import { MatSelect, MatSnackBar } from '@angular/material';
 import { FileUploader } from 'ng2-file-upload';
 import { Http, Response } from '@angular/http';
 
@@ -27,11 +28,13 @@ export class AddmessageComponent  extends AppComponentClass<Message, MessageForm
   public tag_label:string;
 
  
-  constructor(protected data: MessageService, protected router: Router, private el: ElementRef, private http: Http,protected fb: FormBuilder) { 
-    super(data, router, fb);
+  constructor(protected data: MessageService, protected router: Router, private el: ElementRef, private http: Http,protected fb: FormBuilder,protected msg: MatSnackBar) {
+    super(data,router, fb, msg);
     this.nav='/main/message/';
     //this.cdata=new MessageForm(null);
   }
+
+  
 
   ngOnInit() {
     super.ngOnInit();

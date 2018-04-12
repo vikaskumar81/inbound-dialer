@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditmessageComponent } from './editmessage/editmessage.component';
 import { HttpModule } from '@angular/http';
 import { MessageComponent } from './message/message.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   imports: [
@@ -29,7 +31,8 @@ import { MessageComponent } from './message/message.component';
     ReactiveFormsModule,
     FileUploadModule,
     RouterModule.forChild(MessageRoutes),
-    HttpModule
+    HttpModule,
+    SharedModule
   ],
   declarations: [ AddmessageComponent, ListmessageComponent, EditmessageComponent, MessageComponent],
   providers: [MessageService]

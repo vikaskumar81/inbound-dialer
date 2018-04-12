@@ -1,5 +1,7 @@
 
-<div fxLayout="row">
+<FormDetail [dataservice]="data" (close)="onClose($event)"></FormDetail>
+
+<div fxLayout="row" *ngIf="state">
   <div fxFlex.gt-sm="100%" >
     <app-addextension></app-addextension>
   </div>
@@ -10,4 +12,3 @@
       <app-listextension></app-listextension>
   </div>
 </div>
-
