@@ -33,7 +33,7 @@ import { SharedModule } from '../shared/shared.module';
     HttpModule,
     SharedModule
   ],
-  declarations: [ AddmessageComponent, ListmessageComponent, EditmessageComponent, MessageComponent],
+  declarations: [ AddmessageComponent, ListmessageComponent, MessageComponent],
   providers: [MessageService]
 })
 
