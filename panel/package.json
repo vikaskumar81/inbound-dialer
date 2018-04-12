@@ -28,6 +28,7 @@
     "@angular/router": "^5.0.0",
     "@swimlane/ngx-charts": "^7.0.1",
     "@swimlane/ngx-datatable": "^11.1.5",
+    "@types/socket.io-client": "^1.4.32",
     "angular-calendar": "^0.22.1",
     "angular-file-uploader": "^4.0.10",
     "chartist": "^0.11.0",
@@ -46,6 +47,7 @@
     "ngx-perfect-scrollbar": "^5.0.0",
     "ngx-quill": "^2.0.4",
     "rxjs": "^5.5.2",
+    "socket.io-client": "^2.1.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
