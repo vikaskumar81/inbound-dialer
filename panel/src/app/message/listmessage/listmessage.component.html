@@ -23,13 +23,22 @@
                     <source type="audio/mpeg" src="http://104.222.98.164/broadcast/upload/{{element.filename}}">
                   </audio>
                 </mat-cell>
+                
               </ng-container>
+              
+              <mat-slide-toggle
+                    class="example-margin"
+                    [color]="color"
+                    [checked]="checked"
+                    [disabled]="disabled">
+                  Slide me!
+                </mat-slide-toggle>
 
                 <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button mat-raised-button color="primary" (click)="Edit(row)">Edit</button>
-                    <button mat-raised-button color="primary" (click)="Delete(row,  row.id)">Delete</button>
+                    <button mat-raised-button  (click)="Edit(row)"><mat-icon>edit</mat-icon></button>
+                    <button mat-raised-button  (click)="Delete(row,  row.id)"><mat-icon>delete</mat-icon></button>
                 </mat-cell>
               </ng-container> 
 

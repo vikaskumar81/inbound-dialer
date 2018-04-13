@@ -4,8 +4,7 @@
       <mat-card>
           <mat-card-content>
               <!-- Message Form -->
-              <mat-card-title>{{tag_label}}</mat-card-title>
-              <form class="basic-form" (ngSubmit)="onSubmit()"  #AddUserForm="ngForm">
+               <form class="basic-form" (ngSubmit)="onSubmit()"  #AddUserForm="ngForm">
               
                   <mat-grid-list cols="2" rowHeight="100px">
                       <mat-grid-tile [colspan]="1">
@@ -37,7 +36,7 @@
                     </div>
                  </mat-grid-tile>
                  <mat-grid-tile [colspan]="1" >
-                   <div  class="left-text">
+                    <div class="div-info">
                     <button mat-raised-button color="primary" type="submit">Submit</button>
                   </div>
                 </mat-grid-tile>

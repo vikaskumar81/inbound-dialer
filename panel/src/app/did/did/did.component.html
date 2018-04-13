@@ -1,0 +1,18 @@
+<FormDetail [dataservice]="data" (close)="onClose($event)"></FormDetail>
+
+<div fxLayout="row" *ngIf="state">
+  <div fxFlex.gt-sm="100%">
+      <app-adddid></app-adddid>
+  </div>
+</div>   
+<div fxLayout="row" *ngIf="state">
+    <div fxFlex.gt-sm="100%" >
+       <app-upload-did></app-upload-did>
+    </div>
+  </div> 
+
+<div fxLayout="row">
+  <div fxFlex.gt-sm="100%" >
+      <app-list-did></app-list-did>
+  </div>
+</div>

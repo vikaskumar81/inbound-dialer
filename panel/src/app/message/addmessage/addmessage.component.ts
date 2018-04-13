@@ -12,6 +12,7 @@ import { MessageForm, Message } from '../model/model.class';
 import { MatSelect, MatSnackBar } from '@angular/material';
 import { FileUploader } from 'ng2-file-upload';
 import { Http, Response } from '@angular/http';
+import { FileUploadComponent } from '../../shared/file-upload/file-upload.component';
 
 
 
@@ -23,6 +24,8 @@ const URL = 'http://72.249.184.208:3010/message';
   styleUrls: ['./addmessage.component.css']
 })
 export class AddmessageComponent  extends AppComponentClass<Message, MessageForm> {
+
+        FileUpload =[{icon:"account_circle",data:205,label:"Agents"}];
 
   public uploader:FileUploader = new FileUploader({url: URL, itemAlias: 'filename'});
   public tag_label:string;

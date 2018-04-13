@@ -5,6 +5,10 @@
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';    
 
+.mat-header-row, .mat-row
+{
+    min-height: 24px !important;
+}
 .top-header
 {
     float: right;

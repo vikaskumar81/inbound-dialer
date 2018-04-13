@@ -29,12 +29,12 @@
                     </mat-grid-tile>
                     <mat-grid-tile>
                         <div class="div-info">
-                    <mat-form-field *ngIf="foundmessage">
-                        <mat-select placeholder="Select Message" [(ngModel)]="cdata.id_message" name="message">
-                          <mat-option value="-1">Select Message</mat-option>
-                          <mat-option *ngFor="let m of message" [value]="m.value">{{m.label}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
+                            <mat-form-field *ngIf="foundmessage">
+                                <mat-select placeholder="Select Message" [(ngModel)]="cdata.id_message" name="message">
+                                <mat-option value="-1">Select Message</mat-option>
+                                <mat-option *ngFor="let m of message" [value]="m.value">{{m.label}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
                       </div>
                   </mat-grid-tile>
 

@@ -9,7 +9,9 @@ import { DIDForm , DID} from '../model/model.class';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponentClass } from '../../shared/service/AppComponent.class';
-import { MatSelect } from '@angular/material';
+import { MatSelect , MatSnackBar } from '@angular/material';
+
+
 
 
 
@@ -27,8 +29,8 @@ export class AddDidComponent extends AppComponentClass<DID, DIDForm> {
   queue: Option[];
   foundqueue : boolean;
  
-  constructor(protected data: DidService, protected router: Router,protected fb: FormBuilder) { 
-    super(data, router,fb);
+  constructor(protected data: DidService, protected router: Router,protected fb: FormBuilder, protected msg: MatSnackBar) {
+    super(data, router,fb , msg);
     this.nav='/main/did/didlist';
     this.cdata=new DIDForm(null);
   }

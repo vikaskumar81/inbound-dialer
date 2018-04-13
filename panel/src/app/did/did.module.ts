@@ -16,6 +16,7 @@ import { ListDidComponent } from './list-did/list-did.component';
 import { RouterModule } from '@angular/router';
 import { DidService } from './did.service';
 import { HttpModule } from '@angular/http';
+import { DidComponent } from './did/did.component';
 
 @NgModule({
   imports: [
@@ -28,10 +29,11 @@ import { HttpModule } from '@angular/http';
     QuillModule,  
     ReactiveFormsModule,
     FileUploadModule,
+    SharedModule,
     RouterModule.forChild(DidRoutes),
     HttpModule
   ],
-  declarations: [ListDidComponent, AddDidComponent, UploadDidComponent],
+  declarations: [ListDidComponent, AddDidComponent, UploadDidComponent, DidComponent],
   providers: [DidService]
 })
 export class DidModule { }

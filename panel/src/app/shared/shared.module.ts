@@ -14,6 +14,7 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { KeysPipe } from './data-table/keypipe/keypipe';
 import { SearchPipe } from './data-table/keypipe/searchpipe';
 import { FormdetailComponent } from './formdetail/formdetail.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   imports:[
@@ -33,7 +34,8 @@ import { FormdetailComponent } from './formdetail/formdetail.component';
     DataTableComponent, 
     KeysPipe,
     SearchPipe,
-    FormdetailComponent
+    FormdetailComponent,
+    FileUploadComponent
   ],
   exports: [
     AccordionAnchorDirective,
@@ -44,7 +46,8 @@ import { FormdetailComponent } from './formdetail/formdetail.component';
     StatusComponent,
     WidgetGroupComponent,
     DataTableComponent,
-    FormdetailComponent
+    FormdetailComponent,
+    FileUploadComponent
    ],
   providers: [ MenuItems, TitleNavigationService ]
 })

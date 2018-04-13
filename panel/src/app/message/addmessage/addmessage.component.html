@@ -1,23 +1,94 @@
 
-<div fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex.gt-sm="100" fxFlex="100">
-        <mat-card>
-            <mat-card-content>
-                <!-- Message Form -->
-                <mat-card-title>{{tag_label}}</mat-card-title>
-                <form class="basic-form" (ngSubmit)="onSubmit()"  #AddMessageForm="ngForm">
-                                  <mat-grid-list cols="1" rowHeight="100px">
-                                    <mat-grid-tile><mat-form-field><input matInput type="text" placeholder="Enter Name" [(ngModel)]="cdata.name" name="name"></mat-form-field></mat-grid-tile>
-                                   
-                                   </mat-grid-list>  
-                                  <mat-grid-list cols="2" rowHeight="100px">
-                                        <mat-grid-tile><input id="filename" class="form-control b-b margin-bottom" name="filename" type="file" />
-                                        </mat-grid-tile>
-                                        <mat-grid-tile> <button mat-raised-button color="primary" type="submit">Submit</button></mat-grid-tile>
-                                      </mat-grid-list> 
-                </form>
-            </mat-card-content>
-        </mat-card>
-    </div>
-</div>
+<mat-card>
+        <mat-card-content>
+            <form class="basic-form" (ngSubmit)="onSubmit()"  #AddMessageForm="ngForm">
+                    <mat-grid-list cols="1" rowHeight="100px">
+                            <mat-grid-tile><mat-form-field><input matInput type="text" placeholder="Enter Name" [(ngModel)]="cdata.name" name="name"></mat-form-field></mat-grid-tile>
+                          
+                           </mat-grid-list>  
+                           <mat-slide-toggle
+                           class="example-margin"
+                           [color]="color"
+                           [checked]="checked"
+                           [disabled]="disabled">
+                         Slide me!
+                       </mat-slide-toggle>
+            <section id="file-upload">
+                        
+                            <div fxLayout="row" fxLayoutWrap="wrap" class="row">
+                                <div fxFlex.gt-sm="50" fxFlex.gt-xs="100" fxFlex="100" class="p-10">
+                                <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader" class="py-5 mb-3 text-center font-medium-5 text-uppercase grey my-drop-zone">
+                                    Base dropzone
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <div fxLayout="row" fxLayoutWrap="wrap">
+                                <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
+                                <h4>Select files</h4>
+                                
+    
+                                <div  class="m-t-30">Single</div>
+                                <label class="custom-file">
+                                      
+                                    <input id="filename"  type="file" ng2FileSelect [uploader]="uploader" name="filename" class="custom-file-input">
+                                    <span class="custom-file-control"></span>
+                                </label>
+                                </div>
+    
+                                <div fxFlex.gt-sm="75" fxFlex.gt-xs="100" fxFlex="100">
+                                <h4>Upload queue</h4>
+                                <p>Queue length: {{ uploader?.queue?.length }}</p>
+    
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th width="50%">Name</th>
+                                        <th>Size</th>
+                                        <th>Progress</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of uploader.queue">
+                                    <td><strong>{{ item?.file?.name }}</strong></td>
+                                    <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                                    <td *ngIf="uploader.isHTML5">
+                                        <div class="progress" style="margin-bottom: 0;">
+                                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span *ngIf="item.isSuccess"><i class="fa fa-ok"></i></span>
+                                        <span *ngIf="item.isCancel"><i class="fa fa-ban"></i></span>
+                                        <span *ngIf="item.isError"><i class="fa fa-remove"></i></span>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" mat-raised-button color="primary" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                        <span class="fa fa-upload"></span> Upload
+                                        </button>
+                                        <button type="button" mat-raised-button color="accent" (click)="item.cancel()" [disabled]="!item.isUploading">
+                                        <span class="fa fa-ban"></span> Cancel
+                                        </button>
+                                        <button type="button" mat-raised-button color="warn" (click)="item.remove()">
+                                        <span class="fa fa-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+    
+                                <div>
+                                    <p>Queue progress: <mat-progress-bar mode="determinate" [value]="uploader.progress" class="m-t-10"></mat-progress-bar></p>
+                                </div>
+                                </div>
+                                <button mat-raised-button color="primary" type="submit">Submit</button>
+                            </div>
+                            
+                        </section> 
+                        </form>
+        </mat-card-content>
+    </mat-card>
 
+    <file-upload></file-upload>

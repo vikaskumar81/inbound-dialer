@@ -42,8 +42,10 @@
                     <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                     <mat-cell *matCellDef="let row">
                         <!--<action [label]="'Edit'" [icon]="'fas fa-pencil-alt fa-fw'" [data]=row (onClick)="EditDetail()"></action>-->
-                        <button mat-raised-button color="primary" (click)="Edit(row)">Edit</button>
-                        <button mat-raised-button color="primary" (click)="Delete(row, row.id)">Delete</button>
+                        <button mat-icon-button  (click)="Edit(row)"><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button  (click)="Delete(row,  row.id)"><mat-icon>delete</mat-icon></button>
+
+                        
                     </mat-cell>
                   </ng-container> 
   
