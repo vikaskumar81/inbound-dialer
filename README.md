@@ -1,4 +1,4 @@
-# PBX-Dialer-Asterisk
+# Inbound-Dialer-Asterisk
 PBX-Asterisk-NodeJS-Angular, Its a project about telling the how simply we can translate the technology with a component of business solutions. Its great thing added to our development niche where we can develop solution or UI much more faster than anything else its hardly requires rework. 
 
 Below business solution we discussed are multi-tenant based, so admin can create customers as many as he wants. And each customer can manage the each business component with proper solution and there activities.
